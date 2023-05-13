@@ -1,0 +1,10 @@
+me_empty\arm_sin_cos_f32.o: ..\Drivers\CMSIS\DSP\Source\ControllerFunctions\arm_sin_cos_f32.c
+me_empty\arm_sin_cos_f32.o: ../Drivers/CMSIS/DSP/Include/arm_math.h
+me_empty\arm_sin_cos_f32.o: ../Drivers/CMSIS/Include/core_cm4.h
+me_empty\arm_sin_cos_f32.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+me_empty\arm_sin_cos_f32.o: ../Drivers/CMSIS/Include/cmsis_version.h
+me_empty\arm_sin_cos_f32.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+me_empty\arm_sin_cos_f32.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+me_empty\arm_sin_cos_f32.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+me_empty\arm_sin_cos_f32.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+me_empty\arm_sin_cos_f32.o: ../Drivers/CMSIS/DSP/Include/arm_common_tables.h
