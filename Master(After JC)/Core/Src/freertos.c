@@ -55,6 +55,7 @@ osThreadId M2H_TaskHandle;
 osThreadId Chassis_TaskHandle;
 osThreadId Gimbal_TaskHandle;
 osThreadId Vision_TaskHandle;
+osThreadId Shoot_TaskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -68,6 +69,7 @@ extern void M2HTask(void const * argument);
 extern void ChassisTask(void const * argument);
 extern void GimbalTask(void const * argument);
 extern void VisionTask(void const * argument);
+extern void ShootTask(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -141,6 +143,10 @@ void MX_FREERTOS_Init(void) {
   /* definition and creation of Vision_Task */
   osThreadDef(Vision_Task, VisionTask, osPriorityIdle, 0, 256);
   Vision_TaskHandle = osThreadCreate(osThread(Vision_Task), NULL);
+
+  /* definition and creation of Shoot_Task */
+  osThreadDef(Shoot_Task, ShootTask, osPriorityIdle, 0, 128);
+  Shoot_TaskHandle = osThreadCreate(osThread(Shoot_Task), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */

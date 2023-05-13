@@ -102,11 +102,23 @@ void BmiUpdateTask(void const * argument)
 	{
 
 		BMI_Updata();
+		
 		MODE_CHECK();
 		RC_HEART(&rc_structure);
+		judge_heart();
+		
 		osDelay(1);
 	}
 
+}
+void GimbalTask(void const * argument)
+{
+	while(1)
+	{
+		Gimbal_Work();
+		
+		osDelay(1);
+	}
 }
 void VisionTask(void const * argument)
 {
@@ -118,6 +130,33 @@ void VisionTask(void const * argument)
 	}
 
 }
+
+void ShootTask(void const * argument)
+{
+	while(1)
+	{
+		Shoot_Work();
+		
+		osDelay(5);
+	}
+}
+
+
+
+
+/*底盘工作*/
+void ChassisTask(void const * argument)
+{
+	while(1)
+	{
+		Chassic_Mode_Work();
+		
+		osDelay(1);
+	}
+
+
+}
+
 uint8_t    M2H_cnt = 0;
 int16_t    com_test_fric_speed = 10;
 uint8_t    gimbal_init_ok = 0;
@@ -125,8 +164,6 @@ uint32_t   move_tick = 0;
 extern uint8_t first2vision;
 int16_t    L_Head_Limit = 650;
 int16_t    R_Head_Limit = 6000;
-int16_t    L_test = 0;
-int16_t    R_test = 0;
 uint16_t   first2ParVis = 0;
 
 void M2HTask(void const * argument)
@@ -419,39 +456,6 @@ void M2HTask(void const * argument)
 	}
 	
 }
-
-
-
-/*云台工作*/
-void GimbalTask(void const * argument)
-{
-	while(1)
-	{
-		
-		Shoot_Work();
-		
-		osDelay(5);
-	}
-	
-}
-
-
-/*底盘工作*/
-void ChassisTask(void const * argument)
-{
-	while(1)
-	{
-		Chassic_Mode_Work();
-		Gimbal_Work();
-		//Chassis_Work(&Chassis);
-		judge_heart();
-		osDelay(1);
-	}
-
-
-}
-
-
 
 
 
