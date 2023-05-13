@@ -30,7 +30,7 @@ extern Master_Head_t          Master_Head_structure;
 extern gimbal_t               Gimbal;
 extern vision_t               vision_structure;
 extern car_t                  car_structure;
-
+extern IWDG_HandleTypeDef     hiwdg;
 
 extern void MODE_CHECK(void);
 extern void Chassic_Mode_Work(void);
@@ -100,9 +100,13 @@ void BmiUpdateTask(void const * argument)
 {
 	while(1)
 	{
-
+		
+		/*Î¹¹·*/
+		HAL_IWDG_Refresh(&hiwdg);
+		
 		BMI_Updata();
 		
+		/*ÁÙÊ±·Å×Å*/
 		MODE_CHECK();
 		RC_HEART(&rc_structure);
 		judge_heart();

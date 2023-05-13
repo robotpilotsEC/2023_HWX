@@ -31,6 +31,7 @@ rp_template_hal_v1\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac
 rp_template_hal_v1\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h
 rp_template_hal_v1\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
 rp_template_hal_v1\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
+rp_template_hal_v1\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_iwdg.h
 rp_template_hal_v1\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 rp_template_hal_v1\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 rp_template_hal_v1\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
@@ -54,6 +55,7 @@ rp_template_hal_v1\main.o: ../Core/Inc/adc.h
 rp_template_hal_v1\main.o: ../Core/Inc/can.h
 rp_template_hal_v1\main.o: ../Core/Inc/dac.h
 rp_template_hal_v1\main.o: ../Core/Inc/dma.h
+rp_template_hal_v1\main.o: ../Core/Inc/iwdg.h
 rp_template_hal_v1\main.o: ../Core/Inc/tim.h
 rp_template_hal_v1\main.o: ../Core/Inc/usart.h
 rp_template_hal_v1\main.o: ../Core/Inc/gpio.h
