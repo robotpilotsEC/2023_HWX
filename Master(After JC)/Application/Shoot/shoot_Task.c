@@ -21,6 +21,8 @@ extern Master_Head_t                 Master_Head_structure;
 /*超射速处理*/
 extern uint8_t                       shoot_1_over_speed_flag;
 extern uint8_t                       shoot_2_over_speed_flag;
+/*停止转动计数器*/
+uint16_t                             no_shoot_time = 0;
 
 
 float L_shoot_speed = 0;
@@ -70,6 +72,19 @@ void Shoot_Work(shoot_t* shoot)
 	else
 	{
 		shoot_aerial_cmd = AERIAL_STOP_SHOOT;
+	}
+	
+	/*禁止云台手忘记恢复打蛋时间*/
+	if(shoot_aerial_cmd == AERIAL_STOP_SHOOT)
+	{
+		if(no_shoot_time++ >= 2000) //2000*5 ms
+		{
+			shoot_aerial_cmd = AERIAL_SHOOT;
+		}
+	}
+	else
+	{
+		no_shoot_time = 0;
 	}
 	/*视觉射速处理*/
 	
@@ -372,10 +387,6 @@ void Shoot_Work(shoot_t* shoot)
 	
 	/*掉线保护*/
 	
-	/*不高兴g了*/
-//	L_shoot_structure.stir_wheel->output_current = 0;
-//	Master_Head_structure.Send_L_Head.shoot_mode = 0;
-	/*不高兴g了*/
 	
 	if( rc_structure.info->status == REMOTE_OFFLINE	)
 	{
@@ -395,6 +406,10 @@ void Shoot_Work(shoot_t* shoot)
 			R_current = 0;
 			R_shoot_structure.base.status = Shoot_Offline;
 		}
+		
+		/*卸力*/
+		L_current = 0;
+		R_current = 0;
 		
 		/*卸力*/
 		MOTOR_3508_CAN2_SENT_DATA(L_current,R_current,0,0);

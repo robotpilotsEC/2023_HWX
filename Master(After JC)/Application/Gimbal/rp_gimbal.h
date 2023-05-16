@@ -6,10 +6,18 @@
 #include "drv_can.h"
 #include "can.h"
 #include "9015_motor.h"
-
+#include "can_protocol.h"
 #define OFFLINE_TIME_MAX   25
 
-#define MOROT_9015_MIDDLE (28121)
+#define MOROT_9015_MIDDLE (24930)
+
+//49152
+#define AMMO_1_ANGLE (MOROT_9015_MIDDLE)
+#define AMMO_2_ANGLE (MOROT_9015_MIDDLE + 16384)
+#define AMMO_3_ANGLE (MOROT_9015_MIDDLE + 32768)
+#define AMMO_4_ANGLE (MOROT_9015_MIDDLE - 16384)
+
+
 
 /*输入右头当前角度，限制左头*/
 //#define Dynamic_lim_L(x) (output=(int16_t(-0.0007*x*x + 9.34*x - 29470)))
@@ -94,5 +102,16 @@ int16_t Dynamic_lim_L(int16_t x);
 /*输入左头当前角度，限制右头*/
 int16_t Dynamic_lim_R(int16_t x);
 
+/*电机坐标 2 陀螺仪坐标*/
+int16_t MOTOR_9015_TO_BMI(gimbal_t* gimbal, uint16_t ammo_angle);
+
+/*装甲板感知*/
+int16_t Hurt_And_Find();
+
+/*巡逻动头*/
+void Yaw_Auto_R(Master_Head_t* M2H);
+void Yaw_Auto_L(Master_Head_t* M2H);
+void Pitch_Auto_L(Master_Head_t* M2H);
+void Pitch_Auto_R(Master_Head_t* M2H);
 
 #endif /*__RP_GIMBAL_H*/

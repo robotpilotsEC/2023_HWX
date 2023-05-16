@@ -42,5 +42,12 @@ rp_template_hal_v1\rp_gimbal.o: ../Core/Inc/can.h
 rp_template_hal_v1\rp_gimbal.o: ../Core/Inc/main.h
 rp_template_hal_v1\rp_gimbal.o: ../Application/Motor/9015_motor.h
 rp_template_hal_v1\rp_gimbal.o: ../Application/Algo/dji_pid.h
-rp_template_hal_v1\rp_gimbal.o: ../Application/Remote/remote.h
 rp_template_hal_v1\rp_gimbal.o: ../Application/Communicate/can_protocol.h
+rp_template_hal_v1\rp_gimbal.o: ../Application/Remote/remote.h
+rp_template_hal_v1\rp_gimbal.o: ../Application/BMI/bmi.h
+rp_template_hal_v1\rp_gimbal.o: ../Application/BMI/arm_math.h
+rp_template_hal_v1\rp_gimbal.o: ../Drivers/CMSIS/Include/core_cm4.h
+rp_template_hal_v1\rp_gimbal.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+rp_template_hal_v1\rp_gimbal.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+rp_template_hal_v1\rp_gimbal.o: ../Application/Driver/drv_io.h
+rp_template_hal_v1\rp_gimbal.o: ../Application/Algo/rp_math.h

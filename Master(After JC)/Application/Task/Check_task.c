@@ -46,7 +46,6 @@ uint8_t test_flag  = 1;
   ³È -- ÆäËû
              */
 
-
 void CheckTask(void const * argument)
 {
 	while(1)
@@ -89,7 +88,11 @@ void CheckTask(void const * argument)
 		{
 			LED_GREEN_ON();
 		}
-			
+		
+		if(judge.info->status != JUDGE_ONLINE)
+		{
+			osDelay(500);
+		}
 		osDelay(1);
 	}
 
@@ -161,14 +164,14 @@ void ChassisTask(void const * argument)
 
 }
 
-uint8_t    M2H_cnt = 0;
-int16_t    com_test_fric_speed = 10;
 uint8_t    gimbal_init_ok = 0;
-uint32_t   move_tick = 0;
 extern uint8_t first2vision;
 int16_t    L_Head_Limit = 650;
 int16_t    R_Head_Limit = 6000;
 uint16_t   first2ParVis = 0;
+
+extern uint8_t  hurt_mode;
+extern uint32_t hurt_cnt;
 
 void M2HTask(void const * argument)
 {
@@ -185,7 +188,7 @@ void M2HTask(void const * argument)
 			Master_Head_structure.Send_L_Head.target_yaw = Y_Init;
 			
 			Master_Head_structure.Send_R_Head.target_pit = P_Init_;
-			Master_Head_structure.Send_L_Head.target_yaw = Y_Init_;
+			Master_Head_structure.Send_R_Head.target_yaw = Y_Init_;
 			gimbal_init_ok = 1;
 		}
 		else if(rc_structure.info->status == REMOTE_OFFLINE)
@@ -254,52 +257,12 @@ void M2HTask(void const * argument)
 			if(vision_structure.state.work_state == VISION_ONLINE)
 			{
 				
-					#if 1
-					if(vision_structure.rx_pack->RxData.L_is_find_target)
-					{
-						Master_Head_structure.Send_L_Head.target_pit  = vision_structure.rx_pack->RxData.L_pitch_angle;
-						Master_Head_structure.Send_L_Head.target_yaw  = vision_structure.rx_pack->RxData.L_yaw_angle;
-					}
-					else
-					{
-//						Yaw_Auto_L(&Master_Head_structure);
-//						Pitch_Auto_L(&Master_Head_structure);
-						Master_Head_structure.Send_L_Head.target_pit  += (int32_t)(rc_structure.base_info->ch1*(-0.005));
-						Master_Head_structure.Send_L_Head.target_yaw  += (int32_t)(rc_structure.base_info->ch0*(-0.005));
-						
-					}
-					
-					if(vision_structure.rx_pack->RxData.R_is_find_target)
-					{
-						Master_Head_structure.Send_R_Head.target_pit  = vision_structure.rx_pack->RxData.R_pitch_angle;
-						Master_Head_structure.Send_R_Head.target_yaw  = vision_structure.rx_pack->RxData.R_yaw_angle;
-					}
-					else
-					{
-//						Yaw_Auto_R(&Master_Head_structure);
-//						Pitch_Auto_R(&Master_Head_structure);
-						Master_Head_structure.Send_R_Head.target_pit  += (int32_t)(rc_structure.base_info->ch3*(-0.005));
-						Master_Head_structure.Send_R_Head.target_yaw  += (int32_t)(rc_structure.base_info->ch2*(-0.005));
-					}
-					#endif
-					
-//					if(judge.base_info->game_progress == 0)
-//					{
-//						Master_Head_structure.Send_R_Head.target_pit  += (int32_t)(rc_structure.base_info->ch1*(-0.005));
-//						Master_Head_structure.Send_R_Head.target_yaw  += (int32_t)(rc_structure.base_info->ch0*(-0.005));
-//						Master_Head_structure.Send_L_Head.target_pit  += (int32_t)(rc_structure.base_info->ch3*(-0.005));
-//						Master_Head_structure.Send_L_Head.target_yaw  += (int32_t)(rc_structure.base_info->ch2*(-0.005));
-//					}
-//					else
-//					{
-//						Master_Head_structure.Send_L_Head.target_pit  = vision_structure.rx_pack->RxData.L_pitch_angle;
-//						Master_Head_structure.Send_L_Head.target_yaw  = vision_structure.rx_pack->RxData.L_yaw_angle;
-//						Master_Head_structure.Send_R_Head.target_pit  = vision_structure.rx_pack->RxData.R_pitch_angle;
-//						Master_Head_structure.Send_R_Head.target_yaw  = vision_structure.rx_pack->RxData.R_yaw_angle;
-//					}
+				Master_Head_structure.Send_L_Head.target_pit  = vision_structure.rx_pack->RxData.L_pitch_angle;
+				Master_Head_structure.Send_L_Head.target_yaw  = vision_structure.rx_pack->RxData.L_yaw_angle;
 
+				Master_Head_structure.Send_R_Head.target_pit  = vision_structure.rx_pack->RxData.R_pitch_angle;
+				Master_Head_structure.Send_R_Head.target_yaw  = vision_structure.rx_pack->RxData.R_yaw_angle;
 
-				
 				Master_Head_structure.Send_L_Head.gimbal_mode = 1;
 				Master_Head_structure.Send_R_Head.gimbal_mode = 1;
 			}
@@ -329,16 +292,20 @@ void M2HTask(void const * argument)
 		}
 		else if(car_structure.mode == patrol_CAR)
 		{
-//			if(first2ParVis == 0)
-//			{
-//				Master_Head_structure.Send_L_Head.target_yaw = 405;
-//				Master_Head_structure.Send_R_Head.target_yaw = 3400;
-//			}
+			
+
+			
 			Yaw_Auto_L(&Master_Head_structure);
 			Pitch_Auto_L(&Master_Head_structure);
 			
 			Yaw_Auto_R(&Master_Head_structure);
 			Pitch_Auto_R(&Master_Head_structure);
+			
+			if(hurt_cnt <= 1000 &&  hurt_mode != 0)
+			{
+				Master_Head_structure.Send_L_Head.target_yaw = Y_Init_;
+				Master_Head_structure.Send_R_Head.target_yaw = Y_Init;
+			}
 			
 			Master_Head_structure.Send_L_Head.gimbal_mode = 1;
 			Master_Head_structure.Send_R_Head.gimbal_mode = 1;

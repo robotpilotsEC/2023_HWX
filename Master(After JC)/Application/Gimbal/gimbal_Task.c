@@ -3,6 +3,7 @@
 #include "Car.h"
 #include "vision.h"
 #include "bmi.h"
+#include "judge.h" 
 
 extern bmi_t                  bmi_structure;
 extern gimbal_t               Gimbal;
@@ -10,6 +11,8 @@ extern rc_t                   rc_structure;
 extern car_t                  car_structure;
 extern motor_9015_t           motor_9015_structure;
 extern vision_t               vision_structure;
+extern judge_t                judge;
+
 
 uint16_t                      first2vision = 0;
 uint16_t                      first2follow = 0;
@@ -41,7 +44,7 @@ void Gimbal_Work()
 	/*模式切换*/
 	if(car_structure.ctrl == RC_CAR)
 	{
-		if(car_structure.mode == machine_CAR ||car_structure.mode == navigation_CAR)//机械模式
+		if(car_structure.mode == machine_CAR )//机械模式
 		{
 			
 			Gimbal.target_yaw_angle = MOROT_9015_MIDDLE;
@@ -50,7 +53,7 @@ void Gimbal_Work()
 
 			
 		}
-		else if(car_structure.mode == follow_CAR || car_structure.mode == two_CAR || car_structure.mode == patrol_CAR|| car_structure.mode ==  shake_CAR)//跟随模式
+		else if(car_structure.mode == follow_CAR || car_structure.mode == two_CAR || car_structure.mode ==  shake_CAR)//跟随模式
 		{
 			if(car_structure.mode == follow_CAR)
 			{
@@ -63,7 +66,7 @@ void Gimbal_Work()
 			}
 			first2follow = 1;
 			
-			Big_Yaw_Angle_Check(&Gimbal);	
+			Big_Yaw_Angle_Check(&Gimbal);
 			Big_Yaw_Position_Bmi(&Gimbal);
 		}
 		else if(car_structure.mode == vision_CAR ||car_structure.mode == aim_CAR)//视觉模式
@@ -91,7 +94,7 @@ void Gimbal_Work()
 			#endif
 
 		}
-		else if(car_structure.mode == spin_CAR)//小陀螺模式
+		else if(car_structure.mode == spin_CAR ||car_structure.mode == navigation_CAR || car_structure.mode == patrol_CAR)//小陀螺模式
 		{
 			if(first2spin == 0 )
 			{
@@ -99,7 +102,12 @@ void Gimbal_Work()
 			}
 			first2spin = 1;
 			
+			Gimbal.target_yaw_angle = Hurt_And_Find();
+			
 			Gimbal.target_yaw_angle += (int32_t)(rc_structure.base_info->ch0*(-0.09));
+			
+			
+			
 			Big_Yaw_Angle_Check(&Gimbal);
 			Big_Yaw_Position_Bmi(&Gimbal);
 		}
@@ -113,7 +121,7 @@ void Gimbal_Work()
 		{
 			first2follow = 0;
 		}
-		if(car_structure.mode != spin_CAR)
+		if(car_structure.mode != spin_CAR && car_structure.mode != navigation_CAR && car_structure.mode != patrol_CAR)
 		{
 			first2spin = 0;
 		}
@@ -138,3 +146,36 @@ void Gimbal_Work()
 
 }
 
+/*受伤寻敌*/
+int16_t Hurt_And_Find()
+{
+	int16_t target_angle = Gimbal.target_yaw_angle;
+	
+	/*未寻到敌人*/
+	if(vision_structure.rx_pack->RxData.L_is_find_target == 0 && vision_structure.rx_pack->RxData.R_is_find_target == 0)
+	{
+		if(judge.base_info->armor_id != judge.base_info->last_armor_id)
+		{
+			if(judge.base_info->armor_id == 0)
+			{
+				target_angle = MOTOR_9015_TO_BMI(&Gimbal,AMMO_1_ANGLE);
+			}
+			else if(judge.base_info->armor_id == 1)
+			{
+				target_angle = MOTOR_9015_TO_BMI(&Gimbal,AMMO_2_ANGLE);
+			}
+			else if(judge.base_info->armor_id == 2)
+			{
+				target_angle = MOTOR_9015_TO_BMI(&Gimbal,AMMO_3_ANGLE);
+			}
+			else if(judge.base_info->armor_id == 3)
+			{
+				target_angle = MOTOR_9015_TO_BMI(&Gimbal,AMMO_4_ANGLE);
+			}
+		}
+
+	}
+	
+	return target_angle;
+
+}

@@ -103,7 +103,7 @@
         <bEvRecOn>1</bEvRecOn>
         <bSchkAxf>0</bSchkAxf>
         <bTchkAxf>0</bTchkAxf>
-        <nTsel>3</nTsel>
+        <nTsel>4</nTsel>
         <sDll></sDll>
         <sDllPa></sDllPa>
         <sDlgDll></sDlgDll>
@@ -114,7 +114,7 @@
         <tDlgDll></tDlgDll>
         <tDlgPa></tDlgPa>
         <tIfile></tIfile>
-        <pMon>BIN\CMSIS_AGDI.dll</pMon>
+        <pMon>Segger\JL2CM3.dll</pMon>
       </DebugOpt>
       <TargetDriverDllRegistry>
         <SetRegEntry>
@@ -140,7 +140,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name></Name>
+          <Name>d</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -162,38 +162,6 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>41</LineNumber>
-          <EnabledFlag>0</EnabledFlag>
-          <Address>134220858</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\Application\Task\Check_task.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\rp_template_hal_v1\../Application/Task/Check_task.c\41</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>45</LineNumber>
-          <EnabledFlag>0</EnabledFlag>
-          <Address>134220952</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\Application\Task\Check_task.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\rp_template_hal_v1\../Application/Task/Check_task.c\45</Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
           <LineNumber>309</LineNumber>
           <EnabledFlag>0</EnabledFlag>
           <Address>134236644</Address>
@@ -203,12 +171,12 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>../Core/Src/stm32f4xx_it.c</Filename>
+          <Filename>C:\Users\HWX\Desktop\Shao_Bing\Head_L\Core\Src\stm32f4xx_it.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\rp_template_hal_v1\../Core/Src/stm32f4xx_it.c\309</Expression>
         </Bp>
         <Bp>
-          <Number>3</Number>
+          <Number>1</Number>
           <Type>0</Type>
           <LineNumber>281</LineNumber>
           <EnabledFlag>0</EnabledFlag>
@@ -219,12 +187,12 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>../Core/Src/stm32f4xx_it.c</Filename>
+          <Filename>C:\Users\HWX\Desktop\Shao_Bing\Head_L\Core\Src\stm32f4xx_it.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\rp_template_hal_v1\../Core/Src/stm32f4xx_it.c\281</Expression>
         </Bp>
         <Bp>
-          <Number>4</Number>
+          <Number>2</Number>
           <Type>0</Type>
           <LineNumber>337</LineNumber>
           <EnabledFlag>0</EnabledFlag>
@@ -235,12 +203,12 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>../Core/Src/stm32f4xx_it.c</Filename>
+          <Filename>C:\Users\HWX\Desktop\Shao_Bing\Head_L\Core\Src\stm32f4xx_it.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\rp_template_hal_v1\../Core/Src/stm32f4xx_it.c\337</Expression>
         </Bp>
         <Bp>
-          <Number>5</Number>
+          <Number>3</Number>
           <Type>0</Type>
           <LineNumber>351</LineNumber>
           <EnabledFlag>0</EnabledFlag>
@@ -251,16 +219,16 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>../Core/Src/stm32f4xx_it.c</Filename>
+          <Filename>C:\Users\HWX\Desktop\Shao_Bing\Head_L\Core\Src\stm32f4xx_it.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\rp_template_hal_v1\../Core/Src/stm32f4xx_it.c\351</Expression>
         </Bp>
         <Bp>
-          <Number>6</Number>
+          <Number>4</Number>
           <Type>0</Type>
           <LineNumber>504</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134249222</Address>
+          <Address>134249218</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>

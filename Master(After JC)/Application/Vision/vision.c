@@ -230,8 +230,7 @@ void vision_task(void)
 		{
 			vision_structure.tx_pack->FrameHeader.cmd_id   = CMD_PATROL;
 		}
-		/*²âÊÔÓï¾ä*/
-		//vision_structure.tx_pack->FrameHeader.cmd_id   = CMD_CHECK;
+
 		
 		vision_structure.tx_pack->TxData.R_pitch_angle = Master_Head_structure.From_R_Head.measure_pit;
 		vision_structure.tx_pack->TxData.R_yaw_angle   = Master_Head_structure.From_R_Head.measure_yaw;
@@ -248,6 +247,9 @@ void vision_task(void)
 	{
 		vision_structure.rx_pack->RxData.L_shoot_speed = 0;
 		vision_structure.rx_pack->RxData.R_shoot_speed = 0;
+		vision_structure.rx_pack->RxData.chassis_front = 0;
+		vision_structure.rx_pack->RxData.chassis_cycle = 0;
+		vision_structure.rx_pack->RxData.chassis_right = 0;
 	}
 	
 

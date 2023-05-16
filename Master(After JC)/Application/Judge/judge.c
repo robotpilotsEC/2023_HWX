@@ -84,8 +84,9 @@ void Judge_Get_Data(uint32_t id, uint8_t *data)
 		/*比赛开始状态*/
 		memcpy(&judge.base_info->game_progress, &data[6], 1);
 	
-		/*伤害类型*/
-		memcpy(&judge.base_info->hurt_type, &data[7], 1);
+		/*装甲板伤害*/
+		judge.base_info->last_armor_id = judge.base_info->armor_id;
+		memcpy(&judge.base_info->armor_id, &data[7], 1);
 		
 		if(S1_UP && S2_UP)
 		{

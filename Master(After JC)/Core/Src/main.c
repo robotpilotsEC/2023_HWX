@@ -65,6 +65,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+#define DEBUG 1
 
 /*陀螺仪数据*/
 bmi_t bmi_structure;
@@ -177,7 +178,8 @@ int main(void)
   MX_UART5_Init();
   MX_USART1_UART_Init();
   MX_USART3_UART_Init();
-  MX_IWDG_Init();
+  
+  //MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
   
   
@@ -202,6 +204,10 @@ int main(void)
    
   my_bmi_init();
     
+  /*看门狗最后启动*/
+  #if DEBUG
+  MX_IWDG_Init();
+  #endif
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */

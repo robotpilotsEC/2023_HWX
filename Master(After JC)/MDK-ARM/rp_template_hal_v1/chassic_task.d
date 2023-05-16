@@ -56,4 +56,5 @@ rp_template_hal_v1\chassic_task.o: ../Application/Algo/rp_math.h
 rp_template_hal_v1\chassic_task.o: ../Application/Gimbal/rp_gimbal.h
 rp_template_hal_v1\chassic_task.o: ../Core/Inc/can.h
 rp_template_hal_v1\chassic_task.o: ../Application/Motor/9015_motor.h
+rp_template_hal_v1\chassic_task.o: ../Application/Communicate/can_protocol.h
 rp_template_hal_v1\chassic_task.o: ../Application/Judge/judge.h

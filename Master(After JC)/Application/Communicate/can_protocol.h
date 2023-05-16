@@ -5,20 +5,12 @@
 #include "drv_can.h"
 
 
-
-
-
-
-
 #define M2H_MODE_INIT 0
 #define M2H_MODE_WORK 1
 
 /*云台数据发送*/
 #define GIMBAL_DATA_ID 0xf1
 #define MASTER_MODE_ID 0x200
-
-
-
 
 
 /*数据包定义*/

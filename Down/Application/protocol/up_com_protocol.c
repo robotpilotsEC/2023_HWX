@@ -44,7 +44,7 @@ void up_send_power_heat(void)
 	up_com_tx_buf_1[6] = judge.info->game_status.game_progress;
 	
 	/*ÉËº¦ÀàÐÍ*/
-	up_com_tx_buf_1[7] = judge.info->ext_robot_hurt.hurt_type;
+	up_com_tx_buf_1[7] = judge.info->ext_robot_hurt.armor_id;
 	
 	CAN_u8_SendData(&hcan1, 0x300, up_com_tx_buf_1);
 }

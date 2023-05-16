@@ -71,8 +71,8 @@ rp_template_hal_v1\check_task.o: ../Application/Algo/dji_pid.h
 rp_template_hal_v1\check_task.o: ../Application/Chassic/rp_chassis.h
 rp_template_hal_v1\check_task.o: ../Application/Motor/3508_motor.h
 rp_template_hal_v1\check_task.o: ../Application/Gimbal/rp_gimbal.h
-rp_template_hal_v1\check_task.o: ../Application/Remote/remote.h
 rp_template_hal_v1\check_task.o: ../Application/Communicate/can_protocol.h
+rp_template_hal_v1\check_task.o: ../Application/Remote/remote.h
 rp_template_hal_v1\check_task.o: ../Application/Vision/vision.h
 rp_template_hal_v1\check_task.o: ../Application/Vision/crc.h
 rp_template_hal_v1\check_task.o: ../Application/Config/Car.h

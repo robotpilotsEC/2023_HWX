@@ -125,7 +125,7 @@ typedef __packed struct
 /*做好视觉数据突然掉线的准备*/
 typedef __packed struct 
 {
-	int16_t   chassis_front; //底盘前进速度
+	int16_t   chassis_front; //底盘前进速度 
 	int16_t   chassis_right; //底盘平移速度
 	int16_t   chassis_cycle; //底盘旋转速度
 	

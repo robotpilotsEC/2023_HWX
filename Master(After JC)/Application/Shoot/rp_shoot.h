@@ -29,6 +29,8 @@
 #define SHOOT_STRI_SPEED      	  ((-1)*2000)
 #define SHOOT_STRI_SPEED_ERR  	  (100)
 
+/*反转角度太大导致容易一直进堵转*/
+/*堵转的时候不检测堵转？*/
 #define DEAL_DONE_ROUND_TIME   	  (40) //堵转处理时间
 #define DEAL_DONE_ROUND_HALF_TIME (20) 
 

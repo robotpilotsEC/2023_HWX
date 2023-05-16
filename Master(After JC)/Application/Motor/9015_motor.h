@@ -7,6 +7,7 @@
 #include "can.h"
 #include "dji_pid.h"
 
+
 #define MOTOR_9015_SENT_ID 0x141
 #define MOTOR_9015_CAN     (hcan1)
 #define _9015_OFFLINE        0
@@ -143,4 +144,6 @@ void MOTOR_9015_STAR(void);
 
 /*мсбщрг╫г╤х*/
 void MOTOR_9015_POSIT_BMI();
+
+
 #endif

@@ -47,6 +47,8 @@ typedef struct
 	float    shooter_id2_speed;
 	float   gimbal_yaw_angle;             //枪管yaw轴角度 ?? 
 	hurt_type_e hurt_type;				//伤害类型
+	uint8_t   last_armor_id;
+	uint8_t   armor_id;
 	
 	uint8_t car_color;                      //1自己蓝色 0自己红色
 

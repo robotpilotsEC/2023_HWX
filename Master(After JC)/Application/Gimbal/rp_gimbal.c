@@ -20,12 +20,13 @@
 #include "dji_pid.h"
 #include "remote.h"
 #include "can_protocol.h"
-
+#include "bmi.h"
 /* Exported variables --------------------------------------------------------*/
 extern motor_9015_t           motor_9015_structure;
 extern rc_t                   rc_structure;
 extern pid_t                  motor_9015_pid_spd;
 extern pid_t                  motor_9015_pid_pos;
+extern bmi_t                  bmi_structure;
 /* Function  body --------------------------------------------------------*/
 /**
   * @Name    GIMBAL_INIT
@@ -315,6 +316,28 @@ void Yaw_Auto_R(Master_Head_t* M2H)
 	}
 	
 }
+
+
+int16_t MOTOR_9015_TO_BMI(gimbal_t* gimbal, uint16_t ammo_angle)
+{  
+	int32_t delta_angle = -gimbal->Yaw_9015->base_info->encoder + ammo_angle;
+	int32_t rslt = bmi_structure.yaw_angle * 8 ;
+	
+		
+	/*¼ÓÉÏÎó²î½Ç¶È*/
+	rslt += delta_angle;
+	
+	if(rslt<- 32768)
+	{
+		rslt=(1)*(65536+rslt);	
+	}else if(rslt > 32768)
+	{
+		rslt=(1)*(-65536+rslt);
+	}
+	
+	return rslt;
+}
+
 
 int16_t Dynamic_lim_L(int16_t x)
 {

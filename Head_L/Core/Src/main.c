@@ -143,19 +143,6 @@ int main(void)
   
   LASER_ON();
   
- 
-
-  /*检测上弹是否完成(这样好像上电就会打一发)*/
-//  while(!shoot_structure.flag.locked)
-//  {
-//	shoot_structure.base.shoot_speed = -1000;
-//	Running_Fire(&shoot_structure);
-//	Done_Check(&shoot_structure);
-//	  
-//  }
-//	shoot_structure.base.shoot_speed = 0;
-  
-  
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */

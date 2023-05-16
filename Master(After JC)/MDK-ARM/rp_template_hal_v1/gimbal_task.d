@@ -42,6 +42,7 @@ rp_template_hal_v1\gimbal_task.o: ../Core/Inc/can.h
 rp_template_hal_v1\gimbal_task.o: ../Core/Inc/main.h
 rp_template_hal_v1\gimbal_task.o: ../Application/Motor/9015_motor.h
 rp_template_hal_v1\gimbal_task.o: ../Application/Algo/dji_pid.h
+rp_template_hal_v1\gimbal_task.o: ../Application/Communicate/can_protocol.h
 rp_template_hal_v1\gimbal_task.o: ../Application/Remote/remote.h
 rp_template_hal_v1\gimbal_task.o: ../Application/Config/Car.h
 rp_template_hal_v1\gimbal_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
@@ -54,3 +55,4 @@ rp_template_hal_v1\gimbal_task.o: ../Drivers/CMSIS/Include/core_cm4.h
 rp_template_hal_v1\gimbal_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 rp_template_hal_v1\gimbal_task.o: ../Application/Driver/drv_io.h
 rp_template_hal_v1\gimbal_task.o: ../Application/Algo/rp_math.h
+rp_template_hal_v1\gimbal_task.o: ../Application/Judge/judge.h

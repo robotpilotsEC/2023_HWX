@@ -21,13 +21,22 @@ Target DLL:      CMSIS_AGDI.dll V1.33.0.0
 Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
-C:\Users\HWX\Desktop\Shao_Bing\Down\MDK-ARM\ME_Empty.uvprojx
+C:\Users\HWX\Documents\GitHub\2023_HWX\Down\MDK-ARM\ME_Empty.uvprojx
 Project File Date:  04/13/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'ME_Empty'
-"ME_Empty\ME_Empty.axf" - 0 Error(s), 0 Warning(s).
+compiling up_com_protocol.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(52): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+..\Application\protocol\up_com_protocol.h(18): warning:  #1-D: last line of file ends without a newline
+  void up_send_robot_HP(void);
+..\Application\protocol\up_com_protocol.c: 2 warnings, 0 errors
+linking...
+Program Size: Code=17848 RO-data=1392 RW-data=228 ZI-data=20292  
+FromELF: creating hex file...
+"ME_Empty\ME_Empty.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -51,7 +60,7 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.5.0
       Include file:  CMSIS\Core\Include\tz_context.h
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:05
 </pre>
 </body>
 </html>

@@ -92,7 +92,7 @@ int16_t test_pit_angle = 3913;//bmi:3913  motor:5680
 int16_t test_yaw_angle = 3481;//bmi:3481  motor:6150
 
 void GimbalTask(void const * argument)
-{
+{  
 	while(1)
 	{
 		

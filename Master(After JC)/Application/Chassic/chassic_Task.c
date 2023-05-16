@@ -16,7 +16,7 @@ extern judge_t                judge;
 extern pid_t                  chassis_pid_follow_structure;
 
 
-#define change_p              (400)
+#define change_p              (1.0f)
 #define pi                    (3.14159265354)
 uint32_t                      sin_cnt = 0;
 float                         cita = 0;  
@@ -24,7 +24,7 @@ int16_t                       spin_speed = 0;
 
 uint32_t                      sin_tick = 0; 
 uint32_t                      cos_tick = 0; 
-uint32_t                      hurt_change = 2000;
+uint32_t                      hurt_change = 0;
 
 
 uint8_t                       game_star = 0;
@@ -37,13 +37,22 @@ uint16_t                      right_time = 0;
 
 uint16_t                      fornt_time = 0;
 
-uint16_t                       aerial_time = 0; //云台手指令运行时间
+uint16_t                      aerial_time = 0; //云台手指令运行时间
 
-#define AERIAL_W 1
-#define AERIAL_A 2
-#define AERIAL_S 3
-#define AERIAL_D 4
-#define AERIAL_NO 5
+#define UNDER_SMALL_HIT       1
+#define UNDER_BIGGG_HIT       2
+#define NO_HIT                0
+
+
+uint8_t                       hurt_mode = 0;
+uint32_t                      hurt_cnt = 0;
+
+#define AERIAL_W         1
+#define AERIAL_A         2
+#define AERIAL_S         3
+#define AERIAL_D         4
+#define AERIAL_NO        5
+#define AERIAL_MOVE_TIME 1000
 
 uint8_t chassis_aerial_cmd = AERIAL_NO;
 
@@ -85,11 +94,12 @@ void Chassic_Mode_Work()
 			
 		}
 		else if(car_structure.mode == navigation_CAR)
-		{
-			Chassis.base_info.target.front_speed = (-1)*(float)vision_structure.rx_pack->RxData.chassis_right *change_p;//chassis_front 视觉正 前移
-			Chassis.base_info.target.right_speed = (-1)*(float)vision_structure.rx_pack->RxData.chassis_front*change_p; //视觉正 右移
+		{	
 			
-			Chassis.base_info.target.cycle_speed = 0;
+			Chassis.base_info.target.front_speed = (-1)*(float)vision_structure.rx_pack->RxData.chassis_front*change_p;//chassis_front 视觉正 前移
+			Chassis.base_info.target.right_speed = (-1)*(float)vision_structure.rx_pack->RxData.chassis_right*change_p; //视觉正 右移
+			
+			Chassis.base_info.target.cycle_speed = 1000;
 			
 						
 			Chassis.base_info.measure.top_detal_angle = (float)((MOROT_9015_MIDDLE -  Gimbal.Yaw_9015->base_info->encoder )/65536.0)*2*PI;
@@ -97,7 +107,6 @@ void Chassic_Mode_Work()
 			Chassis_Top_Speed_Calculating(&Chassis);
 			Chassis.config_top_calc(CHASSIS_TOP_CALC_ON);
 			
-			//Chassis.base_info.target.cycle_speed = (-1)*(float)vision_structure.rx_pack->RxData.chassis_cycle*change_p;//视觉正 逆时针
 			
 		}
 		else if(car_structure.mode == spin_CAR )
@@ -121,9 +130,9 @@ void Chassic_Mode_Work()
 			}
 			else if(rc_structure.base_info->thumbwheel.value == 660)
 			{
-				if(spin_speed -- <= 0)
+				if(spin_speed -- <= -7000)
 				{
-					spin_speed = 0;
+					spin_speed = -7000;
 				}					 
 			}
 			
@@ -206,47 +215,17 @@ void Chassic_Mode_Work()
 //				/*底盘控制部分*/
 //				Chassis.base_info.target.cycle_speed = 0;
 //			}
-				
-			if(judge.base_info->last_HP - judge.base_info->remain_HP >= 9)
-			{
-				/*状态改变*/
-				
-				static int8_t direction = Auto_Up;
-				
-				if(hurt_change<= 3000)
-				{
-					direction = Auto_Down;
-				}
-				else if(hurt_change>= 1000)
-				{
-					direction = Auto_Up;
-				}
-
-				switch(direction)
-				{
-					case Auto_Up: 
-					{
-						hurt_change += 200;
-						break;
-					}
-					case Auto_Down:
-					{				
-						hurt_change -= 200;
-						break;
-					}
-				}
-			}
 			
-			//Chassis.base_info.target.cycle_speed = 0*sin( ((sin_tick++)%1300)*2*3.14f ) +4000;
 			if(judge.base_info->game_progress == 4 && judge.base_info->friendly_outposts_HP == 0)
 			{
 				
-				Chassis.base_info.target.cycle_speed = 4000;
+				Chassis.base_info.target.cycle_speed = 1900;
 			}
 			else
 			{
 				Chassis.base_info.target.cycle_speed = 0;
 			}
+			
 			Chassis.base_info.target.front_speed = 0;
 			Chassis.base_info.target.right_speed = 0;
 		}
@@ -257,88 +236,71 @@ void Chassic_Mode_Work()
 			/*变速小陀螺*/
 			if(judge.base_info->game_progress == 4 && judge.base_info->friendly_outposts_HP == 0)
 			{
-				Chassis.base_info.target.cycle_speed = 4000;
+				Chassis.base_info.target.cycle_speed = 2300 + hurt_change;
 			}
 			else
 			{
 				Chassis.base_info.target.cycle_speed = 0;
 			}
-			Chassis.base_info.target.front_speed = 0;
-			Chassis.base_info.target.right_speed = 0;
 			
+			/*旋转外赋值*/
+			Chassis.base_info.target.front_speed = (-1)*(float)vision_structure.rx_pack->RxData.chassis_front*change_p;//chassis_front 视觉正 前移
+			Chassis.base_info.target.right_speed = (-1)*(float)vision_structure.rx_pack->RxData.chassis_right*change_p; //视觉正 右移
+			Chassis.base_info.measure.top_detal_angle = (float)((MOROT_9015_MIDDLE -  Gimbal.Yaw_9015->base_info->encoder )/65536.0)*2*PI;
 			
-			if(judge.base_info->last_HP - judge.base_info->remain_HP >= 9)
+			Chassis_Top_Speed_Calculating(&Chassis);
+			Chassis.config_top_calc(CHASSIS_TOP_CALC_ON);
+			
+			/*状态改变*/
+			if(judge.base_info->last_HP - judge.base_info->remain_HP >= 9 && hurt_mode == NO_HIT)
 			{
-				/*状态改变*/
-				
-				static int8_t direction = Auto_Up;
-				
-				if(hurt_change<= 3000)
+				hurt_mode = UNDER_SMALL_HIT;
+			}
+			else if(judge.base_info->last_HP - judge.base_info->remain_HP >= 99 && hurt_mode == NO_HIT)
+			{
+				hurt_mode = UNDER_BIGGG_HIT;
+			}
+			
+			/*状态清零*/
+			if(hurt_mode == UNDER_SMALL_HIT)
+			{
+				if(hurt_cnt++ > 3000)
 				{
-					direction = Auto_Down;
+					hurt_cnt  = 0;
+					hurt_mode = NO_HIT;
 				}
-				else if(hurt_change>= 1000)
+				
+				if(hurt_cnt%2000 >= 1000)
 				{
-					direction = Auto_Up;
+					hurt_change = -500;	
 				}
-
-				switch(direction)
+				else
 				{
-					case Auto_Up: 
-					{
-						hurt_change += 200;
-						break;
-					}
-					case Auto_Down:
-					{				
-						hurt_change -= 200;
-						break;
-					}
+					hurt_change = 500;
 				}
 			}
+			else if(hurt_mode == UNDER_BIGGG_HIT)
+			{
+				if(hurt_cnt++ > 5000)
+				{
+					hurt_cnt  = 0;
+					hurt_mode = NO_HIT;
+				}
+				
+				if(hurt_cnt%1000 >= 500)
+				{
+					hurt_change = -700;	
+				}
+				else
+				{
+					hurt_change = 700;
+				}
+			}
+			else
+			{
+				hurt_change = 0;
+			}
 
-			/*受击变速*/
-//			if(judge.base_info->hurt_type == ammo_HURT)
-//			{
-//				/*清零*/
-//				judge.base_info->hurt_type = no_HURT;
-//				
-//				
-//				/*状态改变*/
-//				
-//				static int8_t direction = Auto_Up;
-//				
-//				if(hurt_change<= 3000)
-//				{
-//					direction = Auto_Down;
-//				}
-//				else if(hurt_change>= 1000)
-//				{
-//					direction = Auto_Up;
-//				}
-
-//				switch(direction)
-//				{
-//					case Auto_Up: 
-//					{
-//						hurt_change += 200;
-//						break;
-//					}
-//					case Auto_Down:
-//					{				
-//						hurt_change -= 200;
-//						break;
-//					}
-//				}
-//			}
-			
-
-			
-//			Chassis.base_info.target.cycle_speed = 1000;
-//			cita = ((sin_cnt++%5000)/5000.0)*2*pi;
-//			Chassis.base_info.target.front_speed = (-1)*sin(cita)*(float)1000;
-//			Chassis.base_info.target.right_speed = (-1)*cos(cita)*(float)1000;
-			
 		}
 		else 
 		{
@@ -394,7 +356,7 @@ void Chassic_Mode_Work()
 	
 	if(chassis_aerial_cmd == AERIAL_W)
 	{
-		if(aerial_time++ >= 500)
+		if(aerial_time++ >= AERIAL_MOVE_TIME)
 		{
 			chassis_aerial_cmd = AERIAL_NO;
 			aerial_time = 0;
@@ -403,7 +365,7 @@ void Chassic_Mode_Work()
 		{
 			Chassis.base_info.target.front_speed = -1000;
 			Chassis.base_info.target.right_speed = 0;
-			Chassis.base_info.target.cycle_speed = 2000;
+			Chassis.base_info.target.cycle_speed = 1000;
 				
 			Chassis.base_info.measure.top_detal_angle = (float)((MOROT_9015_MIDDLE -  Gimbal.Yaw_9015->base_info->encoder )/65536.0)*2*PI;
 				
@@ -413,7 +375,7 @@ void Chassic_Mode_Work()
 	}
 	else if(chassis_aerial_cmd == AERIAL_A)
 	{
-		if(aerial_time++ >= 500)
+		if(aerial_time++ >= AERIAL_MOVE_TIME)
 		{
 			chassis_aerial_cmd = AERIAL_NO;
 			aerial_time = 0;
@@ -422,7 +384,7 @@ void Chassic_Mode_Work()
 		{
 			Chassis.base_info.target.front_speed = 0;
 			Chassis.base_info.target.right_speed = -1000;
-			Chassis.base_info.target.cycle_speed = 2000;
+			Chassis.base_info.target.cycle_speed = -1000;
 				
 			Chassis.base_info.measure.top_detal_angle = (float)((MOROT_9015_MIDDLE -  Gimbal.Yaw_9015->base_info->encoder )/65536.0)*2*PI;
 				
@@ -432,7 +394,7 @@ void Chassic_Mode_Work()
 	}
 	else if(chassis_aerial_cmd == AERIAL_D)
 	{
-		if(aerial_time++ >= 500)
+		if(aerial_time++ >= AERIAL_MOVE_TIME)
 		{
 			chassis_aerial_cmd = AERIAL_NO;
 			aerial_time = 0;
@@ -441,7 +403,7 @@ void Chassic_Mode_Work()
 		{
 			Chassis.base_info.target.front_speed = 0;
 			Chassis.base_info.target.right_speed = 1000;
-			Chassis.base_info.target.cycle_speed = 2000;
+			Chassis.base_info.target.cycle_speed = 1000;
 				
 			Chassis.base_info.measure.top_detal_angle = (float)((MOROT_9015_MIDDLE -  Gimbal.Yaw_9015->base_info->encoder )/65536.0)*2*PI;
 				
@@ -451,7 +413,7 @@ void Chassic_Mode_Work()
 	}
 	else if(chassis_aerial_cmd == AERIAL_S)
 	{
-		if(aerial_time++ >= 500)
+		if(aerial_time++ >= AERIAL_MOVE_TIME)
 		{
 			chassis_aerial_cmd = AERIAL_NO;
 			aerial_time = 0;
@@ -460,7 +422,7 @@ void Chassic_Mode_Work()
 		{
 			Chassis.base_info.target.front_speed = 1000;
 			Chassis.base_info.target.right_speed = 0;
-			Chassis.base_info.target.cycle_speed = 2000;
+			Chassis.base_info.target.cycle_speed = -1000;
 				
 			Chassis.base_info.measure.top_detal_angle = (float)((MOROT_9015_MIDDLE -  Gimbal.Yaw_9015->base_info->encoder )/65536.0)*2*PI;
 				

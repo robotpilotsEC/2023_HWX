@@ -489,6 +489,7 @@ void my_BMI_Get_EulerAngle(int16_t *pitch,int16_t *yaw ,short *p_ggy , short *p_
 			
 }
 /*MY BMI INIT*/
+int16_t bmi_init_times = 0;
 void my_bmi_init(void)
 {
 	
@@ -497,6 +498,12 @@ void my_bmi_init(void)
    do
   {
 	bmi_init_flag = BMI_Init();
+	if(bmi_init_times++ >= 100)
+	{
+		__set_FAULTMASK(1);
+		NVIC_SystemReset();		
+	}
+	  
   }
   while(bmi_init_flag != BMI2_OK);
   

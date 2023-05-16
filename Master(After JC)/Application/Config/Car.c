@@ -86,7 +86,10 @@ void MODE_CHECK(void)
 				{
 						car_structure.mode = offline_CAR;
 					
-						osDelay(100);
+						MOTOR_9015_OFF();
+						MOTOR_3508_CAN1_SENT_DATA(0,0,0,0);
+					
+						HAL_Delay(20);
 					
 						__set_FAULTMASK(1);
 						NVIC_SystemReset();
@@ -95,7 +98,10 @@ void MODE_CHECK(void)
 				{
 						car_structure.mode = offline_CAR;
 					
-						osDelay(100);
+						MOTOR_9015_OFF();
+						MOTOR_3508_CAN1_SENT_DATA(0,0,0,0);
+					
+						HAL_Delay(20);
 					
 						__set_FAULTMASK(1);
 						NVIC_SystemReset();			
@@ -184,7 +190,7 @@ void MODE_CHECK(void)
 				{
 					car_structure.mode = patrol_CAR;
 				}
-				//car_structure.mode = vision_CAR;
+
 				L_shoot_structure.status = Stop_Shoot;
 				R_shoot_structure.status = Stop_Shoot;
 				
