@@ -82,10 +82,10 @@
 
 /*摩擦轮速度环*/
 #define PID_FIRC_OUTPUT_MAX    8000
-#define PID_FIRC_INTEGRA_MAX   5000
-#define PID_FIRC_KP            10
-#define PID_FIRC_KI            0.01
-#define PID_FIRC_KD            0
+#define PID_FIRC_INTEGRA_MAX   0
+#define PID_FIRC_KP            20
+#define PID_FIRC_KI            0.1
+#define PID_FIRC_KD            0.7
 
 /*堵转处理速度环*/
 #define PID_DONE_OUTPUT_MAX    9000

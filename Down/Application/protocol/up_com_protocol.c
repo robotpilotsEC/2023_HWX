@@ -71,6 +71,16 @@ void up_send_game_robot_state(void)
 	/*ÔÆÌ¨ÊÖÃüÁî*/
 	memcpy(&up_com_tx_buf_2[7], (void*)&judge.info->ext_robot_command.commd_keyboard, 1);
 	
+	if(judge.info->ext_robot_command.target_ID >= 65 && judge.info->ext_robot_command.target_ID <= 90)
+	{
+		memcpy(&up_com_tx_buf_2[7], (void*)&judge.info->ext_robot_command.target_ID, 1);
+	}
+	else if(judge.info->ext_robot_command.commd_keyboard >= 65 && judge.info->ext_robot_command.commd_keyboard <= 90)
+	{
+		memcpy(&up_com_tx_buf_2[7], (void*)&judge.info->ext_robot_command.commd_keyboard, 1);
+	}
+	//memcpy(&up_com_tx_buf_2[7], (void*)&judge.info->ext_robot_command.target_ID, 1);
+	
 	#if DEBUG_MODE
 	HAL_IWDG_Refresh(&hiwdg);
 	#endif
@@ -104,8 +114,8 @@ void up_send_robot_HP(void)
 {
 	if(judge.info->game_robot_status.robot_id == 7)
 	{
-		up_com_tx_buf_6[0] = (uint8_t)(judge.info->game_robot_HP.blue_outpost_HP/5);
-		up_com_tx_buf_6[1] = (uint8_t)(judge.info->game_robot_HP.red_outpost_HP/5);
+		up_com_tx_buf_6[0] = (uint8_t)(judge.info->game_robot_HP.red_outpost_HP/10);
+		up_com_tx_buf_6[1] = (uint8_t)(judge.info->game_robot_HP.blue_outpost_HP/10);
 		up_com_tx_buf_6[2] = (uint8_t)(judge.info->game_robot_HP.blue_1_robot_HP/5);
 		up_com_tx_buf_6[3] = (uint8_t)(judge.info->game_robot_HP.blue_3_robot_HP/5);
 		up_com_tx_buf_6[4] = (uint8_t)(judge.info->game_robot_HP.blue_4_robot_HP/5);
@@ -116,8 +126,8 @@ void up_send_robot_HP(void)
 	}
 	else if(judge.info->game_robot_status.robot_id == 107)
 	{
-		up_com_tx_buf_6[0] = (uint8_t)(judge.info->game_robot_HP.blue_outpost_HP/5);
-		up_com_tx_buf_6[1] = (uint8_t)(judge.info->game_robot_HP.red_outpost_HP/5);
+		up_com_tx_buf_6[0] = (uint8_t)(judge.info->game_robot_HP.blue_outpost_HP/10);
+		up_com_tx_buf_6[1] = (uint8_t)(judge.info->game_robot_HP.red_outpost_HP/10);
 		up_com_tx_buf_6[2] = (uint8_t)(judge.info->game_robot_HP.red_1_robot_HP/5);
 		up_com_tx_buf_6[3] = (uint8_t)(judge.info->game_robot_HP.red_3_robot_HP/5);
 		up_com_tx_buf_6[4] = (uint8_t)(judge.info->game_robot_HP.red_4_robot_HP/5);

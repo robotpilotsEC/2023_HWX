@@ -13,7 +13,7 @@
 
 cap_t cap = 
 {
-	.Y_O_N = 0,
+	.Y_O_N = 1,
 	.record_Y_O_N = 0,
 };
 

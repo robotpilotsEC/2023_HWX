@@ -24,7 +24,7 @@ void Shoot_Work()
 		{
 			if(Master_Head_structure.Send_R_Head.shoot_mode != 0)
 			{
-				shoot_structure.base.firct_speed = -(5800 + Master_Head_structure.Send_R_Head.shoot_mode*30);
+				shoot_structure.base.firct_speed = -(5800 + Master_Head_structure.Send_R_Head.shoot_mode*21);
 				
 			}
 			else

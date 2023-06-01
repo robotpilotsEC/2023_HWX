@@ -78,7 +78,7 @@
 /*BMI*/
 #if 1
 /*PIT轴速度环*/
-#define S_PIT_PID_P 10       //10
+#define S_PIT_PID_P 10    //10
 #define S_PIT_PID_I 0.1
 #define S_PIT_PID_D 0
 #define S_PIT_LIM_I 1000    //积分上限

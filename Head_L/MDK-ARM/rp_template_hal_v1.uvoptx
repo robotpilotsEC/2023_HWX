@@ -103,7 +103,7 @@
         <bEvRecOn>1</bEvRecOn>
         <bSchkAxf>0</bSchkAxf>
         <bTchkAxf>0</bTchkAxf>
-        <nTsel>4</nTsel>
+        <nTsel>3</nTsel>
         <sDll></sDll>
         <sDllPa></sDllPa>
         <sDlgDll></sDlgDll>
@@ -114,7 +114,7 @@
         <tDlgDll></tDlgDll>
         <tDlgPa></tDlgPa>
         <tIfile></tIfile>
-        <pMon>Segger\JL2CM3.dll</pMon>
+        <pMon>BIN\CMSIS_AGDI.dll</pMon>
       </DebugOpt>
       <TargetDriverDllRegistry>
         <SetRegEntry>
@@ -140,7 +140,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name>d</Name>
+          <Name></Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -164,7 +164,7 @@
           <Type>0</Type>
           <LineNumber>309</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134236644</Address>
+          <Address>134236656</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -180,7 +180,7 @@
           <Type>0</Type>
           <LineNumber>281</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134236500</Address>
+          <Address>134236512</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -196,7 +196,7 @@
           <Type>0</Type>
           <LineNumber>337</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134235884</Address>
+          <Address>134235896</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -212,7 +212,7 @@
           <Type>0</Type>
           <LineNumber>351</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134235896</Address>
+          <Address>134235908</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -228,7 +228,7 @@
           <Type>0</Type>
           <LineNumber>504</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134249218</Address>
+          <Address>134249226</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -280,6 +280,11 @@
           <count>7</count>
           <WinNumber>1</WinNumber>
           <ItemText>error_cnt,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>8</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>\\rp_template_hal_v1\../Application/Shoot/rp_shoot.c\pid_s_left</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>
@@ -337,6 +342,16 @@
           <count>10</count>
           <WinNumber>2</WinNumber>
           <ItemText>pid_p_pit</ItemText>
+        </Ww>
+        <Ww>
+          <count>11</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>motor_3508_FIRC_L_structure,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>12</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>pid_s_left</ItemText>
         </Ww>
       </WatchWindow2>
       <Tracepoint>
