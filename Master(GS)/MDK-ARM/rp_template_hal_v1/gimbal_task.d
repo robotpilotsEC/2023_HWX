@@ -56,3 +56,4 @@ rp_template_hal_v1\gimbal_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 rp_template_hal_v1\gimbal_task.o: ../Application/Driver/drv_io.h
 rp_template_hal_v1\gimbal_task.o: ../Application/Algo/rp_math.h
 rp_template_hal_v1\gimbal_task.o: ../Application/Judge/judge.h
+rp_template_hal_v1\gimbal_task.o: ../Application/Judge/judge_protocol.h

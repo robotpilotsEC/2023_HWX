@@ -48,3 +48,4 @@ rp_template_hal_v1\drv_can.o: ../Application/Communicate/can_protocol.h
 rp_template_hal_v1\drv_can.o: ../Application/Shoot/rp_shoot.h
 rp_template_hal_v1\drv_can.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 rp_template_hal_v1\drv_can.o: ../Application/Judge/judge.h
+rp_template_hal_v1\drv_can.o: ../Application/Judge/judge_protocol.h

@@ -10,14 +10,9 @@
 #define __JUDGE_H
 
 #include "stm32f4xx_hal.h"
+#include "judge_protocol.h"
 
-/* 下主控can接收id */
-#define power_heat_data   0x300
-#define game_robot_status 0x301
-#define shoot_data        0x302
-#define game_robot_pos    0x303
-#define robot_hurt        0x304
-#define game_robot_HP     0x305
+
 
 typedef enum
 {
@@ -120,14 +115,34 @@ typedef struct
 	int16_t buffer_max;
 }judge_config_t;
 
+
+
+typedef struct 
+{
+	ext_rfid_status_t       rfid_status;
+	ext_game_status_t       game_status;
+	ext_game_robot_status_t game_robot_status;
+	ext_power_heat_data_t   power_heat_data;
+	ext_shoot_data_t        shoot_data;
+	ext_game_robot_pos_t    game_robot_pos;
+	ext_robot_hurt_t        ext_robot_hurt;
+	ext_aerial_data_t       ext_aerial_data;
+	ext_robot_command_t     ext_robot_command;
+	ext_game_robot_HP_t     game_robot_HP;
+	ext_bullet_remaining_t  bullet_remaining;
+	
+}judge_rawdata_t;
+
+
 typedef struct 
 {
 	judge_config_t *config;
 	judge_base_info_t *base_info;
 	judge_info_t *info;
+	judge_rawdata_t *data;
 }judge_t;
 
 
 void Judge_Get_Data(uint32_t id, uint8_t *data);
-void judge_heart();
+void judge_heart(void);
 #endif

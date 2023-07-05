@@ -43,3 +43,4 @@ rp_template_hal_v1\rp_chassis.o: ../Application/Driver/drv_can.h
 rp_template_hal_v1\rp_chassis.o: ../Application/Motor/3508_motor.h
 rp_template_hal_v1\rp_chassis.o: ../Application/Remote/remote.h
 rp_template_hal_v1\rp_chassis.o: ../Application/Judge/judge.h
+rp_template_hal_v1\rp_chassis.o: ../Application/Judge/judge_protocol.h

@@ -55,6 +55,7 @@ rp_template_hal_v1\car.o: ../Application/Vision/vision.h
 rp_template_hal_v1\car.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 rp_template_hal_v1\car.o: ../Application/Vision/crc.h
 rp_template_hal_v1\car.o: ../Application/Judge/judge.h
+rp_template_hal_v1\car.o: ../Application/Judge/judge_protocol.h
 rp_template_hal_v1\car.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 rp_template_hal_v1\car.o: ../Core/Inc/FreeRTOSConfig.h
 rp_template_hal_v1\car.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h

@@ -57,4 +57,5 @@ rp_template_hal_v1\vision.o: ../Application/Gimbal/rp_gimbal.h
 rp_template_hal_v1\vision.o: ../Core/Inc/can.h
 rp_template_hal_v1\vision.o: ../Application/Motor/9015_motor.h
 rp_template_hal_v1\vision.o: ../Application/Judge/judge.h
+rp_template_hal_v1\vision.o: ../Application/Judge/judge_protocol.h
 rp_template_hal_v1\vision.o: ../Application/Config/Car.h

@@ -490,7 +490,7 @@ void my_BMI_Get_EulerAngle(int16_t *pitch,int16_t *yaw ,short *p_ggy , short *p_
 }
 /*MY BMI INIT*/
 int16_t bmi_init_times = 0;
-void my_bmi_init(void)
+void My_BMI_Init(void)
 {
 	
 	int8_t  bmi_init_flag;

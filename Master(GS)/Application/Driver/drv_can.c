@@ -268,12 +268,12 @@ void CAN1_rxDataHandler(uint32_t canId, uint8_t *rxBuf)
 		Motor_3508_GetData1(&motor_3508_RB_structure);
 	}
 	/*Judge*/
-	else if(canId == power_heat_data || canId == game_robot_status ||\
-		    canId == shoot_data      || canId == game_robot_pos    ||\
-			canId == robot_hurt      || canId == game_robot_HP)
-	{
-		Judge_Get_Data(canId,rxBuf);
-	}
+//	else if(canId == power_heat_data || canId == game_robot_status ||\
+//		    canId == shoot_data      || canId == game_robot_pos    ||\
+//			canId == robot_hurt      || canId == game_robot_HP)
+//	{
+//		Judge_Get_Data(canId,rxBuf);
+//	}
 }
 /**
  *	@brief	[__WEAK] 需要在Potocol Layer中实现具体的 CAN2 处理协议

@@ -194,7 +194,7 @@ int main(void)
   
   Gimbal_Init(&Gimbal,&motor_9015_structure);
    
-  my_bmi_init();
+  My_BMI_Init();
   
   
   bmi_structure.first_yaw_angle = bmi_structure.yaw_angle;

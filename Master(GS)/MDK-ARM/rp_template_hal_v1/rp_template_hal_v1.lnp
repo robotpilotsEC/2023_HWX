@@ -68,7 +68,6 @@
 "rp_template_hal_v1\gimbal_task.o"
 "rp_template_hal_v1\master_task.o"
 "rp_template_hal_v1\can_protocol.o"
-"rp_template_hal_v1\cap_protocol.o"
 "rp_template_hal_v1\remote.o"
 "rp_template_hal_v1\vision.o"
 "rp_template_hal_v1\crc.o"
@@ -81,6 +80,8 @@
 "rp_template_hal_v1\rp_shoot.o"
 "rp_template_hal_v1\shoot_task.o"
 "rp_template_hal_v1\judge.o"
+"rp_template_hal_v1\cap_protocol_1.o"
+"rp_template_hal_v1\cap.o"
 --strict --scatter "rp_template_hal_v1\rp_template_hal_v1.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

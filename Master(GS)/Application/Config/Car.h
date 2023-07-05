@@ -12,8 +12,6 @@
 #define S2_MIDDLE    (rc_structure.base_info->s2.value == 3)
 #define S2_UP        (rc_structure.base_info->s2.value == 1)
 
-#define PI (3.1415926)
-
 
 /* 车行动模式枚举 */
 typedef enum

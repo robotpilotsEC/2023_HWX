@@ -1,5 +1,5 @@
 rp_template_hal_v1\judge.o: ..\Application\Judge\judge.c
-rp_template_hal_v1\judge.o: ..\Application\Judge\judge.h
+rp_template_hal_v1\judge.o: ..\Application\Judge\judge_protocol.h
 rp_template_hal_v1\judge.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 rp_template_hal_v1\judge.o: ../Core/Inc/stm32f4xx_hal_conf.h
 rp_template_hal_v1\judge.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
@@ -37,7 +37,12 @@ rp_template_hal_v1\judge.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pw
 rp_template_hal_v1\judge.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 rp_template_hal_v1\judge.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 rp_template_hal_v1\judge.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+rp_template_hal_v1\judge.o: ..\Application\Cap\cap_protocol.h
+rp_template_hal_v1\judge.o: ../Core/Inc/main.h
+rp_template_hal_v1\judge.o: ..\Application\Judge\judge.h
 rp_template_hal_v1\judge.o: ../Application/Driver/drv_can.h
 rp_template_hal_v1\judge.o: ../Application/Remote/remote.h
 rp_template_hal_v1\judge.o: ../Application/Config/Car.h
 rp_template_hal_v1\judge.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+rp_template_hal_v1\judge.o: ../Application/Vision/crc.h
+rp_template_hal_v1\judge.o: ..\Application\Cap\cap.h

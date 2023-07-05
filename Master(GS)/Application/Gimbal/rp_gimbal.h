@@ -131,7 +131,7 @@ int16_t Dynamic_lim_R(int16_t x);
 int16_t MOTOR_9015_TO_BMI(gimbal_t* gimbal, uint16_t ammo_angle);
 
 /*装甲板感知*/
-int16_t Hurt_And_Find();
+int16_t Hurt_And_Find(void);
 
 /*巡逻动头*/
 void Yaw_Auto_R(Master_Head_t* M2H);

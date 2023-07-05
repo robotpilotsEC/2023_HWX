@@ -63,6 +63,6 @@ void BMI_Get_ACC(short *ax,short *ay,short *az);
 uint8_t BMI_Get_EulerAngle(float *pitch,float *roll,float *yaw,short *ggx,short *ggy,short *ggz,short *aax,short *aay,short *aaz);
 int8_t BMI_Init(void);
 void my_BMI_Get_EulerAngle(int16_t *pitch,int16_t *yaw ,short *ggy , short *ggz);
-void BMI_Updata();
-
+void BMI_Updata(void);
+void My_BMI_Init(void);
 #endif

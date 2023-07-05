@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx,STM32F407xx,USE_HAL_DRIVER,USE_STDPERIPH_DRIVER,ARM_MATH_CM4,__CC_ARM,ARM_MATH_M</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Application/Driver;../Application/Algo;../Application/BMI;../Application/Remote;../Application/Motor;../Application/Vision;../Application/Chassic;../Application/Communicate;../Application/Config;../Application/Gimbal;../Application/Shoot;../Application/Judge</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Application/Driver;../Application/Algo;../Application/BMI;../Application/Remote;../Application/Motor;../Application/Vision;../Application/Chassic;../Application/Communicate;../Application/Config;../Application/Gimbal;../Application/Shoot;../Application/Judge;..\Application\Cap</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -879,11 +879,6 @@
               <FileType>1</FileType>
               <FilePath>..\Application\Communicate\can_protocol.c</FilePath>
             </File>
-            <File>
-              <FileName>cap_protocol.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Application\Communicate\cap_protocol.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -988,6 +983,21 @@
               <FileName>judge.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Application\Judge\judge.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Application/Cap</GroupName>
+          <Files>
+            <File>
+              <FileName>cap_protocol.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\Cap\cap_protocol.c</FilePath>
+            </File>
+            <File>
+              <FileName>cap.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\Cap\cap.c</FilePath>
             </File>
           </Files>
         </Group>

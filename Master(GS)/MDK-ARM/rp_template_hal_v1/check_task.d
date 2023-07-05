@@ -79,3 +79,4 @@ rp_template_hal_v1\check_task.o: ../Application/Config/Car.h
 rp_template_hal_v1\check_task.o: ../Application/Shoot/rp_shoot.h
 rp_template_hal_v1\check_task.o: ../Application/Motor/2006_motor.h
 rp_template_hal_v1\check_task.o: ../Application/Judge/judge.h
+rp_template_hal_v1\check_task.o: ../Application/Judge/judge_protocol.h

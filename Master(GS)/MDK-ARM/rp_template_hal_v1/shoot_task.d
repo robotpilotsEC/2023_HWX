@@ -49,4 +49,5 @@ rp_template_hal_v1\shoot_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 rp_template_hal_v1\shoot_task.o: ../Application/Vision/crc.h
 rp_template_hal_v1\shoot_task.o: ../Application/Config/Car.h
 rp_template_hal_v1\shoot_task.o: ../Application/Judge/judge.h
+rp_template_hal_v1\shoot_task.o: ../Application/Judge/judge_protocol.h
 rp_template_hal_v1\shoot_task.o: ../Application/Communicate/can_protocol.h

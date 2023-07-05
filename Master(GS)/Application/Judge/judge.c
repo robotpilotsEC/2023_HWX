@@ -1,22 +1,37 @@
 /**
+  ************************************* Copyright ******************************   
+  *                 (C) Copyright 2022, hwx, China, SZU.
+  *                            N0   Rights  Reserved
+  *                              
+  *                   
+  * @FileName   : rp_chassis.c   
+  * @Version    : v1.1		
+  * @Author     : hwx			
+  * @Date       : 2023年2月28日         
+  * @Description:    
+  *
+  *
   ******************************************************************************
-  * @file           : judge.c\h
-  * @brief          : 
-  * @update         : finish 2022-2-13 20:06:34 
-  ******************************************************************************
-  */
-
+ */
+ 
+#include "judge_protocol.h"
+#include "cap_protocol.h"
 #include "judge.h"
 #include "drv_can.h"
 #include "remote.h"
 #include "Car.h"
-
-#define SHOOT_SPEED shoot_statistics.speed_
+#include "crc.h"
+#include "cap.h"
 
 extern rc_t                   rc_structure;
 
 extern CAN_HandleTypeDef hcan1;
 
+judge_frame_header_t judge_frame_header;
+
+drv_judge_info_t drv_judge_info = {
+	.frame_header = &judge_frame_header,
+};
 shoot_data_t shoot_statistics;
 
 judge_config_t judge_config = 
@@ -28,23 +43,27 @@ judge_base_info_t judge_base_info =
 {
 	.remain_bullte = 150,
 };
+judge_rawdata_t judge_rawdata;
 
 judge_info_t judge_info = 
 {
 	.offline_cnt_max = 1000,
 	
 };
+
 judge_t judge = 
 {
-	.config = &judge_config,
+	.config    = &judge_config,
 	.base_info = &judge_base_info,
-	.info = &judge_info,
+	.info      = &judge_info,
+	.data      = &judge_rawdata,
 };
 
 
 
 uint8_t shoot_1_over_speed_flag = 64;
 uint8_t shoot_2_over_speed_flag = 64;
+
 void judge_heart()
 {
 	if(judge.info->offline_cnt ++ >= judge.info->offline_cnt_max)
@@ -57,227 +76,83 @@ void judge_heart()
 		judge.info->status = JUDGE_ONLINE;
 	}
 }
-void Judge_Get_Data(uint32_t id, uint8_t *data)
+
+void judge_update(uint16_t id, uint8_t *rxBuf)
 {
-	judge.info->offline_cnt = 0;
 	switch(id)
 	{
-	case game_robot_status:
-		judge.base_info->last_HP = judge.base_info->remain_HP;
-		memcpy(&judge.base_info->shooter_cooling_limit, data, 2);
-		memcpy(&judge.base_info->car_color, &data[2], 1);
-		memcpy(&judge.base_info->chassis_power_limit, &data[3], 2);
-		memcpy(&judge.base_info->remain_HP, &data[5], 2);
-	
-		judge.base_info->last_commond = judge.base_info->robot_commond;
-		judge.base_info->robot_commond = (uint8_t)data[7];
-		
-		judge.info->offline_cnt = 0;
-		//judge.info->status = DEV_ONLINE;
-	break;
-	
-	case power_heat_data://功率缓冲、热量
-		
-		/*功率缓冲区*/
-		memcpy(&judge.base_info->chassis_power_buffer,data,2);
-	
-		/*一号枪管热量限制*/
-		memcpy(&judge.base_info->shooter_id1_cooling_heat,&data[2],2);
-	
-		/*二号枪管热量限制*/
-		memcpy(&judge.base_info->shooter_id2_cooling_heat,&data[4],2);
-	
-		/*比赛开始状态*/
-		memcpy(&judge.base_info->game_progress, &data[6], 1);
-	
-		/*装甲板伤害*/
-		judge.base_info->last_armor_id = judge.base_info->armor_id;
-		memcpy(&judge.base_info->armor_id, &data[7], 1);
-		
-		if(S1_UP && S2_UP)
-		{
-			judge.base_info->game_progress = 4; 
-		}
-		
-		judge.info->offline_cnt = 0;
-	break;
-	
-	/*右1左2*/
-		case shoot_data://射速
-		{
-			if(data[0] == 1)
-			{
-				memcpy(&judge.base_info->shooter_id1_speed,&data[1],4);
-				if(judge.base_info->shooter_id1_speed >= 28.5)
-				{
-					shoot_1_over_speed_flag -= 3;
-				}
-				else if(judge.base_info->shooter_id1_speed <= 27.5)
-				{
-					shoot_1_over_speed_flag++;
-				}
-				
-				judge.base_info->remain_bullte = data[7];
-			}
-			else if(data[0] == 2)
-			{
-				memcpy(&judge.base_info->shooter_id2_speed,&data[1],4);
-				if(judge.base_info->shooter_id2_speed >=  28.5)
-				{
-					shoot_2_over_speed_flag -= 3	;
-				}
-				else if(judge.base_info->shooter_id1_speed <= 27.5)
-				{
-					shoot_2_over_speed_flag++;
-				}
-				judge.base_info->remain_bullte = data[7];
-			}
-			
-			memcpy(&judge.base_info->shooter_cooling_limit,&data[1],2);
-			
-			judge.info->offline_cnt = 0;
-			
-			float s_speed = 0;
-			memcpy(&s_speed,&data[1],4);
-
-			if (s_speed >= 26.0 && s_speed <= 27.0)
-			{
-				shoot_statistics.speed_260++;
-			}
-			else if (s_speed >= 27.0 && s_speed <= 27.1)
-			{
-				shoot_statistics.speed_270++;
-			}
-			else if (s_speed >= 27.1 && s_speed <= 27.2)
-			{
-				shoot_statistics.speed_271++;
-			}
-			else if (s_speed >= 27.2 && s_speed <= 27.3)
-			{
-				shoot_statistics.speed_272++;
-			}
-			else if (s_speed >= 27.3 && s_speed <= 27.4)
-			{
-				shoot_statistics.speed_273++;
-			}
-			else if (s_speed >= 27.4 && s_speed <= 27.5)
-			{
-				shoot_statistics.speed_274++;
-			}
-			else if (s_speed >= 27.5 && s_speed <= 27.6)
-			{
-				shoot_statistics.speed_275++;
-			}
-			else if (s_speed >= 27.6 && s_speed <= 27.7)
-			{
-				shoot_statistics.speed_276++;
-			}
-			else if (s_speed >= 27.7 && s_speed <= 27.8)
-			{
-				shoot_statistics.speed_277++;
-			}
-			else if (s_speed >= 27.8 && s_speed <= 27.9)
-			{
-				shoot_statistics.speed_278++;
-			}
-			else if (s_speed >= 27.9 && s_speed <= 28.0)
-			{
-				shoot_statistics.speed_279++;
-			}
-			else if (s_speed >= 28.0 && s_speed <= 28.1)
-			{
-				shoot_statistics.speed_280++;
-			}
-			else if (s_speed >= 28.1 && s_speed <= 28.2)
-			{
-				shoot_statistics.speed_281++;
-			}
-			else if (s_speed >= 28.2 && s_speed <= 28.3)
-			{
-				shoot_statistics.speed_282++;
-			}
-			else if (s_speed >= 28.3 && s_speed <= 28.4)
-			{
-				shoot_statistics.speed_283++;
-			}
-			else if (s_speed >= 28.4 && s_speed <= 28.5)
-			{
-				shoot_statistics.speed_284++;
-			}
-			else if (s_speed >= 28.5 && s_speed <= 28.6)
-			{
-				shoot_statistics.speed_285++;
-			}
-			else if (s_speed >= 28.6 && s_speed <= 28.7)
-			{
-				shoot_statistics.speed_286++;
-			}
-			else if (s_speed >= 28.7 && s_speed <= 28.8)
-			{
-				shoot_statistics.speed_287++;
-			}
-			else if (s_speed >= 28.8 && s_speed <= 28.9)
-			{
-				shoot_statistics.speed_288++;
-			}
-			else if (s_speed >= 28.9 && s_speed <= 29.0)
-			{
-				shoot_statistics.speed_289++;
-			}
-			else if (s_speed >= 29.0 && s_speed <= 29.1)
-			{
-				shoot_statistics.speed_290++;
-			}
-			
-			/*统计部分*/
-			shoot_statistics.shoot_num++;
-			
-			shoot_statistics.mean = (shoot_statistics.speed_260 * 26.0 + shoot_statistics.speed_270 * 27.0 + shoot_statistics.speed_271 * 27.1 + shoot_statistics.speed_272 * 27.2 + shoot_statistics.speed_273 * 27.3 + shoot_statistics.speed_274 * 27.4 + shoot_statistics.speed_275 * 27.5 + shoot_statistics.speed_276 * 27.6 + shoot_statistics.speed_277 * 27.7 + shoot_statistics.speed_278 * 27.8 + shoot_statistics.speed_279 * 27.9 + shoot_statistics.speed_280 * 28.0 + shoot_statistics.speed_281 * 28.1 + shoot_statistics.speed_282 * 28.2 + shoot_statistics.speed_283 * 28.3 + shoot_statistics.speed_284 * 28.4 + shoot_statistics.speed_285 * 28.5 + shoot_statistics.speed_286 * 28.6 + shoot_statistics.speed_287 * 28.7 + shoot_statistics.speed_288 * 28.8 + shoot_statistics.speed_289 * 28.9 + shoot_statistics.speed_290 * 29.0) / (float)shoot_statistics.shoot_num;
-			
-			// Calculate the variance
-			float sum_of_squares = (shoot_statistics.speed_260 * ((26.0 - shoot_statistics.mean) * (26.0 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_270 * ((27.0 - shoot_statistics.mean) * (27.0 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_271 * ((27.1 - shoot_statistics.mean) * (27.1 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_272 * ((27.2 - shoot_statistics.mean) * (27.2 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_273 * ((27.3 - shoot_statistics.mean) * (27.3 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_274 * ((27.4 - shoot_statistics.mean) * (27.4 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_275 * ((27.5 - shoot_statistics.mean) * (27.5 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_276 * ((27.6 - shoot_statistics.mean) * (27.6 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_277 * ((27.7 - shoot_statistics.mean) * (27.7 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_278 * ((27.8 - shoot_statistics.mean) * (27.8 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_279 * ((27.9 - shoot_statistics.mean) * (27.9 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_280 * ((28.0 - shoot_statistics.mean) * (28.0 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_281 * ((28.1 - shoot_statistics.mean) * (28.1 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_282 * ((28.2 - shoot_statistics.mean) * (28.2 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_283 * ((28.3 - shoot_statistics.mean) * (28.3 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_284 * ((28.4 - shoot_statistics.mean) * (28.4 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_285 * ((28.5 - shoot_statistics.mean) * (28.5 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_286 * ((28.6 - shoot_statistics.mean) * (28.6 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_287 * ((28.7 - shoot_statistics.mean) * (28.7 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_288 * ((28.8 - shoot_statistics.mean) * (28.8 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_289 * ((28.9 - shoot_statistics.mean) * (28.9 - shoot_statistics.mean))) +
-								   (shoot_statistics.speed_290 * ((29.0 - shoot_statistics.mean) * (29.0 - shoot_statistics.mean)));
-
-			shoot_statistics.variance = sum_of_squares / (float)shoot_statistics.shoot_num;
-		}
+		case ID_rfid_status:
+			memcpy(&judge.data->rfid_status, rxBuf, LEN_rfid_status);
 			break;
-		case game_robot_pos://yaw轴角度
-			memcpy(&judge.base_info->gimbal_yaw_angle,data,4);
-			judge.info->offline_cnt = 0;
-
+		case ID_game_state:
+			memcpy(&judge.data->game_status, rxBuf, LEN_game_state);
+			if(judge.data->game_status.game_progress == 0x04)
+			{
+				cap.record_Y_O_N = 1;
+			}
+			else 
+			{
+				/*修改电容默认永远开启，外置开关*/
+				cap.record_Y_O_N = 1;
+			}
 			break;
-		case game_robot_HP:
-			
-			judge.base_info->friendly_outposts_HP = data[0];
-			judge.base_info->enemy_outposts_HP = data[1];
-			judge.base_info->enemy_hero_HP = data[2];
-			judge.base_info->enemy_infanry3_HP = data[3];
-			judge.base_info->enemy_infanry4_HP = data[4];
-			judge.base_info->enemy_infanry5_HP = data[5];
-			judge.base_info->enemy_Shaobing_HP = data[6];
-			judge.base_info->remain_time = data[7];
+		case ID_power_heat_data:
+			memcpy(&judge.data->power_heat_data, rxBuf, LEN_power_heat_data);
+			cap_send_2E();
+			break;
+		case ID_game_robot_state:	
+			memcpy(&judge.data->game_robot_status, rxBuf, LEN_game_robot_state);
+			cap_send_2F();
+			break;
+		case ID_shoot_data:
+			memcpy(&judge.data->shoot_data, rxBuf, LEN_shoot_data);
+			break;
+		case ID_game_robot_pos:
+			memcpy(&judge.data->game_robot_pos, rxBuf, LEN_game_robot_pos);
+			break;
+		case ID_robot_hurt:
+			memcpy(&judge.data->ext_robot_hurt, rxBuf, LEN_robot_hurt);
+			break;
+		case ID_aerial_data:
+			memcpy(&judge.data->ext_robot_command, rxBuf, LEN_aerial_data);
+		case ID_game_robot_HP:
+			memcpy(&judge.data->game_robot_HP, rxBuf, LEN_game_robot_HP);
+			break;
+		case ID_bullet_remaining:
+			memcpy(&judge.data->bullet_remaining, rxBuf, LEN_bullet_remaining);
 		
-	break;
+			break;
+		default:
+			break;
+	}
+}
+
+void judge_recive(uint8_t *rxBuf)
+{
+	uint16_t frame_length;
+	if( rxBuf == NULL )
+	{
+		return;
+	}
+	drv_judge_info.frame_header->SOF = rxBuf[0];
+	if(drv_judge_info.frame_header->SOF == 0xA5)
+	{
+		memcpy(&drv_judge_info.frame_header->data_length, rxBuf + 1, 4);
+		if(Verify_CRC8_Check_Sum(rxBuf, 5) == 1)
+		{
+			frame_length = 5 + 2 + drv_judge_info.frame_header->data_length + 2;
+			if(Verify_CRC16_Check_Sum(rxBuf, frame_length) == 1)
+			{
+				memcpy(&drv_judge_info.cmd_id, rxBuf + 5, 2);
+				judge_update(drv_judge_info.cmd_id, rxBuf + 7);
+			}
+			memcpy(&drv_judge_info.frame_tail, rxBuf + 5 + 2 + drv_judge_info.frame_header->data_length, 2);
+		}
 	}
 
+	/* 如果一个数据包出现了多帧数据就再次读取 */
+	if(rxBuf[frame_length] == 0xA5)
+	{
+		judge_recive( &rxBuf[frame_length] );
+	}
 }

@@ -86,3 +86,4 @@ rp_template_hal_v1\main.o: ../Application/Motor/2006_motor.h
 rp_template_hal_v1\main.o: ../Application/Vision/vision.h
 rp_template_hal_v1\main.o: ../Application/Vision/crc.h
 rp_template_hal_v1\main.o: ../Application/Judge/judge.h
+rp_template_hal_v1\main.o: ../Application/Judge/judge_protocol.h

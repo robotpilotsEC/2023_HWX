@@ -1,3 +1,18 @@
+/**
+  ************************************* Copyright ******************************   
+  *                 (C) Copyright 2022, hwx, China, SZU.
+  *                            N0   Rights  Reserved
+  *                              
+  *                   
+  * @FileName   : rp_chassis.c   
+  * @Version    : v1.1		
+  * @Author     : hwx			
+  * @Date       : 2023年2月28日         
+  * @Description:    
+  *
+  *
+  ******************************************************************************
+ */
 
 #ifndef __RP_SHOOT_H_
 #define __RP_SHOOT_H_

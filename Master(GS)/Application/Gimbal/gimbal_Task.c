@@ -95,7 +95,7 @@ void gimbal_work()
 			first2vision = 1;
 			Gimbal.target_yaw_angle = vision_structure.rx_pack->RxData.B_yaw_angle;
 			motor_9015_structure.base_info->target_angle = Gimbal.target_yaw_angle;
-			Motor_9015_VisionBmiPosition(&Gimbal);
+			Motor_9015_VisionBmiPosition();//???
 			#endif
 			
 			#if 0

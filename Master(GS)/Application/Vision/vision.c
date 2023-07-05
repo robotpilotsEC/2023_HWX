@@ -166,7 +166,6 @@ bool Vision_GetData(uint8_t *rxBuf)
 **/
 void Vision_Update(void)
 {
-	vision_rx_data_t *data = &vision_structure.rx_pack->RxData;
 	//数据接收已经在校验完成时便结束了
 		
 }

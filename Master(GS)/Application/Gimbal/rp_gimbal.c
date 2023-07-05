@@ -146,8 +146,8 @@ void Gimbal_BigYawBmiPosition(gimbal_t* gimbal)
 
 void Gimbal_DynamicLimit(gimbal_t* gimbal)
 {
-	int16_t Left  = gimbal->L_Head.target_yaw_angle; //一定是电机的角度
-	int16_t Right = gimbal->R_Head.target_yaw_angle; 
+	//int16_t Left  = gimbal->L_Head.target_yaw_angle; //一定是电机的角度
+	//int16_t Right = gimbal->R_Head.target_yaw_angle; 
 	
 	/*数据标准化
 	
@@ -235,7 +235,7 @@ void Pitch_Auto_L(Master_Head_t* M2H)
 void Yaw_Auto_L(Master_Head_t* M2H)
 {
 	static uint8_t direction_L = Auto_Right;  //初始巡航方向
-	static uint8_t cnt = 0;        //改变目标值的时间间隔
+	//static uint8_t cnt = 0;        //改变目标值的时间间隔
 	
 	if(M2H->Send_L_Head.target_yaw >= 405 &&  M2H->Send_L_Head.target_yaw<= 1944)
 	{
@@ -280,7 +280,7 @@ void Yaw_Auto_L(Master_Head_t* M2H)
 void Yaw_Auto_R(Master_Head_t* M2H)
 {
 	static uint8_t direction_R = Auto_Right;  //初始巡航方向
-	static uint8_t cnt = 0;        //改变目标值的时间间隔
+	//static uint8_t cnt = 0;        //改变目标值的时间间隔
 	
 	if( M2H->Send_R_Head.target_yaw >= 3250 && M2H->Send_R_Head.target_yaw <= 4750)
 	{

@@ -154,12 +154,12 @@ void Motor_9015_Star(void);
 
 
 /*电机睡觉*/
-void Motor_9015_Stop();
+void Motor_9015_Stop(void);
 	
 /*陀螺仪角度 0~8192*/
-void Motor_9015_VisionBmiPosition();
+void Motor_9015_VisionBmiPosition(void);
 /*陀螺仪角度 */
-void Motor_9015_BmiPosition();
+void Motor_9015_BmiPosition(void);
 
 
 /*单圈位置控制*/
