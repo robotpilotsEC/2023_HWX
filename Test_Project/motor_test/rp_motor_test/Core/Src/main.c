@@ -55,7 +55,9 @@ int16_t data[4] = {0,0,0,0};
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+#define MOTOR_6020 1
+#define MOTOR_3508 0
+#define MOTOR_2006 0
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -81,8 +83,18 @@ int main(void)
 //motor_t MOTOR_LB,MOTOR_RB,MOTOR_RF,MOTOR_LF;
   /* USER CODE BEGIN 1 */
 	MOTOR.id.drive_type = M_CAN1;
+	#if MOTOR_6020
+	MOTOR.id.motor_type = GM6020; //RM3508  GM6020 RM2006
+	MOTOR.id.rx_id = 0x205;
+	#endif
+	#if MOTOR_3508
+	MOTOR.id.motor_type = RM3508; //RM3508  GM6020 RM2006
+	MOTOR.id.rx_id = 0x201;
+	#endif
+	#if MOTOR_2006
 	MOTOR.id.motor_type = RM2006; //RM3508  GM6020 RM2006
 	MOTOR.id.rx_id = 0x201;
+	#endif
 	MOTOR.init = motor_class_init;
 	MOTOR.init(&MOTOR);
 	MOTOR.pid_init(&MOTOR.pid.speed,pid_param);
@@ -149,7 +161,15 @@ int main(void)
 	data[2] = MOTOR.c_speed(&MOTOR,speed);
 	data[3] = MOTOR.c_speed(&MOTOR,speed);
 	
-	CAN_SendData(&hcan1 ,0x200,data);//1ff 200
+	#if MOTOR_6020
+	CAN_SendData(&hcan1 ,0x1ff,data);
+	#endif
+	#if MOTOR_3508
+	CAN_SendData(&hcan1 ,0x200,data);
+	#endif
+	#if MOTOR_2006
+	CAN_SendData(&hcan1 ,0x200,data);
+	#endif
 	HAL_Delay(1);
 	  
   }
