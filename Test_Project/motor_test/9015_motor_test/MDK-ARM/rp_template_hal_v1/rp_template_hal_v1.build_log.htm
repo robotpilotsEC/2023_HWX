@@ -1,0 +1,122 @@
+<html>
+<body>
+<pre>
+<h1>�Vision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ��Vision V5.27.1.0
+Copyright (C) 2019 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: H WX, szu, LIC=47GU5-GW7F2-01NP1-C87Q3-GD9A9-7XKGM
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.36.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      Segger\JL2CM3.dll V2.99.26.0
+Dialog DLL:      TCM.DLL V1.53.0.0
+ 
+<h2>Project:</h2>
+C:\Users\HWX\Desktop\test_project\motor_test\9015_motor_test\MDK-ARM\rp_template_hal_v1.uvprojx
+Project File Date:  02/21/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'rp_template_hal_v1'
+compiling motor.c...
+compiling drv_can.c...
+..\Application\DriverLayer\drv_can.c(16): error:  #20: identifier "motor_t" is undefined
+  extern motor_t MOTOR;
+..\Application\DriverLayer\drv_can.c: 0 warnings, 1 error
+compiling rp_chassis.c...
+..\Application\PACK\rp_chassis.h(99): error:  #20: identifier "motor_t" is undefined
+    motor_t *motor_LF;       		 /*!< 左前轮电机初始化
+..\Application\PACK\rp_chassis.h(102): error:  #20: identifier "motor_t" is undefined
+    motor_t *motor_RF;      		 /*!< 右前轮电机初始化
+..\Application\PACK\rp_chassis.h(105): error:  #20: identifier "motor_t" is undefined
+    motor_t *motor_LB;       		 /*!< 左后轮电机初始化
+..\Application\PACK\rp_chassis.h(108): error:  #20: identifier "motor_t" is undefined
+    motor_t *motor_RB;      		 /*!< 右后轮电机初始化
+..\Application\PACK\rp_chassis.h(221): error:  #20: identifier "motor_t" is undefined
+  	motor_t        		 *motor_LF;
+..\Application\PACK\rp_chassis.h(222): error:  #20: identifier "motor_t" is undefined
+  	motor_t        		 *motor_RF;
+..\Application\PACK\rp_chassis.h(223): error:  #20: identifier "motor_t" is undefined
+  	motor_t       		 *motor_LB;
+..\Application\PACK\rp_chassis.h(224): error:  #20: identifier "motor_t" is undefined
+  	motor_t        		 *motor_RB;
+..\Application\PACK\rp_chassis.c(171): warning:  #186-D: pointless comparison of unsigned integer with zero
+  	if(rotation_ratio >= 0 || rotation_ratio <= 100)
+..\Application\PACK\rp_chassis.c: 1 warning, 8 errors
+compiling main.c...
+..\Application\PACK\rp_chassis.h(99): error:  #20: identifier "motor_t" is undefined
+    motor_t *motor_LF;       		 /*!< 左前轮电机初始化
+..\Application\PACK\rp_chassis.h(102): error:  #20: identifier "motor_t" is undefined
+    motor_t *motor_RF;      		 /*!< 右前轮电机初始化
+..\Application\PACK\rp_chassis.h(105): error:  #20: identifier "motor_t" is undefined
+    motor_t *motor_LB;       		 /*!< 左后轮电机初始化
+..\Application\PACK\rp_chassis.h(108): error:  #20: identifier "motor_t" is undefined
+    motor_t *motor_RB;      		 /*!< 右后轮电机初始化
+..\Application\PACK\rp_chassis.h(221): error:  #20: identifier "motor_t" is undefined
+  	motor_t        		 *motor_LF;
+..\Application\PACK\rp_chassis.h(222): error:  #20: identifier "motor_t" is undefined
+  	motor_t        		 *motor_RF;
+..\Application\PACK\rp_chassis.h(223): error:  #20: identifier "motor_t" is undefined
+  	motor_t       		 *motor_LB;
+..\Application\PACK\rp_chassis.h(224): error:  #20: identifier "motor_t" is undefined
+  	motor_t        		 *motor_RB;
+..\Application\9015\my9015.h(96): warning:  #1295-D: Deprecated declaration MOTOR_9015_INIT - give arg types
+  void MOTOR_9015_INIT();
+..\Application\9015\my9015.h(99): warning:  #1295-D: Deprecated declaration MOTOR_9015_SPEED - give arg types
+  void MOTOR_9015_SPEED();
+..\Application\9015\my9015.h(102): warning:  #1295-D: Deprecated declaration MOTOR_9015_SET_PID - give arg types
+  void MOTOR_9015_SET_PID();
+..\Application\9015\my9015.h(105): warning:  #1295-D: Deprecated declaration MOTOR_9015_POSIT - give arg types
+  void MOTOR_9015_POSIT();
+..\Application\9015\my9015.h(108): warning:  #1295-D: Deprecated declaration MOTOR_9015_HEART - give arg types
+  void MOTOR_9015_HEART();
+../Core/Src/main.c(42): error:  #20: identifier "motor_t" is undefined
+  motor_t MOTOR;
+../Core/Src/main.c(47): error:  #20: identifier "motor_9025_info_t" is undefined
+  motor_9025_info_t motor_9025_info;
+../Core/Src/main.c(87): error:  #20: identifier "M_CAN1" is undefined
+  	MOTOR.id.drive_type = M_CAN1;
+../Core/Src/main.c(88): error:  #20: identifier "KT9015" is undefined
+  	MOTOR.id.motor_type = KT9015;
+../Core/Src/main.c(90): error:  #20: identifier "motor_class_init" is undefined
+  	MOTOR.init = motor_class_init;
+../Core/Src/main.c(163): warning:  #223-D: function "CAN_u8_SendData" declared implicitly
+  	CAN_u8_SendData(&hcan1,0x141,u8_data);
+../Core/Src/main.c: 6 warnings, 13 errors
+"rp_template_hal_v1\rp_template_hal_v1.axf" - 22 Error(s), 7 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.8.0.pack
+                ARM.CMSIS.5.8.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.5.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.16.0.pack
+                Keil.STM32F4xx_DFP.2.16.0
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_rp_template_hal_v1
+  C:\Users\HWX\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+  C:\Users\HWX\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.5.0
+Target not created.
+Build Time Elapsed:  00:00:03
+</pre>
+</body>
+</html>

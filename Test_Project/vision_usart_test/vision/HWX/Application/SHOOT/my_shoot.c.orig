@@ -1,0 +1,389 @@
+/**
+  ************************************* Copyright ****************************** 
+  *
+  *                 (C) Copyright 2022,楠瘦,China, GCU.
+  *                            All Rights Reserved
+  *                              
+  *                     By(nanshou)
+  *                     
+  *    
+  * FileName   : my_shoot.c   
+  * Version    : v1.0		
+  * Author     : 楠瘦			
+  * Date       : 2022-10-20         
+  * Description:    
+  * Function List:  
+  	1. ....
+  	   <version>: 		
+  <modify staff>:
+  		  <data>:
+   <description>:  
+  	2. ...
+  ******************************************************************************
+ */
+#include "my_shoot.h"
+#include "car.h"
+#include "dji_pid.h"
+#include "REMOTE.h"
+
+/*波胆点击*/
+extern motor_2006_t           motor_2006_PLUCK_structure;
+extern motor_2006_base_info_t motor_2006_PLUCK_base_info;
+extern motor_2006_info_t      motor_2006_PLUCK_info;
+
+/*摩擦轮*/
+extern motor_3508_t           motor_3508_FIRC_L_structure;
+extern motor_3508_base_info_t motor_3508_FIRC_L_base_info;
+extern motor_3508_info_t      motor_3508_FIRC_L_info; 
+
+extern motor_3508_t           motor_3508_FIRC_R_structure;
+extern motor_3508_base_info_t motor_3508_FIRC_R_base_info;
+extern motor_3508_info_t      motor_3508_FIRC_R_info;
+
+/*PID发射*/
+extern pid_t                  FIRC_L_speed_structure;
+extern pid_t                	FIRC_R_speed_structure;
+extern pid_t                  STRI_three_speed_structure;
+extern pid_t                  STRI_position_structure;
+extern pid_t                  STRI_one_speed_structure;
+/*车状态*/
+extern car_t                  car_structure;
+
+/*发射机构*/
+extern shoot_t                shoot_structure;
+
+/*遥控器*/
+extern rc_t                   rc_structure; 
+extern int8_t                 s2_down_flag;
+extern int8_t                 s2_up_flag;
+	   int8_t                 s2_up_last_flag = 1;
+	   int16_t                shoot_offline_cnt = 0;
+       
+	   int8_t                 init_ok = 0;//连发模式下拨码轮是否到达目标转速
+	   int8_t	              deal_done = 0;//堵转正在处理
+
+
+void SHOOT_INIT(shoot_t * shoot)
+{
+	/*电机们 初始化*/
+	MOTOR_3508_INIT(&motor_3508_FIRC_L_structure, &motor_3508_FIRC_L_base_info ,&motor_3508_FIRC_L_info );
+	MOTOR_3508_INIT(&motor_3508_FIRC_R_structure, &motor_3508_FIRC_R_base_info ,&motor_3508_FIRC_R_info );
+	MOTOR_2006_INIT(&motor_2006_PLUCK_structure,  &motor_2006_PLUCK_base_info  ,&motor_2006_PLUCK_info );
+	
+	/*摩擦轮速度环*/
+	PID_struct_init(&FIRC_L_speed_structure,POSITION_PID ,PID_FIRC_OUTPUT_MAX,PID_FIRC_INTEGRA_MAX,PID_FIRC_KP,PID_FIRC_KI,PID_FIRC_KD);
+	PID_struct_init(&FIRC_R_speed_structure,POSITION_PID ,PID_FIRC_OUTPUT_MAX,PID_FIRC_INTEGRA_MAX,PID_FIRC_KP,PID_FIRC_KI,PID_FIRC_KD);
+	
+	/*单发位置环*/
+	PID_struct_init(&STRI_one_speed_structure,POSITION_PID ,SPID_STRI_OUTPUT_MAX,SPID_STRI_INTEGRA_MAX,SPID_STRI_KP,SPID_STRI_KI,SPID_STRI_KD);
+	PID_struct_init(&STRI_position_structure,POSITION_PID ,PPID_STRI_OUTPUT_MAX,PPID_STRI_INTEGRA_MAX,PPID_STRI_KP,PPID_STRI_KI,PPID_STRI_KD);
+	
+	/*连发速度环*/
+	PID_struct_init(&STRI_three_speed_structure,POSITION_PID ,TPID_STRI_OUTPUT_MAX,TPID_STRI_INTEGRA_MAX,TPID_STRI_KP,TPID_STRI_KI,TPID_STRI_KD);
+	
+	shoot->fric_left  = &motor_3508_FIRC_L_structure;
+	shoot->fric_right = &motor_3508_FIRC_R_structure;
+	shoot->stir_wheel = &motor_2006_PLUCK_structure;
+	shoot->work_sta   = S_S_offline;
+	shoot->cnt_three_done   = SHOOT_OFFLINE_CNT_MAX;
+	shoot->cnt_right  = SHOOT_OFFLINE_CNT_MAX;
+	shoot-> cnt_stri  = SHOOT_OFFLINE_CNT_MAX;
+	shoot->shoot_time = 0;
+	shoot->shoot_speed= 0;
+	
+	shoot->init  = SHOOT_INIT;
+	shoot->check = DONE_CHECK;
+	shoot->update= MODE_UPDATE;
+	shoot->data  = DATA_UPDATE;
+	shoot->work  = SHOOR_WORK;
+	shoot->she_ji= SHE_JI;
+	
+}
+
+
+
+/**
+  * @brief  模式更新
+  * @param  
+  * @retval 
+  */
+
+/* -------------------------------- begin  -------------------------------- */
+/**
+  * @Name    MODE_UPDATE
+  * @brief  
+  * @param   shoot: [输入/出] 
+  * @retval
+  * @author  HWX
+  * @Data    2022-10-20
+ **/
+/* -------------------------------- end -------------------------------- */
+
+void MODE_UPDATE(shoot_t* shoot)
+{
+	
+	
+	/*车辆模式匹配*/
+	switch (car_structure.move_mode_status)
+	{
+		case offline_CAR:
+		{	
+			
+		  shoot->work_sta = S_S_offline;
+
+		  /*PID目标值清零*/
+		  shoot->stir_wheel->base_info->target_speed = 0;
+		  shoot->shoot_speed = 0;
+		  shoot->stir_wheel->base_info->target_angle_sum = 0;
+		  /*标志位清零*/
+		  s2_up_flag      = 1;
+		  s2_down_flag    = 1;
+		  s2_up_last_flag = 1;
+		  shoot->stir_wheel->base_info->circle_cnt = 0;
+		  shoot->stir_wheel->base_info->angle      = 0;
+			
+		  /*泄力*/
+	      shoot_offline_cnt++;
+
+		  break;
+		
+  	  }
+		
+	  case machine_CAR:
+	  {		
+			shoot->work_sta = S_S_oneshot;
+			
+			if(!deal_done)//若正在处理堵转，堵转程序完全获得对拨码轮速度的操作权
+			{
+				/*拨码轮转动一格*/
+				if(s2_up_last_flag != s2_up_flag )
+				{
+								
+					shoot->stir_wheel->base_info->target_angle_sum -= (int32_t)8191*4.5; //8191*4.5  36860
+					
+				} 
+		    }
+			
+			s2_up_last_flag = s2_up_flag;
+			
+			/*摩擦轮开关*/
+			if(s2_down_flag != 1 )
+			{
+				shoot->shoot_speed = SHOOT_SPEED;//开启摩擦轮
+			}
+			else
+			{
+				shoot->shoot_speed = 0;//关闭摩擦轮
+			}
+			
+			break;
+	   }	
+			
+	   case follow_CAR:
+		{	
+			
+			shoot->work_sta = S_S_threeshot;
+			
+            if(!deal_done)//若正在处理堵转，堵转程序完全获得对拨码轮速度的操作权
+			{	
+				/*波蛋轮开关*/
+				if(s2_up_flag != 1)
+				{
+					shoot->stir_wheel->base_info->target_speed = SHOOT_STRI_SPEED;//开启波蛋轮
+					
+					/*init_ok标志位更新*/
+					if(shoot->stir_wheel->base_info->speed >= (SHOOT_STRI_SPEED - SHOOT_STRI_SPEED_ERR))
+					{
+					  init_ok = 1;//一旦大于就 = 1，直到拨码轮关闭再清零
+					}
+				}
+				else
+				{
+					shoot->stir_wheel->base_info->target_speed = 0;//关闭波蛋轮
+					init_ok = 0;
+				}
+			}
+			
+			/*摩擦轮开关*/
+			if(s2_down_flag != 1  )
+			{
+				shoot->shoot_speed = SHOOT_SPEED;//开启摩擦轮
+				
+			}
+			else
+			{
+				shoot->shoot_speed = 0;//关闭摩擦轮
+			}
+
+			break;
+		}	
+	}
+	
+	rc_structure.base_info->s2.value_last = rc_structure.base_info->s2.value;
+	
+	SHOOR_WORK(&shoot_structure);
+}
+
+
+
+/**
+  * @brief  发射机构工作
+  * @param  
+  * @retval 
+  */
+void SHOOR_WORK(shoot_t* shoot)
+{
+	
+	//我看过曲线图，确实是会有一一点点的突变，不知道是为什么，所以采取角度差分是好一点的，但是那样不准确？
+	if(shoot->work_sta == S_S_oneshot)
+	{
+		#if 1 //双环还没上车，可能有点问题
+		/*波蛋轮位置环PID*/
+		shoot->stir_wheel->base_info->target_speed = pid_calc(&STRI_position_structure,\
+															   shoot->stir_wheel->base_info->angle_sum,\
+															   shoot->stir_wheel->base_info->target_angle_sum);
+		
+		/*波蛋轮速度环PID*/ //转那么多圈过什么零点
+		shoot->stir_wheel->output_current          = pid_calc(&STRI_one_speed_structure,\
+															   shoot->stir_wheel->base_info->speed,\
+															   shoot->stir_wheel->base_info->target_speed);
+		#endif
+		
+		#if 0 //单位置环
+		/*波蛋轮位置环PID*/
+		shoot->stir_wheel->output_current          = pid_calc(&STRI_one_speed_structure,\
+															   shoot->stir_wheel->base_info->angle_sum,\
+															   shoot->stir_wheel->base_info->target_angle_sum);
+		
+		#endif
+		
+	}
+	
+	else if(shoot->work_sta == S_S_threeshot)
+	{
+
+	
+		 /*波蛋轮速度环PID*/
+		 shoot->stir_wheel->output_current = pid_calc(&STRI_three_speed_structure,\
+													   shoot->stir_wheel->base_info->speed,\
+													   shoot->stir_wheel->base_info->target_speed);
+	}
+	
+	
+	
+	/*摩擦轮速度环PID*/
+	shoot->fric_left->output_current  = pid_calc(&FIRC_L_speed_structure,\
+												 shoot->fric_left->base_info->speed,\
+	                                             shoot->shoot_speed);
+	
+		
+	shoot->fric_right->output_current = pid_calc(&FIRC_R_speed_structure,\
+												 shoot->fric_right->base_info->speed,\
+	                                             shoot->shoot_speed);
+	
+}
+
+
+/**
+  * @brief  堵转检测
+  * @param  abs(shoot->stir_wheel->base_info->speed) <= SHOOT_DONE_SPEED_MAX
+  * @retval init_ok
+  */
+void DONE_CHECK(shoot_t* shoot)//能转动就清零？
+{
+
+		if(shoot->work_sta == S_S_threeshot)
+		{
+			/*连发堵转*/
+			if(init_ok && abs(shoot->stir_wheel->base_info->speed) <= SHOOT_DONE_SPEED_MAX)//初始化完成 且堵转
+			{
+				if(shoot->cnt_three_done >= SHOOT_DONE_TIME_MAX)//堵转时间达到能忍受的最大值
+				{
+					deal_done = 1;//表示正在处理堵转（思考如何判断解除堵转）
+					
+					shoot->stir_wheel->base_info->target_speed *= (-1);//速度取反
+					
+				}
+				else
+				{
+					shoot->cnt_three_done++;
+				}
+					
+			}
+			else 
+			{
+				shoot->cnt_three_done  = 0;//连发模式未发生堵转
+				if(shoot->stir_wheel->base_info->speed <= 0)//正常情况下是速度小于0
+				{
+					deal_done          = 0;//速度反向后仍在处理堵转，只有当速度正常的时候才能复位
+				}
+		    }
+	  }
+	  /*单发堵转*/
+	  else if(shoot->work_sta == S_S_oneshot)
+	  {	
+		  //回去一点点,对位置环进行操作
+			
+			
+			
+			  
+	  }
+		
+}
+
+
+
+void shoot_task()
+{
+	/*发射模式更新*/
+	MODE_UPDATE( &shoot_structure);//在这决定发射数据
+	
+	/*发射数据更新*/
+	//DATA_UPDATE(&shoot_structure);
+	
+	
+   	//DONE_CHECK(&shoot_structure);
+
+	
+
+	/*卸力*/												
+	if(shoot_offline_cnt >= 100)
+	{
+		shoot_offline_cnt = 100;
+		
+		MOTOR_3508_CAN2_SENT_DATA(0,0,0,0);//注意顺序，最后一个一定是0
+	}
+	else
+	{
+	    /*电机数据发送*/
+		MOTOR_3508_CAN2_SENT_DATA(motor_3508_FIRC_R_structure.output_current,\
+								  motor_3508_FIRC_L_structure.output_current,\
+								  motor_2006_PLUCK_structure.output_current,\
+								  0);//注意顺序，最后一个一定是0
+	}
+}
+
+
+
+/**
+  * @brief  数据更新
+  * @param  
+  * @retval 
+  */
+void DATA_UPDATE(shoot_t* shoot)
+{
+	
+}
+/**
+  * @brief  射击
+  * @param  
+  * @retval 
+  */
+void SHE_JI(shoot_t* shoot)
+{
+	
+}
+
+
+
+

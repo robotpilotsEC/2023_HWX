@@ -1,0 +1,154 @@
+#include "car.h"
+#include "REMOTE.h"
+#include "my_gimbal.h"
+#include "judge_infantrypotocol.h"
+#include "judge_sensor.h"
+
+extern car_t      car_structure;
+extern rc_t       rc_structure;
+extern gimbal_t   gimbal_structure;
+int8_t            s2_down_flag   = 1;
+int8_t            s2_up_flag     = 1;
+bool              gimbal_init_ok = 0;
+bool              rc_conect      = 0;
+extern judge_sensor_t         judge_sensor; 
+
+  
+
+void MODE_CHECK()
+{
+	
+    /*遥控器模式*/
+	if(rc_structure.base_info->s1.value == 1 )
+	{
+		car_structure.ctrl_mode = KEY_CAR;
+	}
+	else
+	{
+		car_structure.ctrl_mode = RC_CAR;
+	}
+	
+    /*状态更新*/
+    rc_wheel_status_interrupt_update(rc_structure.base_info);
+	all_key_board_status_interrupt_update(rc_structure.base_info);
+	all_key_board_status_update(rc_structure.base_info);
+	
+	
+	if(rc_conect)
+	{
+		if(car_structure.ctrl_mode == RC_CAR)
+		{
+			if(rc_structure.base_info->s1.value == 2)//下拨码
+			{
+				/*机械模式*/
+				car_structure.move_mode_status = machine_CAR;
+
+			}
+			else if(rc_structure.base_info->s1.value == 3)//中拨码
+			{
+				/*小陀螺模式*/
+				if(rc_structure.base_info->thumbwheel.value >= 600)
+				{
+					car_structure.move_mode_status = spin_CAR;
+					
+					/*头尾判断(当小陀螺模式开启的时候才会判断头尾)*/
+					if( gimbal_structure.yaw->base_info->angle    <= 52 \
+						|| gimbal_structure.yaw->base_info->angle >= 4148)
+					{
+						gimbal_structure.front_or_back = -1;
+					}
+					else
+					{
+						gimbal_structure.front_or_back = 1;
+					}
+
+				}
+				else 
+				{
+					/*跟随模式*/
+					car_structure.move_mode_status =follow_CAR;
+				}
+
+			}	
+			else if(rc_structure.base_info->s1.value == 1 ) 
+			{
+				if( rc_structure.base_info->s2.value == 2)
+				{
+					/*视觉模式（左拨码向上，右拨码向下）*/
+					car_structure.move_mode_status = vision_CAR;//底盘工程，云台单独一个模式
+				}
+			}
+			
+		/*检测跳变(检测向下拨动)*/
+		/*检测右拨杆向下*/
+		if(rc_structure.base_info->s2.value_last != rc_structure.base_info->s2.value \
+				&& rc_structure.base_info->s2.value == 2)
+		{
+			s2_down_flag = s2_down_flag*(-1);
+		}
+
+		/*检测右拨杆向上*/
+		if(rc_structure.base_info->s2.value_last != rc_structure.base_info->s2.value \
+				&& rc_structure.base_info->s2.value == 1)
+		{
+			s2_up_flag = s2_up_flag*(-1);
+		}
+		
+		rc_structure.base_info->s2.value_last = rc_structure.base_info->s2.value;
+		}
+		/*键盘状态检测*/
+		else if(car_structure.ctrl_mode == KEY_CAR)
+		{	//为了保证没有更新，不能出现else
+			if(rc_structure.base_info->F.status == short_press_K)//短按f切换不同小陀螺速度，要增加跳变检测
+			{
+				car_structure.move_mode_status = spin_CAR;
+			}
+			else if(rc_structure.base_info->Ctrl.status == long_press_K)//长按ctrl进入机械模式
+			{
+				car_structure.move_mode_status = machine_CAR;
+			}
+			else if(rc_structure.base_info->V.status == long_press_K)//长按V进入跟随模式
+			{
+				car_structure.move_mode_status = follow_CAR;
+			}
+		}
+	else
+	{
+		/*遥控器掉线模式模式*/
+		car_structure.move_mode_status =offline_CAR;
+		rc_conect = 0;
+	}
+		
+		
+	}
+	else
+	{
+		if(rc_structure.base_info->s1.value == 2)
+		{
+			rc_conect = 1;
+		}
+	}
+	
+	/*键盘状态检测*/
+	
+	
+	
+	
+	
+	
+	
+	/*裁判系统心跳*/
+	judge_sensor.heart_beat( &judge_sensor);
+	
+	
+	rc_structure.info->mouse_x = rc_structure.base_info->mouse_vx;
+	rc_structure.info->mouse_y = rc_structure.base_info->mouse_vy;
+	
+	/*鼠标速度滤波*/
+	rc_structure.info->mouse_x_K = Low_Pass_Fliter(rc_structure.info->mouse_x_K,rc_structure.info->mouse_x,0.1);
+	rc_structure.info->mouse_y_K = Low_Pass_Fliter(rc_structure.info->mouse_y_K,rc_structure.info->mouse_y,0.1);
+
+}
+
+
+
