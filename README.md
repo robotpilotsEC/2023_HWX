@@ -31,3 +31,14 @@
 
 
 
+## Test_Project
+
+
+**日常测试代码**
+
+
+| motor_test | 测试电机以及CAN |
+|---|---|
+| Down | 下主控代码，负责接收裁判系统数据和控制超电 | 
+| New_template | 新主控模板，目前可测LED以及蜂鸣器 | 
+| vision_usart_test | 视觉串口测试代码（不是电控的锅） | 
