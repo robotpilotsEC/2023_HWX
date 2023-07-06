@@ -114,9 +114,6 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  
-  my_bmi_init();
-  
   MX_DMA_Init();
   MX_TIM3_Init();
   MX_USART2_UART_Init();
@@ -143,6 +140,10 @@ int main(void)
   
   LASER_ON();
   
+  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14, GPIO_PIN_RESET);
+  
+  my_bmi_init();
+ 
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */

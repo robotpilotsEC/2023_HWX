@@ -103,7 +103,7 @@
         <bEvRecOn>1</bEvRecOn>
         <bSchkAxf>0</bSchkAxf>
         <bTchkAxf>0</bTchkAxf>
-        <nTsel>3</nTsel>
+        <nTsel>4</nTsel>
         <sDll></sDll>
         <sDllPa></sDllPa>
         <sDlgDll></sDlgDll>
@@ -114,7 +114,7 @@
         <tDlgDll></tDlgDll>
         <tDlgPa></tDlgPa>
         <tIfile></tIfile>
-        <pMon>BIN\CMSIS_AGDI.dll</pMon>
+        <pMon>Segger\JL2CM3.dll</pMon>
       </DebugOpt>
       <TargetDriverDllRegistry>
         <SetRegEntry>
@@ -140,7 +140,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name></Name>
+          <Name>d</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -164,14 +164,14 @@
           <Type>0</Type>
           <LineNumber>309</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134236656</Address>
+          <Address>134236668</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\Users\HWX\Desktop\Shao_Bing\Head_L\Core\Src\stm32f4xx_it.c</Filename>
+          <Filename>../Core/Src/stm32f4xx_it.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\rp_template_hal_v1\../Core/Src/stm32f4xx_it.c\309</Expression>
         </Bp>
@@ -180,14 +180,14 @@
           <Type>0</Type>
           <LineNumber>281</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134236512</Address>
+          <Address>134236524</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\Users\HWX\Desktop\Shao_Bing\Head_L\Core\Src\stm32f4xx_it.c</Filename>
+          <Filename>../Core/Src/stm32f4xx_it.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\rp_template_hal_v1\../Core/Src/stm32f4xx_it.c\281</Expression>
         </Bp>
@@ -196,14 +196,14 @@
           <Type>0</Type>
           <LineNumber>337</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134235896</Address>
+          <Address>134235908</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\Users\HWX\Desktop\Shao_Bing\Head_L\Core\Src\stm32f4xx_it.c</Filename>
+          <Filename>../Core/Src/stm32f4xx_it.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\rp_template_hal_v1\../Core/Src/stm32f4xx_it.c\337</Expression>
         </Bp>
@@ -212,14 +212,14 @@
           <Type>0</Type>
           <LineNumber>351</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134235908</Address>
+          <Address>134235920</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\Users\HWX\Desktop\Shao_Bing\Head_L\Core\Src\stm32f4xx_it.c</Filename>
+          <Filename>../Core/Src/stm32f4xx_it.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\rp_template_hal_v1\../Core/Src/stm32f4xx_it.c\351</Expression>
         </Bp>
@@ -228,14 +228,14 @@
           <Type>0</Type>
           <LineNumber>504</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134249226</Address>
+          <Address>134249258</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\Users\HWX\Desktop\Shao_Bing\Head_R\Application\BMI\bmi.c</Filename>
+          <Filename>..\Application\BMI\bmi.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\rp_template_hal_v1\../Application/BMI/bmi.c\504</Expression>
         </Bp>
@@ -285,6 +285,11 @@
           <count>8</count>
           <WinNumber>1</WinNumber>
           <ItemText>\\rp_template_hal_v1\../Application/Shoot/rp_shoot.c\pid_s_left</ItemText>
+        </Ww>
+        <Ww>
+          <count>9</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>bmi_structure,0x0A</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>
@@ -988,7 +993,7 @@
 
   <Group>
     <GroupName>Application/Driver</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

@@ -59,6 +59,14 @@ void gimbal_init(gimbal_t* gimbal)//初始化
 uint8_t test_gimbal_flag = 1;
 uint8_t gimbal_cnt = 0;
 
+#define K1   1
+#define K2   1
+#define K3   1
+#define K4   1
+
+
+#define G_OFFSET(x) x
+int16_t gravity_offset = 0;
 /*速度全部都用陀螺仪的，机械和跟随模式的区别是角度来源，即位置环测量值*/
 void gimbal_work(gimbal_t* gimbal)//现在主要是角度控制，如果需要速度控制后续再加
 {
@@ -93,8 +101,23 @@ void gimbal_work(gimbal_t* gimbal)//现在主要是角度控制，如果需要速度控制后续再加
 	}
 	else if (gimbal->base.mode == DATA_FROM_BMI_AND_MOTOR)//跟随模式
 	{
-		/*限位*/
-	
+		/*小型模糊？*/
+		//Kp=K1log（K2abs（error）+K3）
+		gimbal->pid_p_yaw->p = K1*(log(K2 * fabs(gimbal->pid_p_yaw->err[0]) + K3));
+		if(gimbal->pid_p_yaw->p <= K4)
+		{
+			gimbal->pid_p_yaw->p = K4;
+		}
+		
+		gimbal->pid_p_pit->p = K1*(log(K2 * fabs(gimbal->pid_p_pit->err[0]) + K3));
+		if(gimbal->pid_p_pit->p <= K4)
+		{
+			gimbal->pid_p_pit->p = K4;
+		}
+		/*大物实验*/
+		gravity_offset = G_OFFSET(gimbal->pitch->base_info->angle);
+		gravity_offset = 0;
+		
 		/*YAW-------------------------------------------------------------------*/
 		gimbal->yaw->base_info->target_speed   = pid_calc_err(gimbal->pid_p_yaw,\
 														  gimbal->yaw->base_info->angle,\
@@ -112,7 +135,7 @@ void gimbal_work(gimbal_t* gimbal)//现在主要是角度控制，如果需要速度控制后续再加
 		
 		motor_6020_PIT_structure.output_current          = pid_calc(gimbal->pid_s_pit,\
 															  gimbal->bmi->yaw_gro,\
-															  gimbal->pitch->base_info->target_speed);
+															  gimbal->pitch->base_info->target_speed) + gravity_offset;
 		
 	}
 	else if(gimbal->base.mode == DATA_FROM_BMI)
@@ -142,9 +165,8 @@ void gimbal_work(gimbal_t* gimbal)//现在主要是角度控制，如果需要速度控制后续再加
 	
 	if(gimbal->work.status == Gimbal_Online && Master_Head_structure.Send_L_Head.gimbal_mode == 1)
 	{
-		MOTOR_6020_CAN1_SENT_DATA(0,motor_6020_PIT_structure.output_current,0,0);//注意顺序 
+		MOTOR_6020_CAN1_SENT_DATA(motor_6020_YAW_structure.output_current,motor_6020_PIT_structure.output_current,0,0);//注意顺序 
 		
-		MOTOR_6020_CAN2_SENT_DATA(0,0,motor_6020_YAW_structure.output_current,0);//注意顺序
 	}
 	else
 	{
@@ -152,7 +174,6 @@ void gimbal_work(gimbal_t* gimbal)//现在主要是角度控制，如果需要速度控制后续再加
 		
 		MOTOR_6020_CAN1_SENT_DATA(0,0,0,0);//注意顺序 
 		
-		MOTOR_6020_CAN2_SENT_DATA(0,0,0,0);//注意顺序
 	}
 }
 

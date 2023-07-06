@@ -42,11 +42,13 @@ extern Master_Head_t                 Master_Head_structure;
 extern uint8_t                       shoot_1_over_speed_flag;
 extern uint8_t                       shoot_2_over_speed_flag;
 
+/*防止同时打蛋*/
+extern float                         elapsed_seconds;
 /* Private macro -------------------------------------------------------------*/
 
 #define AERIAL_SHOOT      (1)
 #define AERIAL_STOP_SHOOT (0)
-
+#define SIMULATAN_TIME    (0.0005f)
 /* Private variables ---------------------------------------------------------*/
 
 /*停止转动计数器*/
@@ -55,6 +57,7 @@ uint16_t no_shoot_time = 0;
 float L_shoot_speed       = 0;
 float R_shoot_speed       = 0;
 uint8_t shoot_aerial_cmd  = AERIAL_SHOOT;
+uint8_t Simultaneous_fire = 0;
 
 
 void shoot_work(shoot_t* shoot)
@@ -149,7 +152,27 @@ void shoot_work(shoot_t* shoot)
 		R_shoot_structure.stir_wheel->base_info->angle_sum = 0;
 	}
 	
+	/*防止双头同时打蛋*/
+	if(R_shoot_speed != 0 && L_shoot_speed != 0 && elapsed_seconds<= SIMULATAN_TIME && Simultaneous_fire != 1)//双头都在打蛋 并且 时间特别近
+	{
+		Simultaneous_fire = 1;//防止连续减
+		R_shoot_speed += 200;//减速
+	}
 	
+	if(elapsed_seconds >= SIMULATAN_TIME)
+	{
+		Simultaneous_fire = 0;//未发生同时射击
+	}
+	
+	/*保证小于0*/
+	if(R_shoot_speed >= 0)
+	{
+		R_shoot_speed = 0;
+	}
+	if(L_shoot_speed >= 0)
+	{
+		L_shoot_speed = 0;
+	}
 	/*掉线检测*/
 	Motor_2006_HeartBeat(&L_motor_2006_PLUCK_structure);
 	Motor_2006_HeartBeat(&R_motor_2006_PLUCK_structure);

@@ -30,7 +30,7 @@ void Shoot_Work()
 			}
 			else
 			{
-				shoot_structure.base.firct_speed = 0;
+	  			shoot_structure.base.firct_speed = 0;
 			}
 
 

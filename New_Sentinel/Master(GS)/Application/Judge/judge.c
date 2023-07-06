@@ -64,6 +64,11 @@ judge_t judge =
 uint8_t shoot_1_over_speed_flag = 64;
 uint8_t shoot_2_over_speed_flag = 64;
 
+uint32_t shoot_1_time = 0;
+uint32_t shoot_2_time = 0;
+uint32_t elapsed_time = 0;
+float elapsed_seconds = 0;
+
 void judge_heart()
 {
 	if(judge.info->offline_cnt ++ >= judge.info->offline_cnt_max)
@@ -147,6 +152,7 @@ void judge_update(uint16_t id, uint8_t *rxBuf)
 					shoot_1_over_speed_flag++;
 				}
 				
+				shoot_1_time = HAL_GetTick();
 			}
 			else if(judge.data->shoot_data.shooter_id == 2)
 			{
@@ -159,7 +165,12 @@ void judge_update(uint16_t id, uint8_t *rxBuf)
 				{
 					shoot_2_over_speed_flag++;
 				}
+				
+				shoot_2_time = HAL_GetTick();
 			}
+			elapsed_time = shoot_1_time - shoot_2_time;
+			elapsed_seconds = (float)elapsed_time / HAL_GetTickFreq();
+			
 			break;
 		case ID_game_robot_pos:
 			/*数据接收-----------------------------------------------------------------------------------------*/

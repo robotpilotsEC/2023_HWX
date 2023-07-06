@@ -142,16 +142,14 @@ void gimbal_work(gimbal_t* gimbal)//现在主要是角度控制，如果需要速度控制后续再加
 	if(gimbal->work.status == Gimbal_Online && Master_Head_structure.Send_R_Head.gimbal_mode == 1)
 	{
 		
-		MOTOR_6020_CAN1_SENT_DATA(0,motor_6020_PIT_structure.output_current,0,0);//注意顺序 
+		MOTOR_6020_CAN1_SENT_DATA(motor_6020_YAW_structure.output_current,motor_6020_PIT_structure.output_current,0,0);//注意顺序 
 		
-		MOTOR_6020_CAN2_SENT_DATA(motor_6020_YAW_structure.output_current,0,0,0);//注意顺序
 	}
 	else
 	{
 		/*卸力*/
 		MOTOR_6020_CAN1_SENT_DATA(0,0,0,0);//注意顺序 
 		
-		MOTOR_6020_CAN2_SENT_DATA(0,0,0,0);//注意顺序
 	}
 }
 
