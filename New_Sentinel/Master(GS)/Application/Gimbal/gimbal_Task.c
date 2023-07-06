@@ -130,8 +130,7 @@ void gimbal_work()
 			Gimbal_BigYawAngleCheck(&Gimbal);
 			Gimbal_BigYawBmiPosition(&Gimbal);
 			
-			/*¼ì²âÐ¡ÍÓÂÝ½ÇËÙ¶È*/
-			
+			/*¼ì²âÐ¡ÍÓÂÝ½ÇËÙ¶È*/	
 			if(abs(Gimbal.Yaw_9015->base_info->encoder - last_encoder) >= 65000)
 			{
 				spin_time     = HAL_GetTick();

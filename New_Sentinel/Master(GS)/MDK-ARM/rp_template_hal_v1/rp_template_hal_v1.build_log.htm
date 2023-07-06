@@ -27,35 +27,11 @@ Project File Date:  07/06/2023
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'rp_template_hal_v1'
-compiling shoot_Task.c...
-compiling Car.c...
-compiling navigation.c...
-compiling judge.c...
-..\Application\Judge\judge.c(94): warning:  #223-D: function "memcpy" declared implicitly
-  			memcpy(&judge.data->rfid_status, rxBuf, LEN_rfid_status);
-..\Application\Judge\judge.c(146): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  				if(judge.base_info->shooter_id1_speed >= 28.5)
-..\Application\Judge\judge.c(150): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  				else if(judge.base_info->shooter_id1_speed <= 27.5)
-..\Application\Judge\judge.c(160): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  				if(judge.base_info->shooter_id2_speed >=  28.5)
-..\Application\Judge\judge.c(164): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  				else if(judge.base_info->shooter_id1_speed <= 27.5)
-..\Application\Judge\judge.c(247): warning:  #223-D: function "memcpy" declared implicitly
-  		memcpy(&drv_judge_info.frame_header->data_length, rxBuf + 1, 4);
-..\Application\Judge\judge.c(272): warning:  #1-D: last line of file ends without a newline
-  }
-..\Application\Judge\judge.c: 7 warnings, 0 errors
-compiling chassic_Task.c...
-compiling master_Task.c...
 compiling gimbal_Task.c...
-compiling vision.c...
-compiling Check_task.c...
-compiling main.c...
 linking...
-Program Size: Code=60356 RO-data=10344 RW-data=620 ZI-data=23452  
+Program Size: Code=60460 RO-data=10344 RW-data=636 ZI-data=23452  
 FromELF: creating hex file...
-"rp_template_hal_v1\rp_template_hal_v1.axf" - 0 Error(s), 7 Warning(s).
+"rp_template_hal_v1\rp_template_hal_v1.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -78,7 +54,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.5.0
-Build Time Elapsed:  00:00:08
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

@@ -13,11 +13,13 @@ extern motor_9015_t           motor_9015_structure;
 extern vision_t               vision_structure;
 extern judge_t                judge;
 
-
+uint16_t                      last_encoder   = 0;
 uint16_t                      first2vision = 0;
 uint16_t                      first2follow = 0;
 uint16_t                      first2spin = 0;
-
+uint32_t                      spin_time      = 0;
+uint32_t                      spin_time_L    = 0;
+float                         spin_angular   = 0;
 
 uint32_t                      motor_9015_offline_cnt = 0;
 void Gimbal_Work()
@@ -110,6 +112,16 @@ void Gimbal_Work()
 			
 			Big_Yaw_Angle_Check(&Gimbal);
 			Big_Yaw_Position_Bmi(&Gimbal);
+			
+			/*检测小陀螺角速度*/	
+			if(abs(Gimbal.Yaw_9015->base_info->encoder - last_encoder) >= 65000)
+			{
+				spin_time     = HAL_GetTick();
+				
+				spin_angular  = 2*PI/((float)(spin_time - spin_time_L)/ HAL_GetTickFreq());
+			}
+			spin_time_L  = spin_time;
+			last_encoder = Gimbal.Yaw_9015->base_info->encoder;
 		}
 		else if(car_structure.mode == offline_CAR)//离线模式
 		{

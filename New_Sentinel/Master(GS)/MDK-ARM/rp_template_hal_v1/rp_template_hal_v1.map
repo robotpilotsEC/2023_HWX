@@ -2052,9 +2052,11 @@ Section Cross References
     gimbal_task.o(i.gimbal_work) refers to dflt_clz.o(x$fpl$dflt) for __aeabi_i2d
     gimbal_task.o(i.gimbal_work) refers to dmul.o(x$fpl$dmul) for __aeabi_dmul
     gimbal_task.o(i.gimbal_work) refers to dfix.o(x$fpl$dfix) for __aeabi_d2iz
+    gimbal_task.o(i.gimbal_work) refers to rp_gimbal.o(i.Gimbal_BigYawBmiPosition) for Gimbal_BigYawBmiPosition
     gimbal_task.o(i.gimbal_work) refers to 9015_motor.o(i.Motor_9015_VisionBmiPosition) for Motor_9015_VisionBmiPosition
     gimbal_task.o(i.gimbal_work) refers to gimbal_task.o(i.Hurt_And_Find) for Hurt_And_Find
-    gimbal_task.o(i.gimbal_work) refers to rp_gimbal.o(i.Gimbal_BigYawBmiPosition) for Gimbal_BigYawBmiPosition
+    gimbal_task.o(i.gimbal_work) refers to stm32f4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    gimbal_task.o(i.gimbal_work) refers to stm32f4xx_hal.o(i.HAL_GetTickFreq) for HAL_GetTickFreq
     gimbal_task.o(i.gimbal_work) refers to 9015_motor.o(i.Motor_9015_Off) for Motor_9015_Off
     gimbal_task.o(i.gimbal_work) refers to main.o(.bss) for Gimbal
     gimbal_task.o(i.gimbal_work) refers to main.o(.data) for car_structure
@@ -4464,265 +4466,265 @@ Image Symbol Table
     i.get_wrist_wear_wake_up_wh_config       0x080097ac   Section        0  bmi2.o(i.get_wrist_wear_wake_up_wh_config)
     get_wrist_wear_wake_up_wh_config         0x080097ad   Thumb Code   156  bmi2.o(i.get_wrist_wear_wake_up_wh_config)
     i.gimbal_work                            0x08009848   Section        0  gimbal_task.o(i.gimbal_work)
-    i.inVSqrt                                0x080099b0   Section        0  bmi.o(i.inVSqrt)
-    i.int16_to_float                         0x080099dc   Section        0  cap_protocol_1.o(i.int16_to_float)
-    i.judge_heart                            0x08009a04   Section        0  judge.o(i.judge_heart)
-    i.judge_recive                           0x08009a2c   Section        0  judge.o(i.judge_recive)
-    i.judge_update                           0x08009a9c   Section        0  judge.o(i.judge_update)
-    i.key_board_status_interrupt_update      0x08009d50   Section        0  remote.o(i.key_board_status_interrupt_update)
-    i.key_board_status_update                0x08009d94   Section        0  remote.o(i.key_board_status_update)
-    i.lsb_to_dps                             0x08009dca   Section        0  bmi.o(i.lsb_to_dps)
-    lsb_to_dps                               0x08009dcb   Thumb Code    38  bmi.o(i.lsb_to_dps)
-    i.lsb_to_mps2                            0x08009df0   Section        0  bmi.o(i.lsb_to_mps2)
-    lsb_to_mps2                              0x08009df1   Thumb Code    46  bmi.o(i.lsb_to_mps2)
-    i.main                                   0x08009e24   Section        0  main.o(i.main)
-    i.makeFreeRtosPriority                   0x08009ec0   Section        0  cmsis_os.o(i.makeFreeRtosPriority)
-    makeFreeRtosPriority                     0x08009ec1   Thumb Code    12  cmsis_os.o(i.makeFreeRtosPriority)
-    i.master_work                            0x08009ecc   Section        0  master_task.o(i.master_work)
-    i.micros                                 0x0800a280   Section        0  drv_haltick.o(i.micros)
-    i.my_BMI_Get_EulerAngle                  0x0800a2a4   Section        0  bmi.o(i.my_BMI_Get_EulerAngle)
-    i.null_ptr_check                         0x0800a7cc   Section        0  bmi2.o(i.null_ptr_check)
-    null_ptr_check                           0x0800a7cd   Thumb Code    24  bmi2.o(i.null_ptr_check)
-    i.osDelay                                0x0800a7e4   Section        0  cmsis_os.o(i.osDelay)
-    i.osKernelStart                          0x0800a7f2   Section        0  cmsis_os.o(i.osKernelStart)
-    i.osThreadCreate                         0x0800a7fc   Section        0  cmsis_os.o(i.osThreadCreate)
-    i.pid_calc                               0x0800a850   Section        0  dji_pid.o(i.pid_calc)
-    i.pid_calc_err                           0x0800aa14   Section        0  dji_pid.o(i.pid_calc_err)
-    i.pid_calc_err_9015                      0x0800aba0   Section        0  dji_pid.o(i.pid_calc_err_9015)
-    i.pid_param_init                         0x0800ad58   Section        0  dji_pid.o(i.pid_param_init)
-    pid_param_init                           0x0800ad59   Thumb Code    14  dji_pid.o(i.pid_param_init)
-    i.pid_reset                              0x0800ad66   Section        0  dji_pid.o(i.pid_reset)
-    pid_reset                                0x0800ad67   Thumb Code     6  dji_pid.o(i.pid_reset)
-    i.prvAddCurrentTaskToDelayedList         0x0800ad6c   Section        0  tasks.o(i.prvAddCurrentTaskToDelayedList)
-    prvAddCurrentTaskToDelayedList           0x0800ad6d   Thumb Code   102  tasks.o(i.prvAddCurrentTaskToDelayedList)
-    i.prvAddNewTaskToReadyList               0x0800addc   Section        0  tasks.o(i.prvAddNewTaskToReadyList)
-    prvAddNewTaskToReadyList                 0x0800addd   Thumb Code   194  tasks.o(i.prvAddNewTaskToReadyList)
-    i.prvDeleteTCB                           0x0800aeac   Section        0  tasks.o(i.prvDeleteTCB)
-    prvDeleteTCB                             0x0800aead   Thumb Code    52  tasks.o(i.prvDeleteTCB)
-    i.prvHeapInit                            0x0800aee0   Section        0  heap_4.o(i.prvHeapInit)
-    prvHeapInit                              0x0800aee1   Thumb Code    66  heap_4.o(i.prvHeapInit)
-    i.prvIdleTask                            0x0800af2c   Section        0  tasks.o(i.prvIdleTask)
-    prvIdleTask                              0x0800af2d   Thumb Code    82  tasks.o(i.prvIdleTask)
-    i.prvInitialiseNewTask                   0x0800af8c   Section        0  tasks.o(i.prvInitialiseNewTask)
-    prvInitialiseNewTask                     0x0800af8d   Thumb Code   152  tasks.o(i.prvInitialiseNewTask)
-    i.prvInsertBlockIntoFreeList             0x0800b024   Section        0  heap_4.o(i.prvInsertBlockIntoFreeList)
-    prvInsertBlockIntoFreeList               0x0800b025   Thumb Code    72  heap_4.o(i.prvInsertBlockIntoFreeList)
-    i.prvResetNextTaskUnblockTime            0x0800b070   Section        0  tasks.o(i.prvResetNextTaskUnblockTime)
-    prvResetNextTaskUnblockTime              0x0800b071   Thumb Code    26  tasks.o(i.prvResetNextTaskUnblockTime)
-    i.prvTaskExitError                       0x0800b090   Section        0  port.o(i.prvTaskExitError)
-    prvTaskExitError                         0x0800b091   Thumb Code    36  port.o(i.prvTaskExitError)
-    i.pvPortMalloc                           0x0800b0b8   Section        0  heap_4.o(i.pvPortMalloc)
-    i.pxPortInitialiseStack                  0x0800b190   Section        0  port.o(i.pxPortInitialiseStack)
-    i.rc_base_info_update                    0x0800b1bc   Section        0  remote.o(i.rc_base_info_update)
-    i.rc_init                                0x0800b2f8   Section        0  remote.o(i.rc_init)
-    i.rc_wheel_status_interrupt_update       0x0800b318   Section        0  remote.o(i.rc_wheel_status_interrupt_update)
-    i.select_sensor                          0x0800b34e   Section        0  bmi2.o(i.select_sensor)
-    select_sensor                            0x0800b34f   Thumb Code   334  bmi2.o(i.select_sensor)
-    i.sensor_enable                          0x0800b49c   Section        0  bmi2.o(i.sensor_enable)
-    sensor_enable                            0x0800b49d   Thumb Code   958  bmi2.o(i.sensor_enable)
-    i.set_accel_config                       0x0800b860   Section        0  bmi2.o(i.set_accel_config)
-    set_accel_config                         0x0800b861   Thumb Code   152  bmi2.o(i.set_accel_config)
-    i.set_act_recog                          0x0800b8f8   Section        0  bmi2.o(i.set_act_recog)
-    set_act_recog                            0x0800b8f9   Thumb Code    86  bmi2.o(i.set_act_recog)
-    i.set_any_motion                         0x0800b94e   Section        0  bmi2.o(i.set_any_motion)
-    set_any_motion                           0x0800b94f   Thumb Code    90  bmi2.o(i.set_any_motion)
-    i.set_any_motion_config                  0x0800b9a8   Section        0  bmi2.o(i.set_any_motion_config)
-    set_any_motion_config                    0x0800b9a9   Thumb Code   198  bmi2.o(i.set_any_motion_config)
-    i.set_aux_config                         0x0800ba6e   Section        0  bmi2.o(i.set_aux_config)
-    set_aux_config                           0x0800ba6f   Thumb Code   144  bmi2.o(i.set_aux_config)
-    i.set_config_load                        0x0800bafe   Section        0  bmi2.o(i.set_config_load)
-    set_config_load                          0x0800baff   Thumb Code    54  bmi2.o(i.set_config_load)
-    i.set_double_tap                         0x0800bb34   Section        0  bmi2.o(i.set_double_tap)
-    set_double_tap                           0x0800bb35   Thumb Code    86  bmi2.o(i.set_double_tap)
-    i.set_ext_sens_sync                      0x0800bb8a   Section        0  bmi2.o(i.set_ext_sens_sync)
-    set_ext_sens_sync                        0x0800bb8b   Thumb Code    86  bmi2.o(i.set_ext_sens_sync)
-    i.set_ext_sens_sync_config               0x0800bbe0   Section        0  bmi2.o(i.set_ext_sens_sync_config)
-    set_ext_sens_sync_config                 0x0800bbe1   Thumb Code   142  bmi2.o(i.set_ext_sens_sync_config)
-    i.set_feat_accel_self_test               0x0800bc70   Section        0  bmi2.o(i.set_feat_accel_self_test)
-    set_feat_accel_self_test                 0x0800bc71   Thumb Code    98  bmi2.o(i.set_feat_accel_self_test)
-    i.set_flat                               0x0800bcd8   Section        0  bmi2.o(i.set_flat)
-    set_flat                                 0x0800bcd9   Thumb Code    86  bmi2.o(i.set_flat)
-    i.set_flat_config                        0x0800bd2e   Section        0  bmi2.o(i.set_flat_config)
-    set_flat_config                          0x0800bd2f   Thumb Code   188  bmi2.o(i.set_flat_config)
-    i.set_free_fall_det                      0x0800bdea   Section        0  bmi2.o(i.set_free_fall_det)
-    set_free_fall_det                        0x0800bdeb   Thumb Code    86  bmi2.o(i.set_free_fall_det)
-    i.set_free_fall_det_config               0x0800be40   Section        0  bmi2.o(i.set_free_fall_det_config)
-    set_free_fall_det_config                 0x0800be41   Thumb Code   168  bmi2.o(i.set_free_fall_det_config)
-    i.set_glance_detect_config               0x0800bee8   Section        0  bmi2.o(i.set_glance_detect_config)
-    set_glance_detect_config                 0x0800bee9   Thumb Code   142  bmi2.o(i.set_glance_detect_config)
-    i.set_glance_detector                    0x0800bf76   Section        0  bmi2.o(i.set_glance_detector)
-    set_glance_detector                      0x0800bf77   Thumb Code    86  bmi2.o(i.set_glance_detector)
-    i.set_gyro_config                        0x0800bfcc   Section        0  bmi2.o(i.set_gyro_config)
-    set_gyro_config                          0x0800bfcd   Thumb Code   172  bmi2.o(i.set_gyro_config)
-    i.set_gyro_self_offset_corr              0x0800c078   Section        0  bmi2.o(i.set_gyro_self_offset_corr)
-    set_gyro_self_offset_corr                0x0800c079   Thumb Code    86  bmi2.o(i.set_gyro_self_offset_corr)
-    i.set_gyro_user_gain                     0x0800c0ce   Section        0  bmi2.o(i.set_gyro_user_gain)
-    set_gyro_user_gain                       0x0800c0cf   Thumb Code    90  bmi2.o(i.set_gyro_user_gain)
-    i.set_gyro_user_gain_config              0x0800c128   Section        0  bmi2.o(i.set_gyro_user_gain_config)
-    set_gyro_user_gain_config                0x0800c129   Thumb Code   162  bmi2.o(i.set_gyro_user_gain_config)
-    i.set_high_g                             0x0800c1ca   Section        0  bmi2.o(i.set_high_g)
-    set_high_g                               0x0800c1cb   Thumb Code    90  bmi2.o(i.set_high_g)
-    i.set_high_g_config                      0x0800c224   Section        0  bmi2.o(i.set_high_g_config)
-    set_high_g_config                        0x0800c225   Thumb Code   218  bmi2.o(i.set_high_g_config)
-    i.set_low_g                              0x0800c2fe   Section        0  bmi2.o(i.set_low_g)
-    set_low_g                                0x0800c2ff   Thumb Code    90  bmi2.o(i.set_low_g)
-    i.set_low_g_config                       0x0800c358   Section        0  bmi2.o(i.set_low_g_config)
-    set_low_g_config                         0x0800c359   Thumb Code   186  bmi2.o(i.set_low_g_config)
-    i.set_no_motion                          0x0800c412   Section        0  bmi2.o(i.set_no_motion)
-    set_no_motion                            0x0800c413   Thumb Code    90  bmi2.o(i.set_no_motion)
-    i.set_no_motion_config                   0x0800c46c   Section        0  bmi2.o(i.set_no_motion_config)
-    set_no_motion_config                     0x0800c46d   Thumb Code   198  bmi2.o(i.set_no_motion_config)
-    i.set_orient_config                      0x0800c532   Section        0  bmi2.o(i.set_orient_config)
-    set_orient_config                        0x0800c533   Thumb Code   198  bmi2.o(i.set_orient_config)
-    i.set_orientation                        0x0800c5f8   Section        0  bmi2.o(i.set_orientation)
-    set_orientation                          0x0800c5f9   Thumb Code    86  bmi2.o(i.set_orientation)
-    i.set_primary_ois_config                 0x0800c64e   Section        0  bmi2.o(i.set_primary_ois_config)
-    set_primary_ois_config                   0x0800c64f   Thumb Code   158  bmi2.o(i.set_primary_ois_config)
-    i.set_sig_motion                         0x0800c6ec   Section        0  bmi2.o(i.set_sig_motion)
-    set_sig_motion                           0x0800c6ed   Thumb Code    90  bmi2.o(i.set_sig_motion)
-    i.set_sig_motion_config                  0x0800c746   Section        0  bmi2.o(i.set_sig_motion_config)
-    set_sig_motion_config                    0x0800c747   Thumb Code   190  bmi2.o(i.set_sig_motion_config)
-    i.set_single_tap                         0x0800c804   Section        0  bmi2.o(i.set_single_tap)
-    set_single_tap                           0x0800c805   Thumb Code    86  bmi2.o(i.set_single_tap)
-    i.set_step_activity                      0x0800c85a   Section        0  bmi2.o(i.set_step_activity)
-    set_step_activity                        0x0800c85b   Thumb Code    90  bmi2.o(i.set_step_activity)
-    i.set_step_config                        0x0800c8b4   Section        0  bmi2.o(i.set_step_config)
-    set_step_config                          0x0800c8b5   Thumb Code   192  bmi2.o(i.set_step_config)
-    i.set_step_count_params_config           0x0800c974   Section        0  bmi2.o(i.set_step_count_params_config)
-    set_step_count_params_config             0x0800c975   Thumb Code   212  bmi2.o(i.set_step_count_params_config)
-    i.set_step_counter                       0x0800ca48   Section        0  bmi2.o(i.set_step_counter)
-    set_step_counter                         0x0800ca49   Thumb Code    90  bmi2.o(i.set_step_counter)
-    i.set_step_detector                      0x0800caa2   Section        0  bmi2.o(i.set_step_detector)
-    set_step_detector                        0x0800caa3   Thumb Code    90  bmi2.o(i.set_step_detector)
-    i.set_tilt                               0x0800cafc   Section        0  bmi2.o(i.set_tilt)
-    set_tilt                                 0x0800cafd   Thumb Code    86  bmi2.o(i.set_tilt)
-    i.set_tilt_config                        0x0800cb52   Section        0  bmi2.o(i.set_tilt_config)
-    set_tilt_config                          0x0800cb53   Thumb Code   142  bmi2.o(i.set_tilt_config)
-    i.set_triple_tap                         0x0800cbe0   Section        0  bmi2.o(i.set_triple_tap)
-    set_triple_tap                           0x0800cbe1   Thumb Code    86  bmi2.o(i.set_triple_tap)
-    i.set_up_hold_to_wake                    0x0800cc36   Section        0  bmi2.o(i.set_up_hold_to_wake)
-    set_up_hold_to_wake                      0x0800cc37   Thumb Code    86  bmi2.o(i.set_up_hold_to_wake)
-    i.set_up_hold_to_wake_config             0x0800cc8c   Section        0  bmi2.o(i.set_up_hold_to_wake_config)
-    set_up_hold_to_wake_config               0x0800cc8d   Thumb Code   142  bmi2.o(i.set_up_hold_to_wake_config)
-    i.set_wake_up                            0x0800cd1a   Section        0  bmi2.o(i.set_wake_up)
-    set_wake_up                              0x0800cd1b   Thumb Code    86  bmi2.o(i.set_wake_up)
-    i.set_wake_up_config                     0x0800cd70   Section        0  bmi2.o(i.set_wake_up_config)
-    set_wake_up_config                       0x0800cd71   Thumb Code   188  bmi2.o(i.set_wake_up_config)
-    i.set_wrist_gest_config                  0x0800ce2c   Section        0  bmi2.o(i.set_wrist_gest_config)
-    set_wrist_gest_config                    0x0800ce2d   Thumb Code   182  bmi2.o(i.set_wrist_gest_config)
-    i.set_wrist_gest_w_config                0x0800cee2   Section        0  bmi2.o(i.set_wrist_gest_w_config)
-    set_wrist_gest_w_config                  0x0800cee3   Thumb Code   200  bmi2.o(i.set_wrist_gest_w_config)
-    i.set_wrist_gesture                      0x0800cfaa   Section        0  bmi2.o(i.set_wrist_gesture)
-    set_wrist_gesture                        0x0800cfab   Thumb Code    86  bmi2.o(i.set_wrist_gesture)
-    i.set_wrist_gesture_wh                   0x0800d000   Section        0  bmi2.o(i.set_wrist_gesture_wh)
-    set_wrist_gesture_wh                     0x0800d001   Thumb Code    86  bmi2.o(i.set_wrist_gesture_wh)
-    i.set_wrist_wear_wake_up                 0x0800d056   Section        0  bmi2.o(i.set_wrist_wear_wake_up)
-    set_wrist_wear_wake_up                   0x0800d057   Thumb Code    86  bmi2.o(i.set_wrist_wear_wake_up)
-    i.set_wrist_wear_wake_up_config          0x0800d0ac   Section        0  bmi2.o(i.set_wrist_wear_wake_up_config)
-    set_wrist_wear_wake_up_config            0x0800d0ad   Thumb Code   200  bmi2.o(i.set_wrist_wear_wake_up_config)
-    i.set_wrist_wear_wake_up_wh              0x0800d174   Section        0  bmi2.o(i.set_wrist_wear_wake_up_wh)
-    set_wrist_wear_wake_up_wh                0x0800d175   Thumb Code    86  bmi2.o(i.set_wrist_wear_wake_up_wh)
-    i.set_wrist_wear_wake_up_wh_config       0x0800d1ca   Section        0  bmi2.o(i.set_wrist_wear_wake_up_wh_config)
-    set_wrist_wear_wake_up_wh_config         0x0800d1cb   Thumb Code   250  bmi2.o(i.set_wrist_wear_wake_up_wh_config)
-    i.shoot_work                             0x0800d2c4   Section        0  shoot_task.o(i.shoot_work)
-    i.sqrt                                   0x0800d5f8   Section        0  sqrt.o(i.sqrt)
-    i.uart_rx_idle_callback                  0x0800d668   Section        0  drv_uart.o(i.uart_rx_idle_callback)
-    uart_rx_idle_callback                    0x0800d669   Thumb Code   210  drv_uart.o(i.uart_rx_idle_callback)
-    i.upload_file                            0x0800d75c   Section        0  bmi2.o(i.upload_file)
-    upload_file                              0x0800d75d   Thumb Code    64  bmi2.o(i.upload_file)
-    i.user_delay_us                          0x0800d79c   Section        0  bmi2_common.o(i.user_delay_us)
-    i.user_i2c_reg_read                      0x0800d7a0   Section        0  bmi2_common.o(i.user_i2c_reg_read)
-    i.user_i2c_reg_write                     0x0800d7c4   Section        0  bmi2_common.o(i.user_i2c_reg_write)
-    i.uxListRemove                           0x0800d810   Section        0  list.o(i.uxListRemove)
-    i.vApplicationGetIdleTaskMemory          0x0800d838   Section        0  freertos.o(i.vApplicationGetIdleTaskMemory)
-    i.vListInitialise                        0x0800d84c   Section        0  list.o(i.vListInitialise)
-    i.vListInitialiseItem                    0x0800d862   Section        0  list.o(i.vListInitialiseItem)
-    i.vListInsert                            0x0800d868   Section        0  list.o(i.vListInsert)
-    i.vListInsertEnd                         0x0800d898   Section        0  list.o(i.vListInsertEnd)
-    i.vPortEnterCritical                     0x0800d8b0   Section        0  port.o(i.vPortEnterCritical)
-    i.vPortExitCritical                      0x0800d8f0   Section        0  port.o(i.vPortExitCritical)
-    i.vPortFree                              0x0800d918   Section        0  heap_4.o(i.vPortFree)
-    i.vPortSetupTimerInterrupt               0x0800d974   Section        0  port.o(i.vPortSetupTimerInterrupt)
-    i.vTaskDelay                             0x0800d998   Section        0  tasks.o(i.vTaskDelay)
-    i.vTaskStartScheduler                    0x0800d9e4   Section        0  tasks.o(i.vTaskStartScheduler)
-    i.vTaskSuspendAll                        0x0800da50   Section        0  tasks.o(i.vTaskSuspendAll)
-    i.vTaskSwitchContext                     0x0800da60   Section        0  tasks.o(i.vTaskSwitchContext)
-    i.vision_task                            0x0800dabc   Section        0  vision.o(i.vision_task)
-    i.work_check                             0x0800dc30   Section        0  check_task.o(i.work_check)
-    i.write_config_file                      0x0800dd00   Section        0  bmi2.o(i.write_config_file)
-    write_config_file                        0x0800dd01   Thumb Code   224  bmi2.o(i.write_config_file)
-    i.xPortStartScheduler                    0x0800dde4   Section        0  port.o(i.xPortStartScheduler)
-    i.xTaskCreate                            0x0800ded8   Section        0  tasks.o(i.xTaskCreate)
-    i.xTaskCreateStatic                      0x0800df32   Section        0  tasks.o(i.xTaskCreateStatic)
-    i.xTaskIncrementTick                     0x0800df88   Section        0  tasks.o(i.xTaskIncrementTick)
-    i.xTaskResumeAll                         0x0800e050   Section        0  tasks.o(i.xTaskResumeAll)
-    x$fpl$basic                              0x0800e114   Section       24  basic.o(x$fpl$basic)
-    $v0                                      0x0800e114   Number         0  basic.o(x$fpl$basic)
-    x$fpl$d2f                                0x0800e12c   Section       98  d2f.o(x$fpl$d2f)
-    $v0                                      0x0800e12c   Number         0  d2f.o(x$fpl$d2f)
-    x$fpl$dadd                               0x0800e190   Section      336  daddsub_clz.o(x$fpl$dadd)
-    $v0                                      0x0800e190   Number         0  daddsub_clz.o(x$fpl$dadd)
-    _dadd1                                   0x0800e1a1   Thumb Code     0  daddsub_clz.o(x$fpl$dadd)
-    x$fpl$dcmpinf                            0x0800e2e0   Section       24  dcmpi.o(x$fpl$dcmpinf)
-    $v0                                      0x0800e2e0   Number         0  dcmpi.o(x$fpl$dcmpinf)
-    x$fpl$ddiv                               0x0800e2f8   Section      688  ddiv.o(x$fpl$ddiv)
-    $v0                                      0x0800e2f8   Number         0  ddiv.o(x$fpl$ddiv)
-    ddiv_entry                               0x0800e2ff   Thumb Code     0  ddiv.o(x$fpl$ddiv)
-    x$fpl$deqf                               0x0800e5a8   Section      120  deqf.o(x$fpl$deqf)
-    $v0                                      0x0800e5a8   Number         0  deqf.o(x$fpl$deqf)
-    x$fpl$dfix                               0x0800e620   Section       94  dfix.o(x$fpl$dfix)
-    $v0                                      0x0800e620   Number         0  dfix.o(x$fpl$dfix)
-    x$fpl$dflt                               0x0800e67e   Section       46  dflt_clz.o(x$fpl$dflt)
-    $v0                                      0x0800e67e   Number         0  dflt_clz.o(x$fpl$dflt)
-    x$fpl$dfltu                              0x0800e6ac   Section       38  dflt_clz.o(x$fpl$dfltu)
-    $v0                                      0x0800e6ac   Number         0  dflt_clz.o(x$fpl$dfltu)
-    x$fpl$dmul                               0x0800e6d4   Section      340  dmul.o(x$fpl$dmul)
-    $v0                                      0x0800e6d4   Number         0  dmul.o(x$fpl$dmul)
-    x$fpl$dnaninf                            0x0800e828   Section      156  dnaninf.o(x$fpl$dnaninf)
-    $v0                                      0x0800e828   Number         0  dnaninf.o(x$fpl$dnaninf)
-    x$fpl$dretinf                            0x0800e8c4   Section       12  dretinf.o(x$fpl$dretinf)
-    $v0                                      0x0800e8c4   Number         0  dretinf.o(x$fpl$dretinf)
-    x$fpl$drsb                               0x0800e8d0   Section       22  daddsub_clz.o(x$fpl$drsb)
-    $v0                                      0x0800e8d0   Number         0  daddsub_clz.o(x$fpl$drsb)
-    x$fpl$dsqrt                              0x0800e8e8   Section      408  dsqrt_umaal.o(x$fpl$dsqrt)
-    $v0                                      0x0800e8e8   Number         0  dsqrt_umaal.o(x$fpl$dsqrt)
-    x$fpl$dsub                               0x0800ea80   Section      468  daddsub_clz.o(x$fpl$dsub)
-    $v0                                      0x0800ea80   Number         0  daddsub_clz.o(x$fpl$dsub)
-    _dsub1                                   0x0800ea91   Thumb Code     0  daddsub_clz.o(x$fpl$dsub)
-    x$fpl$f2d                                0x0800ec54   Section       86  f2d.o(x$fpl$f2d)
-    $v0                                      0x0800ec54   Number         0  f2d.o(x$fpl$f2d)
-    x$fpl$fnaninf                            0x0800ecaa   Section      140  fnaninf.o(x$fpl$fnaninf)
-    $v0                                      0x0800ecaa   Number         0  fnaninf.o(x$fpl$fnaninf)
-    x$fpl$fpinit                             0x0800ed36   Section       10  fpinit.o(x$fpl$fpinit)
-    $v0                                      0x0800ed36   Number         0  fpinit.o(x$fpl$fpinit)
-    x$fpl$fretinf                            0x0800ed40   Section       10  fretinf.o(x$fpl$fretinf)
-    $v0                                      0x0800ed40   Number         0  fretinf.o(x$fpl$fretinf)
-    x$fpl$usenofp                            0x0800ed4a   Section        0  usenofp.o(x$fpl$usenofp)
-    .constdata                               0x0800ed4c   Section      224  freertos.o(.constdata)
-    .constdata                               0x0800ee2c   Section        8  stm32f4xx_hal_dma.o(.constdata)
-    flagBitshiftOffset                       0x0800ee2c   Data           8  stm32f4xx_hal_dma.o(.constdata)
-    .constdata                               0x0800ee34   Section       16  system_stm32f4xx.o(.constdata)
-    .constdata                               0x0800ee44   Section        8  system_stm32f4xx.o(.constdata)
-    .constdata                               0x0800ee4c   Section        6  bmi2.o(.constdata)
-    .constdata                               0x0800ee52   Section     8261  bmi270.o(.constdata)
-    .constdata                               0x08010e98   Section      768  crc.o(.constdata)
-    .constdata                               0x08011198   Section       80  asin.o(.constdata)
-    pS                                       0x08011198   Data          48  asin.o(.constdata)
-    qS                                       0x080111c8   Data          32  asin.o(.constdata)
-    .constdata                               0x080111e8   Section      152  atan.o(.constdata)
-    atanhi                                   0x080111e8   Data          32  atan.o(.constdata)
-    atanlo                                   0x08011208   Data          32  atan.o(.constdata)
-    aTodd                                    0x08011228   Data          40  atan.o(.constdata)
-    aTeven                                   0x08011250   Data          48  atan.o(.constdata)
-    .constdata                               0x08011280   Section       48  cos_i.o(.constdata)
-    C                                        0x08011280   Data          48  cos_i.o(.constdata)
-    .constdata                               0x080112b0   Section        8  qnan.o(.constdata)
-    .constdata                               0x080112b8   Section      200  rred.o(.constdata)
-    pio2s                                    0x080112b8   Data          48  rred.o(.constdata)
-    twooverpi                                0x080112e8   Data         152  rred.o(.constdata)
-    .constdata                               0x08011380   Section       40  sin_i.o(.constdata)
-    S                                        0x08011380   Data          40  sin_i.o(.constdata)
-    .conststring                             0x080113a8   Section      100  freertos.o(.conststring)
+    i.inVSqrt                                0x08009a18   Section        0  bmi.o(i.inVSqrt)
+    i.int16_to_float                         0x08009a44   Section        0  cap_protocol_1.o(i.int16_to_float)
+    i.judge_heart                            0x08009a6c   Section        0  judge.o(i.judge_heart)
+    i.judge_recive                           0x08009a94   Section        0  judge.o(i.judge_recive)
+    i.judge_update                           0x08009b04   Section        0  judge.o(i.judge_update)
+    i.key_board_status_interrupt_update      0x08009db8   Section        0  remote.o(i.key_board_status_interrupt_update)
+    i.key_board_status_update                0x08009dfc   Section        0  remote.o(i.key_board_status_update)
+    i.lsb_to_dps                             0x08009e32   Section        0  bmi.o(i.lsb_to_dps)
+    lsb_to_dps                               0x08009e33   Thumb Code    38  bmi.o(i.lsb_to_dps)
+    i.lsb_to_mps2                            0x08009e58   Section        0  bmi.o(i.lsb_to_mps2)
+    lsb_to_mps2                              0x08009e59   Thumb Code    46  bmi.o(i.lsb_to_mps2)
+    i.main                                   0x08009e8c   Section        0  main.o(i.main)
+    i.makeFreeRtosPriority                   0x08009f28   Section        0  cmsis_os.o(i.makeFreeRtosPriority)
+    makeFreeRtosPriority                     0x08009f29   Thumb Code    12  cmsis_os.o(i.makeFreeRtosPriority)
+    i.master_work                            0x08009f34   Section        0  master_task.o(i.master_work)
+    i.micros                                 0x0800a2e8   Section        0  drv_haltick.o(i.micros)
+    i.my_BMI_Get_EulerAngle                  0x0800a30c   Section        0  bmi.o(i.my_BMI_Get_EulerAngle)
+    i.null_ptr_check                         0x0800a834   Section        0  bmi2.o(i.null_ptr_check)
+    null_ptr_check                           0x0800a835   Thumb Code    24  bmi2.o(i.null_ptr_check)
+    i.osDelay                                0x0800a84c   Section        0  cmsis_os.o(i.osDelay)
+    i.osKernelStart                          0x0800a85a   Section        0  cmsis_os.o(i.osKernelStart)
+    i.osThreadCreate                         0x0800a864   Section        0  cmsis_os.o(i.osThreadCreate)
+    i.pid_calc                               0x0800a8b8   Section        0  dji_pid.o(i.pid_calc)
+    i.pid_calc_err                           0x0800aa7c   Section        0  dji_pid.o(i.pid_calc_err)
+    i.pid_calc_err_9015                      0x0800ac08   Section        0  dji_pid.o(i.pid_calc_err_9015)
+    i.pid_param_init                         0x0800adc0   Section        0  dji_pid.o(i.pid_param_init)
+    pid_param_init                           0x0800adc1   Thumb Code    14  dji_pid.o(i.pid_param_init)
+    i.pid_reset                              0x0800adce   Section        0  dji_pid.o(i.pid_reset)
+    pid_reset                                0x0800adcf   Thumb Code     6  dji_pid.o(i.pid_reset)
+    i.prvAddCurrentTaskToDelayedList         0x0800add4   Section        0  tasks.o(i.prvAddCurrentTaskToDelayedList)
+    prvAddCurrentTaskToDelayedList           0x0800add5   Thumb Code   102  tasks.o(i.prvAddCurrentTaskToDelayedList)
+    i.prvAddNewTaskToReadyList               0x0800ae44   Section        0  tasks.o(i.prvAddNewTaskToReadyList)
+    prvAddNewTaskToReadyList                 0x0800ae45   Thumb Code   194  tasks.o(i.prvAddNewTaskToReadyList)
+    i.prvDeleteTCB                           0x0800af14   Section        0  tasks.o(i.prvDeleteTCB)
+    prvDeleteTCB                             0x0800af15   Thumb Code    52  tasks.o(i.prvDeleteTCB)
+    i.prvHeapInit                            0x0800af48   Section        0  heap_4.o(i.prvHeapInit)
+    prvHeapInit                              0x0800af49   Thumb Code    66  heap_4.o(i.prvHeapInit)
+    i.prvIdleTask                            0x0800af94   Section        0  tasks.o(i.prvIdleTask)
+    prvIdleTask                              0x0800af95   Thumb Code    82  tasks.o(i.prvIdleTask)
+    i.prvInitialiseNewTask                   0x0800aff4   Section        0  tasks.o(i.prvInitialiseNewTask)
+    prvInitialiseNewTask                     0x0800aff5   Thumb Code   152  tasks.o(i.prvInitialiseNewTask)
+    i.prvInsertBlockIntoFreeList             0x0800b08c   Section        0  heap_4.o(i.prvInsertBlockIntoFreeList)
+    prvInsertBlockIntoFreeList               0x0800b08d   Thumb Code    72  heap_4.o(i.prvInsertBlockIntoFreeList)
+    i.prvResetNextTaskUnblockTime            0x0800b0d8   Section        0  tasks.o(i.prvResetNextTaskUnblockTime)
+    prvResetNextTaskUnblockTime              0x0800b0d9   Thumb Code    26  tasks.o(i.prvResetNextTaskUnblockTime)
+    i.prvTaskExitError                       0x0800b0f8   Section        0  port.o(i.prvTaskExitError)
+    prvTaskExitError                         0x0800b0f9   Thumb Code    36  port.o(i.prvTaskExitError)
+    i.pvPortMalloc                           0x0800b120   Section        0  heap_4.o(i.pvPortMalloc)
+    i.pxPortInitialiseStack                  0x0800b1f8   Section        0  port.o(i.pxPortInitialiseStack)
+    i.rc_base_info_update                    0x0800b224   Section        0  remote.o(i.rc_base_info_update)
+    i.rc_init                                0x0800b360   Section        0  remote.o(i.rc_init)
+    i.rc_wheel_status_interrupt_update       0x0800b380   Section        0  remote.o(i.rc_wheel_status_interrupt_update)
+    i.select_sensor                          0x0800b3b6   Section        0  bmi2.o(i.select_sensor)
+    select_sensor                            0x0800b3b7   Thumb Code   334  bmi2.o(i.select_sensor)
+    i.sensor_enable                          0x0800b504   Section        0  bmi2.o(i.sensor_enable)
+    sensor_enable                            0x0800b505   Thumb Code   958  bmi2.o(i.sensor_enable)
+    i.set_accel_config                       0x0800b8c8   Section        0  bmi2.o(i.set_accel_config)
+    set_accel_config                         0x0800b8c9   Thumb Code   152  bmi2.o(i.set_accel_config)
+    i.set_act_recog                          0x0800b960   Section        0  bmi2.o(i.set_act_recog)
+    set_act_recog                            0x0800b961   Thumb Code    86  bmi2.o(i.set_act_recog)
+    i.set_any_motion                         0x0800b9b6   Section        0  bmi2.o(i.set_any_motion)
+    set_any_motion                           0x0800b9b7   Thumb Code    90  bmi2.o(i.set_any_motion)
+    i.set_any_motion_config                  0x0800ba10   Section        0  bmi2.o(i.set_any_motion_config)
+    set_any_motion_config                    0x0800ba11   Thumb Code   198  bmi2.o(i.set_any_motion_config)
+    i.set_aux_config                         0x0800bad6   Section        0  bmi2.o(i.set_aux_config)
+    set_aux_config                           0x0800bad7   Thumb Code   144  bmi2.o(i.set_aux_config)
+    i.set_config_load                        0x0800bb66   Section        0  bmi2.o(i.set_config_load)
+    set_config_load                          0x0800bb67   Thumb Code    54  bmi2.o(i.set_config_load)
+    i.set_double_tap                         0x0800bb9c   Section        0  bmi2.o(i.set_double_tap)
+    set_double_tap                           0x0800bb9d   Thumb Code    86  bmi2.o(i.set_double_tap)
+    i.set_ext_sens_sync                      0x0800bbf2   Section        0  bmi2.o(i.set_ext_sens_sync)
+    set_ext_sens_sync                        0x0800bbf3   Thumb Code    86  bmi2.o(i.set_ext_sens_sync)
+    i.set_ext_sens_sync_config               0x0800bc48   Section        0  bmi2.o(i.set_ext_sens_sync_config)
+    set_ext_sens_sync_config                 0x0800bc49   Thumb Code   142  bmi2.o(i.set_ext_sens_sync_config)
+    i.set_feat_accel_self_test               0x0800bcd8   Section        0  bmi2.o(i.set_feat_accel_self_test)
+    set_feat_accel_self_test                 0x0800bcd9   Thumb Code    98  bmi2.o(i.set_feat_accel_self_test)
+    i.set_flat                               0x0800bd40   Section        0  bmi2.o(i.set_flat)
+    set_flat                                 0x0800bd41   Thumb Code    86  bmi2.o(i.set_flat)
+    i.set_flat_config                        0x0800bd96   Section        0  bmi2.o(i.set_flat_config)
+    set_flat_config                          0x0800bd97   Thumb Code   188  bmi2.o(i.set_flat_config)
+    i.set_free_fall_det                      0x0800be52   Section        0  bmi2.o(i.set_free_fall_det)
+    set_free_fall_det                        0x0800be53   Thumb Code    86  bmi2.o(i.set_free_fall_det)
+    i.set_free_fall_det_config               0x0800bea8   Section        0  bmi2.o(i.set_free_fall_det_config)
+    set_free_fall_det_config                 0x0800bea9   Thumb Code   168  bmi2.o(i.set_free_fall_det_config)
+    i.set_glance_detect_config               0x0800bf50   Section        0  bmi2.o(i.set_glance_detect_config)
+    set_glance_detect_config                 0x0800bf51   Thumb Code   142  bmi2.o(i.set_glance_detect_config)
+    i.set_glance_detector                    0x0800bfde   Section        0  bmi2.o(i.set_glance_detector)
+    set_glance_detector                      0x0800bfdf   Thumb Code    86  bmi2.o(i.set_glance_detector)
+    i.set_gyro_config                        0x0800c034   Section        0  bmi2.o(i.set_gyro_config)
+    set_gyro_config                          0x0800c035   Thumb Code   172  bmi2.o(i.set_gyro_config)
+    i.set_gyro_self_offset_corr              0x0800c0e0   Section        0  bmi2.o(i.set_gyro_self_offset_corr)
+    set_gyro_self_offset_corr                0x0800c0e1   Thumb Code    86  bmi2.o(i.set_gyro_self_offset_corr)
+    i.set_gyro_user_gain                     0x0800c136   Section        0  bmi2.o(i.set_gyro_user_gain)
+    set_gyro_user_gain                       0x0800c137   Thumb Code    90  bmi2.o(i.set_gyro_user_gain)
+    i.set_gyro_user_gain_config              0x0800c190   Section        0  bmi2.o(i.set_gyro_user_gain_config)
+    set_gyro_user_gain_config                0x0800c191   Thumb Code   162  bmi2.o(i.set_gyro_user_gain_config)
+    i.set_high_g                             0x0800c232   Section        0  bmi2.o(i.set_high_g)
+    set_high_g                               0x0800c233   Thumb Code    90  bmi2.o(i.set_high_g)
+    i.set_high_g_config                      0x0800c28c   Section        0  bmi2.o(i.set_high_g_config)
+    set_high_g_config                        0x0800c28d   Thumb Code   218  bmi2.o(i.set_high_g_config)
+    i.set_low_g                              0x0800c366   Section        0  bmi2.o(i.set_low_g)
+    set_low_g                                0x0800c367   Thumb Code    90  bmi2.o(i.set_low_g)
+    i.set_low_g_config                       0x0800c3c0   Section        0  bmi2.o(i.set_low_g_config)
+    set_low_g_config                         0x0800c3c1   Thumb Code   186  bmi2.o(i.set_low_g_config)
+    i.set_no_motion                          0x0800c47a   Section        0  bmi2.o(i.set_no_motion)
+    set_no_motion                            0x0800c47b   Thumb Code    90  bmi2.o(i.set_no_motion)
+    i.set_no_motion_config                   0x0800c4d4   Section        0  bmi2.o(i.set_no_motion_config)
+    set_no_motion_config                     0x0800c4d5   Thumb Code   198  bmi2.o(i.set_no_motion_config)
+    i.set_orient_config                      0x0800c59a   Section        0  bmi2.o(i.set_orient_config)
+    set_orient_config                        0x0800c59b   Thumb Code   198  bmi2.o(i.set_orient_config)
+    i.set_orientation                        0x0800c660   Section        0  bmi2.o(i.set_orientation)
+    set_orientation                          0x0800c661   Thumb Code    86  bmi2.o(i.set_orientation)
+    i.set_primary_ois_config                 0x0800c6b6   Section        0  bmi2.o(i.set_primary_ois_config)
+    set_primary_ois_config                   0x0800c6b7   Thumb Code   158  bmi2.o(i.set_primary_ois_config)
+    i.set_sig_motion                         0x0800c754   Section        0  bmi2.o(i.set_sig_motion)
+    set_sig_motion                           0x0800c755   Thumb Code    90  bmi2.o(i.set_sig_motion)
+    i.set_sig_motion_config                  0x0800c7ae   Section        0  bmi2.o(i.set_sig_motion_config)
+    set_sig_motion_config                    0x0800c7af   Thumb Code   190  bmi2.o(i.set_sig_motion_config)
+    i.set_single_tap                         0x0800c86c   Section        0  bmi2.o(i.set_single_tap)
+    set_single_tap                           0x0800c86d   Thumb Code    86  bmi2.o(i.set_single_tap)
+    i.set_step_activity                      0x0800c8c2   Section        0  bmi2.o(i.set_step_activity)
+    set_step_activity                        0x0800c8c3   Thumb Code    90  bmi2.o(i.set_step_activity)
+    i.set_step_config                        0x0800c91c   Section        0  bmi2.o(i.set_step_config)
+    set_step_config                          0x0800c91d   Thumb Code   192  bmi2.o(i.set_step_config)
+    i.set_step_count_params_config           0x0800c9dc   Section        0  bmi2.o(i.set_step_count_params_config)
+    set_step_count_params_config             0x0800c9dd   Thumb Code   212  bmi2.o(i.set_step_count_params_config)
+    i.set_step_counter                       0x0800cab0   Section        0  bmi2.o(i.set_step_counter)
+    set_step_counter                         0x0800cab1   Thumb Code    90  bmi2.o(i.set_step_counter)
+    i.set_step_detector                      0x0800cb0a   Section        0  bmi2.o(i.set_step_detector)
+    set_step_detector                        0x0800cb0b   Thumb Code    90  bmi2.o(i.set_step_detector)
+    i.set_tilt                               0x0800cb64   Section        0  bmi2.o(i.set_tilt)
+    set_tilt                                 0x0800cb65   Thumb Code    86  bmi2.o(i.set_tilt)
+    i.set_tilt_config                        0x0800cbba   Section        0  bmi2.o(i.set_tilt_config)
+    set_tilt_config                          0x0800cbbb   Thumb Code   142  bmi2.o(i.set_tilt_config)
+    i.set_triple_tap                         0x0800cc48   Section        0  bmi2.o(i.set_triple_tap)
+    set_triple_tap                           0x0800cc49   Thumb Code    86  bmi2.o(i.set_triple_tap)
+    i.set_up_hold_to_wake                    0x0800cc9e   Section        0  bmi2.o(i.set_up_hold_to_wake)
+    set_up_hold_to_wake                      0x0800cc9f   Thumb Code    86  bmi2.o(i.set_up_hold_to_wake)
+    i.set_up_hold_to_wake_config             0x0800ccf4   Section        0  bmi2.o(i.set_up_hold_to_wake_config)
+    set_up_hold_to_wake_config               0x0800ccf5   Thumb Code   142  bmi2.o(i.set_up_hold_to_wake_config)
+    i.set_wake_up                            0x0800cd82   Section        0  bmi2.o(i.set_wake_up)
+    set_wake_up                              0x0800cd83   Thumb Code    86  bmi2.o(i.set_wake_up)
+    i.set_wake_up_config                     0x0800cdd8   Section        0  bmi2.o(i.set_wake_up_config)
+    set_wake_up_config                       0x0800cdd9   Thumb Code   188  bmi2.o(i.set_wake_up_config)
+    i.set_wrist_gest_config                  0x0800ce94   Section        0  bmi2.o(i.set_wrist_gest_config)
+    set_wrist_gest_config                    0x0800ce95   Thumb Code   182  bmi2.o(i.set_wrist_gest_config)
+    i.set_wrist_gest_w_config                0x0800cf4a   Section        0  bmi2.o(i.set_wrist_gest_w_config)
+    set_wrist_gest_w_config                  0x0800cf4b   Thumb Code   200  bmi2.o(i.set_wrist_gest_w_config)
+    i.set_wrist_gesture                      0x0800d012   Section        0  bmi2.o(i.set_wrist_gesture)
+    set_wrist_gesture                        0x0800d013   Thumb Code    86  bmi2.o(i.set_wrist_gesture)
+    i.set_wrist_gesture_wh                   0x0800d068   Section        0  bmi2.o(i.set_wrist_gesture_wh)
+    set_wrist_gesture_wh                     0x0800d069   Thumb Code    86  bmi2.o(i.set_wrist_gesture_wh)
+    i.set_wrist_wear_wake_up                 0x0800d0be   Section        0  bmi2.o(i.set_wrist_wear_wake_up)
+    set_wrist_wear_wake_up                   0x0800d0bf   Thumb Code    86  bmi2.o(i.set_wrist_wear_wake_up)
+    i.set_wrist_wear_wake_up_config          0x0800d114   Section        0  bmi2.o(i.set_wrist_wear_wake_up_config)
+    set_wrist_wear_wake_up_config            0x0800d115   Thumb Code   200  bmi2.o(i.set_wrist_wear_wake_up_config)
+    i.set_wrist_wear_wake_up_wh              0x0800d1dc   Section        0  bmi2.o(i.set_wrist_wear_wake_up_wh)
+    set_wrist_wear_wake_up_wh                0x0800d1dd   Thumb Code    86  bmi2.o(i.set_wrist_wear_wake_up_wh)
+    i.set_wrist_wear_wake_up_wh_config       0x0800d232   Section        0  bmi2.o(i.set_wrist_wear_wake_up_wh_config)
+    set_wrist_wear_wake_up_wh_config         0x0800d233   Thumb Code   250  bmi2.o(i.set_wrist_wear_wake_up_wh_config)
+    i.shoot_work                             0x0800d32c   Section        0  shoot_task.o(i.shoot_work)
+    i.sqrt                                   0x0800d660   Section        0  sqrt.o(i.sqrt)
+    i.uart_rx_idle_callback                  0x0800d6d0   Section        0  drv_uart.o(i.uart_rx_idle_callback)
+    uart_rx_idle_callback                    0x0800d6d1   Thumb Code   210  drv_uart.o(i.uart_rx_idle_callback)
+    i.upload_file                            0x0800d7c4   Section        0  bmi2.o(i.upload_file)
+    upload_file                              0x0800d7c5   Thumb Code    64  bmi2.o(i.upload_file)
+    i.user_delay_us                          0x0800d804   Section        0  bmi2_common.o(i.user_delay_us)
+    i.user_i2c_reg_read                      0x0800d808   Section        0  bmi2_common.o(i.user_i2c_reg_read)
+    i.user_i2c_reg_write                     0x0800d82c   Section        0  bmi2_common.o(i.user_i2c_reg_write)
+    i.uxListRemove                           0x0800d878   Section        0  list.o(i.uxListRemove)
+    i.vApplicationGetIdleTaskMemory          0x0800d8a0   Section        0  freertos.o(i.vApplicationGetIdleTaskMemory)
+    i.vListInitialise                        0x0800d8b4   Section        0  list.o(i.vListInitialise)
+    i.vListInitialiseItem                    0x0800d8ca   Section        0  list.o(i.vListInitialiseItem)
+    i.vListInsert                            0x0800d8d0   Section        0  list.o(i.vListInsert)
+    i.vListInsertEnd                         0x0800d900   Section        0  list.o(i.vListInsertEnd)
+    i.vPortEnterCritical                     0x0800d918   Section        0  port.o(i.vPortEnterCritical)
+    i.vPortExitCritical                      0x0800d958   Section        0  port.o(i.vPortExitCritical)
+    i.vPortFree                              0x0800d980   Section        0  heap_4.o(i.vPortFree)
+    i.vPortSetupTimerInterrupt               0x0800d9dc   Section        0  port.o(i.vPortSetupTimerInterrupt)
+    i.vTaskDelay                             0x0800da00   Section        0  tasks.o(i.vTaskDelay)
+    i.vTaskStartScheduler                    0x0800da4c   Section        0  tasks.o(i.vTaskStartScheduler)
+    i.vTaskSuspendAll                        0x0800dab8   Section        0  tasks.o(i.vTaskSuspendAll)
+    i.vTaskSwitchContext                     0x0800dac8   Section        0  tasks.o(i.vTaskSwitchContext)
+    i.vision_task                            0x0800db24   Section        0  vision.o(i.vision_task)
+    i.work_check                             0x0800dc98   Section        0  check_task.o(i.work_check)
+    i.write_config_file                      0x0800dd68   Section        0  bmi2.o(i.write_config_file)
+    write_config_file                        0x0800dd69   Thumb Code   224  bmi2.o(i.write_config_file)
+    i.xPortStartScheduler                    0x0800de4c   Section        0  port.o(i.xPortStartScheduler)
+    i.xTaskCreate                            0x0800df40   Section        0  tasks.o(i.xTaskCreate)
+    i.xTaskCreateStatic                      0x0800df9a   Section        0  tasks.o(i.xTaskCreateStatic)
+    i.xTaskIncrementTick                     0x0800dff0   Section        0  tasks.o(i.xTaskIncrementTick)
+    i.xTaskResumeAll                         0x0800e0b8   Section        0  tasks.o(i.xTaskResumeAll)
+    x$fpl$basic                              0x0800e17c   Section       24  basic.o(x$fpl$basic)
+    $v0                                      0x0800e17c   Number         0  basic.o(x$fpl$basic)
+    x$fpl$d2f                                0x0800e194   Section       98  d2f.o(x$fpl$d2f)
+    $v0                                      0x0800e194   Number         0  d2f.o(x$fpl$d2f)
+    x$fpl$dadd                               0x0800e1f8   Section      336  daddsub_clz.o(x$fpl$dadd)
+    $v0                                      0x0800e1f8   Number         0  daddsub_clz.o(x$fpl$dadd)
+    _dadd1                                   0x0800e209   Thumb Code     0  daddsub_clz.o(x$fpl$dadd)
+    x$fpl$dcmpinf                            0x0800e348   Section       24  dcmpi.o(x$fpl$dcmpinf)
+    $v0                                      0x0800e348   Number         0  dcmpi.o(x$fpl$dcmpinf)
+    x$fpl$ddiv                               0x0800e360   Section      688  ddiv.o(x$fpl$ddiv)
+    $v0                                      0x0800e360   Number         0  ddiv.o(x$fpl$ddiv)
+    ddiv_entry                               0x0800e367   Thumb Code     0  ddiv.o(x$fpl$ddiv)
+    x$fpl$deqf                               0x0800e610   Section      120  deqf.o(x$fpl$deqf)
+    $v0                                      0x0800e610   Number         0  deqf.o(x$fpl$deqf)
+    x$fpl$dfix                               0x0800e688   Section       94  dfix.o(x$fpl$dfix)
+    $v0                                      0x0800e688   Number         0  dfix.o(x$fpl$dfix)
+    x$fpl$dflt                               0x0800e6e6   Section       46  dflt_clz.o(x$fpl$dflt)
+    $v0                                      0x0800e6e6   Number         0  dflt_clz.o(x$fpl$dflt)
+    x$fpl$dfltu                              0x0800e714   Section       38  dflt_clz.o(x$fpl$dfltu)
+    $v0                                      0x0800e714   Number         0  dflt_clz.o(x$fpl$dfltu)
+    x$fpl$dmul                               0x0800e73c   Section      340  dmul.o(x$fpl$dmul)
+    $v0                                      0x0800e73c   Number         0  dmul.o(x$fpl$dmul)
+    x$fpl$dnaninf                            0x0800e890   Section      156  dnaninf.o(x$fpl$dnaninf)
+    $v0                                      0x0800e890   Number         0  dnaninf.o(x$fpl$dnaninf)
+    x$fpl$dretinf                            0x0800e92c   Section       12  dretinf.o(x$fpl$dretinf)
+    $v0                                      0x0800e92c   Number         0  dretinf.o(x$fpl$dretinf)
+    x$fpl$drsb                               0x0800e938   Section       22  daddsub_clz.o(x$fpl$drsb)
+    $v0                                      0x0800e938   Number         0  daddsub_clz.o(x$fpl$drsb)
+    x$fpl$dsqrt                              0x0800e950   Section      408  dsqrt_umaal.o(x$fpl$dsqrt)
+    $v0                                      0x0800e950   Number         0  dsqrt_umaal.o(x$fpl$dsqrt)
+    x$fpl$dsub                               0x0800eae8   Section      468  daddsub_clz.o(x$fpl$dsub)
+    $v0                                      0x0800eae8   Number         0  daddsub_clz.o(x$fpl$dsub)
+    _dsub1                                   0x0800eaf9   Thumb Code     0  daddsub_clz.o(x$fpl$dsub)
+    x$fpl$f2d                                0x0800ecbc   Section       86  f2d.o(x$fpl$f2d)
+    $v0                                      0x0800ecbc   Number         0  f2d.o(x$fpl$f2d)
+    x$fpl$fnaninf                            0x0800ed12   Section      140  fnaninf.o(x$fpl$fnaninf)
+    $v0                                      0x0800ed12   Number         0  fnaninf.o(x$fpl$fnaninf)
+    x$fpl$fpinit                             0x0800ed9e   Section       10  fpinit.o(x$fpl$fpinit)
+    $v0                                      0x0800ed9e   Number         0  fpinit.o(x$fpl$fpinit)
+    x$fpl$fretinf                            0x0800eda8   Section       10  fretinf.o(x$fpl$fretinf)
+    $v0                                      0x0800eda8   Number         0  fretinf.o(x$fpl$fretinf)
+    x$fpl$usenofp                            0x0800edb2   Section        0  usenofp.o(x$fpl$usenofp)
+    .constdata                               0x0800edb4   Section      224  freertos.o(.constdata)
+    .constdata                               0x0800ee94   Section        8  stm32f4xx_hal_dma.o(.constdata)
+    flagBitshiftOffset                       0x0800ee94   Data           8  stm32f4xx_hal_dma.o(.constdata)
+    .constdata                               0x0800ee9c   Section       16  system_stm32f4xx.o(.constdata)
+    .constdata                               0x0800eeac   Section        8  system_stm32f4xx.o(.constdata)
+    .constdata                               0x0800eeb4   Section        6  bmi2.o(.constdata)
+    .constdata                               0x0800eeba   Section     8261  bmi270.o(.constdata)
+    .constdata                               0x08010f00   Section      768  crc.o(.constdata)
+    .constdata                               0x08011200   Section       80  asin.o(.constdata)
+    pS                                       0x08011200   Data          48  asin.o(.constdata)
+    qS                                       0x08011230   Data          32  asin.o(.constdata)
+    .constdata                               0x08011250   Section      152  atan.o(.constdata)
+    atanhi                                   0x08011250   Data          32  atan.o(.constdata)
+    atanlo                                   0x08011270   Data          32  atan.o(.constdata)
+    aTodd                                    0x08011290   Data          40  atan.o(.constdata)
+    aTeven                                   0x080112b8   Data          48  atan.o(.constdata)
+    .constdata                               0x080112e8   Section       48  cos_i.o(.constdata)
+    C                                        0x080112e8   Data          48  cos_i.o(.constdata)
+    .constdata                               0x08011318   Section        8  qnan.o(.constdata)
+    .constdata                               0x08011320   Section      200  rred.o(.constdata)
+    pio2s                                    0x08011320   Data          48  rred.o(.constdata)
+    twooverpi                                0x08011350   Data         152  rred.o(.constdata)
+    .constdata                               0x080113e8   Section       40  sin_i.o(.constdata)
+    S                                        0x080113e8   Data          40  sin_i.o(.constdata)
+    .conststring                             0x08011410   Section      100  freertos.o(.conststring)
     .data                                    0x20000000   Section        2  main.o(.data)
     .data                                    0x20000002   Section        2  main.o(.data)
     .data                                    0x20000004   Section        2  main.o(.data)
@@ -4780,68 +4782,68 @@ Image Symbol Table
     direction_p_L                            0x200001b1   Data           1  rp_gimbal.o(.data)
     direction_L                              0x200001b2   Data           1  rp_gimbal.o(.data)
     direction_R                              0x200001b3   Data           1  rp_gimbal.o(.data)
-    .data                                    0x200001bc   Section        6  gimbal_task.o(.data)
-    .data                                    0x200001c2   Section       10  master_task.o(.data)
-    shake_cnt                                0x200001ca   Data           2  master_task.o(.data)
-    .data                                    0x200001cc   Section        2  crc.o(.data)
-    .data                                    0x200001ce   Section        3  car.o(.data)
-    s2_down_mode                             0x200001d0   Data           1  car.o(.data)
-    .data                                    0x200001d1   Section        6  rp_shoot.o(.data)
-    .data                                    0x200001d8   Section       12  shoot_task.o(.data)
-    .data                                    0x200001e4   Section       44  judge.o(.data)
-    .data                                    0x20000210   Section        2  judge.o(.data)
-    .data                                    0x20000214   Section       56  judge.o(.data)
-    .data                                    0x2000024c   Section        6  judge.o(.data)
-    .data                                    0x20000252   Section        6  judge.o(.data)
-    .data                                    0x20000258   Section       16  cap_protocol_1.o(.data)
-    .data                                    0x20000268   Section        2  cap.o(.data)
-    .bss                                     0x2000026c   Section      324  main.o(.bss)
-    .bss                                     0x200003b0   Section       24  main.o(.bss)
-    .bss                                     0x200003c8   Section       12  main.o(.bss)
-    .bss                                     0x200003d4   Section       14  main.o(.bss)
-    .bss                                     0x200003e4   Section       12  main.o(.bss)
-    .bss                                     0x200003f0   Section       14  main.o(.bss)
-    .bss                                     0x20000400   Section       12  main.o(.bss)
-    .bss                                     0x2000040c   Section       14  main.o(.bss)
-    .bss                                     0x2000041c   Section       12  main.o(.bss)
-    .bss                                     0x20000428   Section       14  main.o(.bss)
-    .bss                                     0x20000438   Section      432  main.o(.bss)
-    .bss                                     0x200005e8   Section      108  main.o(.bss)
-    .bss                                     0x20000654   Section      596  freertos.o(.bss)
-    xIdleTaskTCBBuffer                       0x20000654   Data          84  freertos.o(.bss)
-    xIdleStack                               0x200006a8   Data         512  freertos.o(.bss)
-    .bss                                     0x200008a8   Section       72  adc.o(.bss)
-    .bss                                     0x200008f0   Section       80  can.o(.bss)
-    .bss                                     0x20000940   Section       20  dac.o(.bss)
-    .bss                                     0x20000954   Section       12  iwdg.o(.bss)
-    .bss                                     0x20000960   Section      128  tim.o(.bss)
-    .bss                                     0x200009e0   Section      992  usart.o(.bss)
-    .bss                                     0x20000dc0   Section       64  stm32f4xx_hal_timebase_tim.o(.bss)
-    .bss                                     0x20000e00   Section      240  tasks.o(.bss)
-    pxReadyTasksLists                        0x20000e00   Data         140  tasks.o(.bss)
-    xDelayedTaskList1                        0x20000e8c   Data          20  tasks.o(.bss)
-    xDelayedTaskList2                        0x20000ea0   Data          20  tasks.o(.bss)
-    xPendingReadyList                        0x20000eb4   Data          20  tasks.o(.bss)
-    xTasksWaitingTermination                 0x20000ec8   Data          20  tasks.o(.bss)
-    xSuspendedTaskList                       0x20000edc   Data          20  tasks.o(.bss)
-    .bss                                     0x20000ef0   Section    15360  heap_4.o(.bss)
-    ucHeap                                   0x20000ef0   Data       15360  heap_4.o(.bss)
-    .bss                                     0x20004af0   Section      136  drv_can.o(.bss)
-    .bss                                     0x20004b78   Section     1148  drv_uart.o(.bss)
-    .bss                                     0x20004ff8   Section      104  bmi.o(.bss)
-    .bss                                     0x20005060   Section       42  can_protocol.o(.bss)
-    .bss                                     0x2000508c   Section      131  vision.o(.bss)
-    .bss                                     0x20005110   Section      131  navigation.o(.bss)
-    .bss                                     0x20005194   Section      324  9015_motor.o(.bss)
-    .bss                                     0x200052d8   Section     1064  rp_shoot.o(.bss)
-    .bss                                     0x20005700   Section      152  judge.o(.bss)
-    .bss                                     0x20005798   Section       12  cap_protocol_1.o(.bss)
-    .bss                                     0x200057a4   Section       96  libspace.o(.bss)
-    HEAP                                     0x20005808   Section      512  startup_stm32f407xx.o(HEAP)
-    Heap_Mem                                 0x20005808   Data         512  startup_stm32f407xx.o(HEAP)
-    STACK                                    0x20005a08   Section     1024  startup_stm32f407xx.o(STACK)
-    Stack_Mem                                0x20005a08   Data        1024  startup_stm32f407xx.o(STACK)
-    __initial_sp                             0x20005e08   Data           0  startup_stm32f407xx.o(STACK)
+    .data                                    0x200001bc   Section       20  gimbal_task.o(.data)
+    .data                                    0x200001d0   Section       10  master_task.o(.data)
+    shake_cnt                                0x200001d8   Data           2  master_task.o(.data)
+    .data                                    0x200001da   Section        2  crc.o(.data)
+    .data                                    0x200001dc   Section        3  car.o(.data)
+    s2_down_mode                             0x200001de   Data           1  car.o(.data)
+    .data                                    0x200001df   Section        6  rp_shoot.o(.data)
+    .data                                    0x200001e8   Section       12  shoot_task.o(.data)
+    .data                                    0x200001f4   Section       44  judge.o(.data)
+    .data                                    0x20000220   Section        2  judge.o(.data)
+    .data                                    0x20000224   Section       56  judge.o(.data)
+    .data                                    0x2000025c   Section        6  judge.o(.data)
+    .data                                    0x20000262   Section        6  judge.o(.data)
+    .data                                    0x20000268   Section       16  cap_protocol_1.o(.data)
+    .data                                    0x20000278   Section        2  cap.o(.data)
+    .bss                                     0x2000027c   Section      324  main.o(.bss)
+    .bss                                     0x200003c0   Section       24  main.o(.bss)
+    .bss                                     0x200003d8   Section       12  main.o(.bss)
+    .bss                                     0x200003e4   Section       14  main.o(.bss)
+    .bss                                     0x200003f4   Section       12  main.o(.bss)
+    .bss                                     0x20000400   Section       14  main.o(.bss)
+    .bss                                     0x20000410   Section       12  main.o(.bss)
+    .bss                                     0x2000041c   Section       14  main.o(.bss)
+    .bss                                     0x2000042c   Section       12  main.o(.bss)
+    .bss                                     0x20000438   Section       14  main.o(.bss)
+    .bss                                     0x20000448   Section      432  main.o(.bss)
+    .bss                                     0x200005f8   Section      108  main.o(.bss)
+    .bss                                     0x20000664   Section      596  freertos.o(.bss)
+    xIdleTaskTCBBuffer                       0x20000664   Data          84  freertos.o(.bss)
+    xIdleStack                               0x200006b8   Data         512  freertos.o(.bss)
+    .bss                                     0x200008b8   Section       72  adc.o(.bss)
+    .bss                                     0x20000900   Section       80  can.o(.bss)
+    .bss                                     0x20000950   Section       20  dac.o(.bss)
+    .bss                                     0x20000964   Section       12  iwdg.o(.bss)
+    .bss                                     0x20000970   Section      128  tim.o(.bss)
+    .bss                                     0x200009f0   Section      992  usart.o(.bss)
+    .bss                                     0x20000dd0   Section       64  stm32f4xx_hal_timebase_tim.o(.bss)
+    .bss                                     0x20000e10   Section      240  tasks.o(.bss)
+    pxReadyTasksLists                        0x20000e10   Data         140  tasks.o(.bss)
+    xDelayedTaskList1                        0x20000e9c   Data          20  tasks.o(.bss)
+    xDelayedTaskList2                        0x20000eb0   Data          20  tasks.o(.bss)
+    xPendingReadyList                        0x20000ec4   Data          20  tasks.o(.bss)
+    xTasksWaitingTermination                 0x20000ed8   Data          20  tasks.o(.bss)
+    xSuspendedTaskList                       0x20000eec   Data          20  tasks.o(.bss)
+    .bss                                     0x20000f00   Section    15360  heap_4.o(.bss)
+    ucHeap                                   0x20000f00   Data       15360  heap_4.o(.bss)
+    .bss                                     0x20004b00   Section      136  drv_can.o(.bss)
+    .bss                                     0x20004b88   Section     1148  drv_uart.o(.bss)
+    .bss                                     0x20005008   Section      104  bmi.o(.bss)
+    .bss                                     0x20005070   Section       42  can_protocol.o(.bss)
+    .bss                                     0x2000509c   Section      131  vision.o(.bss)
+    .bss                                     0x20005120   Section      131  navigation.o(.bss)
+    .bss                                     0x200051a4   Section      324  9015_motor.o(.bss)
+    .bss                                     0x200052e8   Section     1064  rp_shoot.o(.bss)
+    .bss                                     0x20005710   Section      152  judge.o(.bss)
+    .bss                                     0x200057a8   Section       12  cap_protocol_1.o(.bss)
+    .bss                                     0x200057b4   Section       96  libspace.o(.bss)
+    HEAP                                     0x20005818   Section      512  startup_stm32f407xx.o(HEAP)
+    Heap_Mem                                 0x20005818   Data         512  startup_stm32f407xx.o(HEAP)
+    STACK                                    0x20005a18   Section     1024  startup_stm32f407xx.o(STACK)
+    Stack_Mem                                0x20005a18   Data        1024  startup_stm32f407xx.o(STACK)
+    __initial_sp                             0x20005e18   Data           0  startup_stm32f407xx.o(STACK)
 
     Global Symbols
 
@@ -5331,103 +5333,103 @@ Image Symbol Table
     chassis_work                             0x08007fe5   Thumb Code  1876  chassic_task.o(i.chassis_work)
     delay_us                                 0x08008881   Thumb Code    24  drv_haltick.o(i.delay_us)
     fabs                                     0x0800892b   Thumb Code    24  fabs.o(i.fabs)
-    gimbal_work                              0x08009849   Thumb Code   322  gimbal_task.o(i.gimbal_work)
-    inVSqrt                                  0x080099b1   Thumb Code    40  bmi.o(i.inVSqrt)
-    int16_to_float                           0x080099dd   Thumb Code    38  cap_protocol_1.o(i.int16_to_float)
-    judge_heart                              0x08009a05   Thumb Code    34  judge.o(i.judge_heart)
-    judge_recive                             0x08009a2d   Thumb Code   106  judge.o(i.judge_recive)
-    judge_update                             0x08009a9d   Thumb Code   674  judge.o(i.judge_update)
-    key_board_status_interrupt_update        0x08009d51   Thumb Code    68  remote.o(i.key_board_status_interrupt_update)
-    key_board_status_update                  0x08009d95   Thumb Code    54  remote.o(i.key_board_status_update)
-    main                                     0x08009e25   Thumb Code   138  main.o(i.main)
-    master_work                              0x08009ecd   Thumb Code   900  master_task.o(i.master_work)
-    micros                                   0x0800a281   Thumb Code    30  drv_haltick.o(i.micros)
-    my_BMI_Get_EulerAngle                    0x0800a2a5   Thumb Code  1308  bmi.o(i.my_BMI_Get_EulerAngle)
-    osDelay                                  0x0800a7e5   Thumb Code    14  cmsis_os.o(i.osDelay)
-    osKernelStart                            0x0800a7f3   Thumb Code    10  cmsis_os.o(i.osKernelStart)
-    osThreadCreate                           0x0800a7fd   Thumb Code    84  cmsis_os.o(i.osThreadCreate)
-    pid_calc                                 0x0800a851   Thumb Code   448  dji_pid.o(i.pid_calc)
-    pid_calc_err                             0x0800aa15   Thumb Code   386  dji_pid.o(i.pid_calc_err)
-    pid_calc_err_9015                        0x0800aba1   Thumb Code   422  dji_pid.o(i.pid_calc_err_9015)
-    pvPortMalloc                             0x0800b0b9   Thumb Code   210  heap_4.o(i.pvPortMalloc)
-    pxPortInitialiseStack                    0x0800b191   Thumb Code    40  port.o(i.pxPortInitialiseStack)
-    rc_base_info_update                      0x0800b1bd   Thumb Code   312  remote.o(i.rc_base_info_update)
-    rc_init                                  0x0800b2f9   Thumb Code    32  remote.o(i.rc_init)
-    rc_wheel_status_interrupt_update         0x0800b319   Thumb Code    54  remote.o(i.rc_wheel_status_interrupt_update)
-    shoot_work                               0x0800d2c5   Thumb Code   714  shoot_task.o(i.shoot_work)
-    sqrt                                     0x0800d5f9   Thumb Code   110  sqrt.o(i.sqrt)
-    user_delay_us                            0x0800d79d   Thumb Code     4  bmi2_common.o(i.user_delay_us)
-    user_i2c_reg_read                        0x0800d7a1   Thumb Code    36  bmi2_common.o(i.user_i2c_reg_read)
-    user_i2c_reg_write                       0x0800d7c5   Thumb Code    70  bmi2_common.o(i.user_i2c_reg_write)
-    uxListRemove                             0x0800d811   Thumb Code    38  list.o(i.uxListRemove)
-    vApplicationGetIdleTaskMemory            0x0800d839   Thumb Code    16  freertos.o(i.vApplicationGetIdleTaskMemory)
-    vListInitialise                          0x0800d84d   Thumb Code    22  list.o(i.vListInitialise)
-    vListInitialiseItem                      0x0800d863   Thumb Code     6  list.o(i.vListInitialiseItem)
-    vListInsert                              0x0800d869   Thumb Code    48  list.o(i.vListInsert)
-    vListInsertEnd                           0x0800d899   Thumb Code    24  list.o(i.vListInsertEnd)
-    vPortEnterCritical                       0x0800d8b1   Thumb Code    54  port.o(i.vPortEnterCritical)
-    vPortExitCritical                        0x0800d8f1   Thumb Code    34  port.o(i.vPortExitCritical)
-    vPortFree                                0x0800d919   Thumb Code    88  heap_4.o(i.vPortFree)
-    vPortSetupTimerInterrupt                 0x0800d975   Thumb Code    32  port.o(i.vPortSetupTimerInterrupt)
-    vTaskDelay                               0x0800d999   Thumb Code    66  tasks.o(i.vTaskDelay)
-    vTaskStartScheduler                      0x0800d9e5   Thumb Code    90  tasks.o(i.vTaskStartScheduler)
-    vTaskSuspendAll                          0x0800da51   Thumb Code    10  tasks.o(i.vTaskSuspendAll)
-    vTaskSwitchContext                       0x0800da61   Thumb Code    82  tasks.o(i.vTaskSwitchContext)
-    vision_task                              0x0800dabd   Thumb Code   352  vision.o(i.vision_task)
-    work_check                               0x0800dc31   Thumb Code   182  check_task.o(i.work_check)
-    xPortStartScheduler                      0x0800dde5   Thumb Code   222  port.o(i.xPortStartScheduler)
-    xTaskCreate                              0x0800ded9   Thumb Code    90  tasks.o(i.xTaskCreate)
-    xTaskCreateStatic                        0x0800df33   Thumb Code    86  tasks.o(i.xTaskCreateStatic)
-    xTaskIncrementTick                       0x0800df89   Thumb Code   192  tasks.o(i.xTaskIncrementTick)
-    xTaskResumeAll                           0x0800e051   Thumb Code   182  tasks.o(i.xTaskResumeAll)
-    __aeabi_dneg                             0x0800e115   Thumb Code     0  basic.o(x$fpl$basic)
-    _dneg                                    0x0800e115   Thumb Code     6  basic.o(x$fpl$basic)
-    __aeabi_fneg                             0x0800e11b   Thumb Code     0  basic.o(x$fpl$basic)
-    _fneg                                    0x0800e11b   Thumb Code     6  basic.o(x$fpl$basic)
-    _dabs                                    0x0800e121   Thumb Code     6  basic.o(x$fpl$basic)
-    _fabs                                    0x0800e127   Thumb Code     6  basic.o(x$fpl$basic)
-    __aeabi_d2f                              0x0800e12d   Thumb Code     0  d2f.o(x$fpl$d2f)
-    _d2f                                     0x0800e12d   Thumb Code    98  d2f.o(x$fpl$d2f)
-    __aeabi_dadd                             0x0800e191   Thumb Code     0  daddsub_clz.o(x$fpl$dadd)
-    _dadd                                    0x0800e191   Thumb Code   332  daddsub_clz.o(x$fpl$dadd)
-    __fpl_dcmp_Inf                           0x0800e2e1   Thumb Code    24  dcmpi.o(x$fpl$dcmpinf)
-    __aeabi_ddiv                             0x0800e2f9   Thumb Code     0  ddiv.o(x$fpl$ddiv)
-    _ddiv                                    0x0800e2f9   Thumb Code   552  ddiv.o(x$fpl$ddiv)
-    __aeabi_cdcmpeq                          0x0800e5a9   Thumb Code     0  deqf.o(x$fpl$deqf)
-    _dcmpeq                                  0x0800e5a9   Thumb Code   120  deqf.o(x$fpl$deqf)
-    __aeabi_d2iz                             0x0800e621   Thumb Code     0  dfix.o(x$fpl$dfix)
-    _dfix                                    0x0800e621   Thumb Code    94  dfix.o(x$fpl$dfix)
-    __aeabi_i2d                              0x0800e67f   Thumb Code     0  dflt_clz.o(x$fpl$dflt)
-    _dflt                                    0x0800e67f   Thumb Code    46  dflt_clz.o(x$fpl$dflt)
-    __aeabi_ui2d                             0x0800e6ad   Thumb Code     0  dflt_clz.o(x$fpl$dfltu)
-    _dfltu                                   0x0800e6ad   Thumb Code    38  dflt_clz.o(x$fpl$dfltu)
-    __aeabi_dmul                             0x0800e6d5   Thumb Code     0  dmul.o(x$fpl$dmul)
-    _dmul                                    0x0800e6d5   Thumb Code   332  dmul.o(x$fpl$dmul)
-    __fpl_dnaninf                            0x0800e829   Thumb Code   156  dnaninf.o(x$fpl$dnaninf)
-    __fpl_dretinf                            0x0800e8c5   Thumb Code    12  dretinf.o(x$fpl$dretinf)
-    __aeabi_drsub                            0x0800e8d1   Thumb Code     0  daddsub_clz.o(x$fpl$drsb)
-    _drsb                                    0x0800e8d1   Thumb Code    22  daddsub_clz.o(x$fpl$drsb)
-    _dsqrt                                   0x0800e8e9   Thumb Code   404  dsqrt_umaal.o(x$fpl$dsqrt)
-    __aeabi_dsub                             0x0800ea81   Thumb Code     0  daddsub_clz.o(x$fpl$dsub)
-    _dsub                                    0x0800ea81   Thumb Code   464  daddsub_clz.o(x$fpl$dsub)
-    __aeabi_f2d                              0x0800ec55   Thumb Code     0  f2d.o(x$fpl$f2d)
-    _f2d                                     0x0800ec55   Thumb Code    86  f2d.o(x$fpl$f2d)
-    __fpl_fnaninf                            0x0800ecab   Thumb Code   140  fnaninf.o(x$fpl$fnaninf)
-    _fp_init                                 0x0800ed37   Thumb Code    10  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x0800ed3f   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x0800ed3f   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fpl_fretinf                            0x0800ed41   Thumb Code    10  fretinf.o(x$fpl$fretinf)
-    __I$use$fp                               0x0800ed4a   Number         0  usenofp.o(x$fpl$usenofp)
-    AHBPrescTable                            0x0800ee34   Data          16  system_stm32f4xx.o(.constdata)
-    APBPrescTable                            0x0800ee44   Data           8  system_stm32f4xx.o(.constdata)
-    bmi270_config_file                       0x0800ee52   Data        8192  bmi270.o(.constdata)
-    bmi270_feat_in                           0x08010e52   Data          48  bmi270.o(.constdata)
-    bmi270_feat_out                          0x08010e82   Data          21  bmi270.o(.constdata)
-    CRC8_TAB                                 0x08010e98   Data         256  crc.o(.constdata)
-    wCRC_Table                               0x08010f98   Data         512  crc.o(.constdata)
-    __mathlib_zero                           0x080112b0   Data           8  qnan.o(.constdata)
-    Region$$Table$$Base                      0x0801140c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0801142c   Number         0  anon$$obj.o(Region$$Table)
+    gimbal_work                              0x08009849   Thumb Code   422  gimbal_task.o(i.gimbal_work)
+    inVSqrt                                  0x08009a19   Thumb Code    40  bmi.o(i.inVSqrt)
+    int16_to_float                           0x08009a45   Thumb Code    38  cap_protocol_1.o(i.int16_to_float)
+    judge_heart                              0x08009a6d   Thumb Code    34  judge.o(i.judge_heart)
+    judge_recive                             0x08009a95   Thumb Code   106  judge.o(i.judge_recive)
+    judge_update                             0x08009b05   Thumb Code   674  judge.o(i.judge_update)
+    key_board_status_interrupt_update        0x08009db9   Thumb Code    68  remote.o(i.key_board_status_interrupt_update)
+    key_board_status_update                  0x08009dfd   Thumb Code    54  remote.o(i.key_board_status_update)
+    main                                     0x08009e8d   Thumb Code   138  main.o(i.main)
+    master_work                              0x08009f35   Thumb Code   900  master_task.o(i.master_work)
+    micros                                   0x0800a2e9   Thumb Code    30  drv_haltick.o(i.micros)
+    my_BMI_Get_EulerAngle                    0x0800a30d   Thumb Code  1308  bmi.o(i.my_BMI_Get_EulerAngle)
+    osDelay                                  0x0800a84d   Thumb Code    14  cmsis_os.o(i.osDelay)
+    osKernelStart                            0x0800a85b   Thumb Code    10  cmsis_os.o(i.osKernelStart)
+    osThreadCreate                           0x0800a865   Thumb Code    84  cmsis_os.o(i.osThreadCreate)
+    pid_calc                                 0x0800a8b9   Thumb Code   448  dji_pid.o(i.pid_calc)
+    pid_calc_err                             0x0800aa7d   Thumb Code   386  dji_pid.o(i.pid_calc_err)
+    pid_calc_err_9015                        0x0800ac09   Thumb Code   422  dji_pid.o(i.pid_calc_err_9015)
+    pvPortMalloc                             0x0800b121   Thumb Code   210  heap_4.o(i.pvPortMalloc)
+    pxPortInitialiseStack                    0x0800b1f9   Thumb Code    40  port.o(i.pxPortInitialiseStack)
+    rc_base_info_update                      0x0800b225   Thumb Code   312  remote.o(i.rc_base_info_update)
+    rc_init                                  0x0800b361   Thumb Code    32  remote.o(i.rc_init)
+    rc_wheel_status_interrupt_update         0x0800b381   Thumb Code    54  remote.o(i.rc_wheel_status_interrupt_update)
+    shoot_work                               0x0800d32d   Thumb Code   714  shoot_task.o(i.shoot_work)
+    sqrt                                     0x0800d661   Thumb Code   110  sqrt.o(i.sqrt)
+    user_delay_us                            0x0800d805   Thumb Code     4  bmi2_common.o(i.user_delay_us)
+    user_i2c_reg_read                        0x0800d809   Thumb Code    36  bmi2_common.o(i.user_i2c_reg_read)
+    user_i2c_reg_write                       0x0800d82d   Thumb Code    70  bmi2_common.o(i.user_i2c_reg_write)
+    uxListRemove                             0x0800d879   Thumb Code    38  list.o(i.uxListRemove)
+    vApplicationGetIdleTaskMemory            0x0800d8a1   Thumb Code    16  freertos.o(i.vApplicationGetIdleTaskMemory)
+    vListInitialise                          0x0800d8b5   Thumb Code    22  list.o(i.vListInitialise)
+    vListInitialiseItem                      0x0800d8cb   Thumb Code     6  list.o(i.vListInitialiseItem)
+    vListInsert                              0x0800d8d1   Thumb Code    48  list.o(i.vListInsert)
+    vListInsertEnd                           0x0800d901   Thumb Code    24  list.o(i.vListInsertEnd)
+    vPortEnterCritical                       0x0800d919   Thumb Code    54  port.o(i.vPortEnterCritical)
+    vPortExitCritical                        0x0800d959   Thumb Code    34  port.o(i.vPortExitCritical)
+    vPortFree                                0x0800d981   Thumb Code    88  heap_4.o(i.vPortFree)
+    vPortSetupTimerInterrupt                 0x0800d9dd   Thumb Code    32  port.o(i.vPortSetupTimerInterrupt)
+    vTaskDelay                               0x0800da01   Thumb Code    66  tasks.o(i.vTaskDelay)
+    vTaskStartScheduler                      0x0800da4d   Thumb Code    90  tasks.o(i.vTaskStartScheduler)
+    vTaskSuspendAll                          0x0800dab9   Thumb Code    10  tasks.o(i.vTaskSuspendAll)
+    vTaskSwitchContext                       0x0800dac9   Thumb Code    82  tasks.o(i.vTaskSwitchContext)
+    vision_task                              0x0800db25   Thumb Code   352  vision.o(i.vision_task)
+    work_check                               0x0800dc99   Thumb Code   182  check_task.o(i.work_check)
+    xPortStartScheduler                      0x0800de4d   Thumb Code   222  port.o(i.xPortStartScheduler)
+    xTaskCreate                              0x0800df41   Thumb Code    90  tasks.o(i.xTaskCreate)
+    xTaskCreateStatic                        0x0800df9b   Thumb Code    86  tasks.o(i.xTaskCreateStatic)
+    xTaskIncrementTick                       0x0800dff1   Thumb Code   192  tasks.o(i.xTaskIncrementTick)
+    xTaskResumeAll                           0x0800e0b9   Thumb Code   182  tasks.o(i.xTaskResumeAll)
+    __aeabi_dneg                             0x0800e17d   Thumb Code     0  basic.o(x$fpl$basic)
+    _dneg                                    0x0800e17d   Thumb Code     6  basic.o(x$fpl$basic)
+    __aeabi_fneg                             0x0800e183   Thumb Code     0  basic.o(x$fpl$basic)
+    _fneg                                    0x0800e183   Thumb Code     6  basic.o(x$fpl$basic)
+    _dabs                                    0x0800e189   Thumb Code     6  basic.o(x$fpl$basic)
+    _fabs                                    0x0800e18f   Thumb Code     6  basic.o(x$fpl$basic)
+    __aeabi_d2f                              0x0800e195   Thumb Code     0  d2f.o(x$fpl$d2f)
+    _d2f                                     0x0800e195   Thumb Code    98  d2f.o(x$fpl$d2f)
+    __aeabi_dadd                             0x0800e1f9   Thumb Code     0  daddsub_clz.o(x$fpl$dadd)
+    _dadd                                    0x0800e1f9   Thumb Code   332  daddsub_clz.o(x$fpl$dadd)
+    __fpl_dcmp_Inf                           0x0800e349   Thumb Code    24  dcmpi.o(x$fpl$dcmpinf)
+    __aeabi_ddiv                             0x0800e361   Thumb Code     0  ddiv.o(x$fpl$ddiv)
+    _ddiv                                    0x0800e361   Thumb Code   552  ddiv.o(x$fpl$ddiv)
+    __aeabi_cdcmpeq                          0x0800e611   Thumb Code     0  deqf.o(x$fpl$deqf)
+    _dcmpeq                                  0x0800e611   Thumb Code   120  deqf.o(x$fpl$deqf)
+    __aeabi_d2iz                             0x0800e689   Thumb Code     0  dfix.o(x$fpl$dfix)
+    _dfix                                    0x0800e689   Thumb Code    94  dfix.o(x$fpl$dfix)
+    __aeabi_i2d                              0x0800e6e7   Thumb Code     0  dflt_clz.o(x$fpl$dflt)
+    _dflt                                    0x0800e6e7   Thumb Code    46  dflt_clz.o(x$fpl$dflt)
+    __aeabi_ui2d                             0x0800e715   Thumb Code     0  dflt_clz.o(x$fpl$dfltu)
+    _dfltu                                   0x0800e715   Thumb Code    38  dflt_clz.o(x$fpl$dfltu)
+    __aeabi_dmul                             0x0800e73d   Thumb Code     0  dmul.o(x$fpl$dmul)
+    _dmul                                    0x0800e73d   Thumb Code   332  dmul.o(x$fpl$dmul)
+    __fpl_dnaninf                            0x0800e891   Thumb Code   156  dnaninf.o(x$fpl$dnaninf)
+    __fpl_dretinf                            0x0800e92d   Thumb Code    12  dretinf.o(x$fpl$dretinf)
+    __aeabi_drsub                            0x0800e939   Thumb Code     0  daddsub_clz.o(x$fpl$drsb)
+    _drsb                                    0x0800e939   Thumb Code    22  daddsub_clz.o(x$fpl$drsb)
+    _dsqrt                                   0x0800e951   Thumb Code   404  dsqrt_umaal.o(x$fpl$dsqrt)
+    __aeabi_dsub                             0x0800eae9   Thumb Code     0  daddsub_clz.o(x$fpl$dsub)
+    _dsub                                    0x0800eae9   Thumb Code   464  daddsub_clz.o(x$fpl$dsub)
+    __aeabi_f2d                              0x0800ecbd   Thumb Code     0  f2d.o(x$fpl$f2d)
+    _f2d                                     0x0800ecbd   Thumb Code    86  f2d.o(x$fpl$f2d)
+    __fpl_fnaninf                            0x0800ed13   Thumb Code   140  fnaninf.o(x$fpl$fnaninf)
+    _fp_init                                 0x0800ed9f   Thumb Code    10  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x0800eda7   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x0800eda7   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fpl_fretinf                            0x0800eda9   Thumb Code    10  fretinf.o(x$fpl$fretinf)
+    __I$use$fp                               0x0800edb2   Number         0  usenofp.o(x$fpl$usenofp)
+    AHBPrescTable                            0x0800ee9c   Data          16  system_stm32f4xx.o(.constdata)
+    APBPrescTable                            0x0800eeac   Data           8  system_stm32f4xx.o(.constdata)
+    bmi270_config_file                       0x0800eeba   Data        8192  bmi270.o(.constdata)
+    bmi270_feat_in                           0x08010eba   Data          48  bmi270.o(.constdata)
+    bmi270_feat_out                          0x08010eea   Data          21  bmi270.o(.constdata)
+    CRC8_TAB                                 0x08010f00   Data         256  crc.o(.constdata)
+    wCRC_Table                               0x08011000   Data         512  crc.o(.constdata)
+    __mathlib_zero                           0x08011318   Data           8  qnan.o(.constdata)
+    Region$$Table$$Base                      0x08011474   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08011494   Number         0  anon$$obj.o(Region$$Table)
     gyrox                                    0x20000000   Data           2  main.o(.data)
     gyroy                                    0x20000002   Data           2  main.o(.data)
     gyroz                                    0x20000004   Data           2  main.o(.data)
@@ -5506,109 +5508,113 @@ Image Symbol Table
     first2vision                             0x200001bc   Data           2  gimbal_task.o(.data)
     first2follow                             0x200001be   Data           2  gimbal_task.o(.data)
     first2spin                               0x200001c0   Data           2  gimbal_task.o(.data)
-    gimbal_init_ok                           0x200001c2   Data           1  master_task.o(.data)
-    L_Head_Limit                             0x200001c4   Data           2  master_task.o(.data)
-    R_Head_Limit                             0x200001c6   Data           2  master_task.o(.data)
-    first2ParVis                             0x200001c8   Data           2  master_task.o(.data)
-    CRC_INIT                                 0x200001cc   Data           2  crc.o(.data)
-    s2_down_flag                             0x200001ce   Data           1  car.o(.data)
-    s2_up_flag                               0x200001cf   Data           1  car.o(.data)
-    L_motor_2006_PLUCK_info                  0x200001d1   Data           3  rp_shoot.o(.data)
-    R_motor_2006_PLUCK_info                  0x200001d4   Data           3  rp_shoot.o(.data)
-    Simultaneous_fire                        0x200001d8   Data           1  shoot_task.o(.data)
-    L_shoot_speed                            0x200001dc   Data           4  shoot_task.o(.data)
-    R_shoot_speed                            0x200001e0   Data           4  shoot_task.o(.data)
-    shoot_1_over_speed_flag                  0x200001e4   Data           1  judge.o(.data)
-    shoot_2_over_speed_flag                  0x200001e5   Data           1  judge.o(.data)
-    shoot_1_time                             0x200001e8   Data           4  judge.o(.data)
-    shoot_2_time                             0x200001ec   Data           4  judge.o(.data)
-    elapsed_time                             0x200001f0   Data           4  judge.o(.data)
-    elapsed_seconds                          0x200001f4   Data           4  judge.o(.data)
-    drv_judge_info                           0x200001f8   Data           8  judge.o(.data)
-    judge                                    0x20000200   Data          16  judge.o(.data)
-    judge_config                             0x20000210   Data           2  judge.o(.data)
-    judge_base_info                          0x20000214   Data          56  judge.o(.data)
-    judge_info                               0x2000024c   Data           6  judge.o(.data)
-    judge_frame_header                       0x20000252   Data           6  judge.o(.data)
-    cap_tx_buf_1                             0x20000258   Data           8  cap_protocol_1.o(.data)
-    cap_tx_buf_2                             0x20000260   Data           8  cap_protocol_1.o(.data)
-    cap                                      0x20000268   Data           2  cap.o(.data)
-    bmi_structure                            0x2000026c   Data          10  main.o(.bss)
-    rc_info_structure                        0x20000278   Data          20  main.o(.bss)
-    rc_base_info_structure                   0x2000028c   Data         134  main.o(.bss)
-    motor_9015_structure                     0x20000314   Data          20  main.o(.bss)
-    Gimbal                                   0x20000328   Data         136  main.o(.bss)
-    motor_9015_base_info_structure           0x200003b0   Data          24  main.o(.bss)
-    motor_3508_LF_structure                  0x200003c8   Data          12  main.o(.bss)
-    motor_3508_LF_base_info                  0x200003d4   Data          14  main.o(.bss)
-    motor_3508_RF_structure                  0x200003e4   Data          12  main.o(.bss)
-    motor_3508_RF_base_info                  0x200003f0   Data          14  main.o(.bss)
-    motor_3508_LB_structure                  0x20000400   Data          12  main.o(.bss)
-    motor_3508_LB_base_info                  0x2000040c   Data          14  main.o(.bss)
-    motor_3508_RB_structure                  0x2000041c   Data          12  main.o(.bss)
-    motor_3508_RB_base_info                  0x20000428   Data          14  main.o(.bss)
-    chassis_pid_speed_structure              0x20000438   Data         432  main.o(.bss)
-    chassis_pid_follow_structure             0x200005e8   Data         108  main.o(.bss)
-    hadc1                                    0x200008a8   Data          72  adc.o(.bss)
-    hcan1                                    0x200008f0   Data          40  can.o(.bss)
-    hcan2                                    0x20000918   Data          40  can.o(.bss)
-    hdac                                     0x20000940   Data          20  dac.o(.bss)
-    hiwdg                                    0x20000954   Data          12  iwdg.o(.bss)
-    htim1                                    0x20000960   Data          64  tim.o(.bss)
-    htim3                                    0x200009a0   Data          64  tim.o(.bss)
-    huart4                                   0x200009e0   Data          64  usart.o(.bss)
-    huart5                                   0x20000a20   Data          64  usart.o(.bss)
-    huart1                                   0x20000a60   Data          64  usart.o(.bss)
-    huart2                                   0x20000aa0   Data          64  usart.o(.bss)
-    huart3                                   0x20000ae0   Data          64  usart.o(.bss)
-    hdma_uart4_rx                            0x20000b20   Data          96  usart.o(.bss)
-    hdma_uart5_rx                            0x20000b80   Data          96  usart.o(.bss)
-    hdma_uart5_tx                            0x20000be0   Data          96  usart.o(.bss)
-    hdma_usart1_rx                           0x20000c40   Data          96  usart.o(.bss)
-    hdma_usart2_rx                           0x20000ca0   Data          96  usart.o(.bss)
-    hdma_usart3_tx                           0x20000d00   Data          96  usart.o(.bss)
-    hdma_usart3_rx                           0x20000d60   Data          96  usart.o(.bss)
-    htim2                                    0x20000dc0   Data          64  stm32f4xx_hal_timebase_tim.o(.bss)
-    hcan1RxFrame                             0x20004af0   Data          36  drv_can.o(.bss)
-    hcan2RxFrame                             0x20004b14   Data          36  drv_can.o(.bss)
-    hcan1TxFrame                             0x20004b38   Data          32  drv_can.o(.bss)
-    hcan2TxFrame                             0x20004b58   Data          32  drv_can.o(.bss)
-    usart1_dma_rxbuf                         0x20004b78   Data         350  drv_uart.o(.bss)
-    usart2_dma_rxbuf                         0x20004cd6   Data          48  drv_uart.o(.bss)
-    usart3_dma_rxbuf                         0x20004d06   Data         350  drv_uart.o(.bss)
-    usart4_dma_rxbuf                         0x20004e64   Data         200  drv_uart.o(.bss)
-    usart5_dma_rxbuf                         0x20004f2c   Data         200  drv_uart.o(.bss)
-    bmi2_dev                                 0x20004ff8   Data         104  bmi.o(.bss)
-    Master_Head_structure                    0x20005060   Data          42  can_protocol.o(.bss)
-    vision_rx_pack                           0x2000508c   Data          25  vision.o(.bss)
-    vision_tx_pack                           0x200050a5   Data          28  vision.o(.bss)
-    vision_structure                         0x200050c4   Data          40  vision.o(.bss)
-    vision_txBuf                             0x200050ec   Data          35  vision.o(.bss)
-    navigation_rx_pack                       0x20005110   Data          25  navigation.o(.bss)
-    navigation_tx_pack                       0x20005129   Data          28  navigation.o(.bss)
-    navigation_structure                     0x20005148   Data          40  navigation.o(.bss)
-    navigation_txBuf                         0x20005170   Data          35  navigation.o(.bss)
-    motor_9015_pid_spd                       0x20005194   Data         108  9015_motor.o(.bss)
-    motor_9015_pid_pos                       0x20005200   Data         108  9015_motor.o(.bss)
-    motor_9015_pid_bmi                       0x2000526c   Data         108  9015_motor.o(.bss)
-    L_shoot_structure                        0x200052d8   Data          44  rp_shoot.o(.bss)
-    R_shoot_structure                        0x20005304   Data          44  rp_shoot.o(.bss)
-    L_motor_2006_PLUCK_structure             0x20005330   Data          24  rp_shoot.o(.bss)
-    L_motor_2006_PLUCK_base_info             0x20005348   Data          32  rp_shoot.o(.bss)
-    R_motor_2006_PLUCK_structure             0x20005368   Data          24  rp_shoot.o(.bss)
-    R_motor_2006_PLUCK_base_info             0x20005380   Data          32  rp_shoot.o(.bss)
-    L_pid_s_stir_sin                         0x200053a0   Data         108  rp_shoot.o(.bss)
-    L_pid_p_stir_sin                         0x2000540c   Data         108  rp_shoot.o(.bss)
-    L_pid_p_stir_done                        0x20005478   Data         108  rp_shoot.o(.bss)
-    L_pid_s_stir_run                         0x200054e4   Data         108  rp_shoot.o(.bss)
-    R_pid_s_stir_sin                         0x20005550   Data         108  rp_shoot.o(.bss)
-    R_pid_p_stir_sin                         0x200055bc   Data         108  rp_shoot.o(.bss)
-    R_pid_p_stir_done                        0x20005628   Data         108  rp_shoot.o(.bss)
-    R_pid_s_stir_run                         0x20005694   Data         108  rp_shoot.o(.bss)
-    judge_rawdata                            0x20005700   Data         152  judge.o(.bss)
-    cap_receive_data                         0x20005798   Data          12  cap_protocol_1.o(.bss)
-    __libspace_start                         0x200057a4   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x20005804   Data           0  libspace.o(.bss)
+    last_encoder                             0x200001c2   Data           2  gimbal_task.o(.data)
+    spin_time                                0x200001c4   Data           4  gimbal_task.o(.data)
+    spin_time_L                              0x200001c8   Data           4  gimbal_task.o(.data)
+    spin_angular                             0x200001cc   Data           4  gimbal_task.o(.data)
+    gimbal_init_ok                           0x200001d0   Data           1  master_task.o(.data)
+    L_Head_Limit                             0x200001d2   Data           2  master_task.o(.data)
+    R_Head_Limit                             0x200001d4   Data           2  master_task.o(.data)
+    first2ParVis                             0x200001d6   Data           2  master_task.o(.data)
+    CRC_INIT                                 0x200001da   Data           2  crc.o(.data)
+    s2_down_flag                             0x200001dc   Data           1  car.o(.data)
+    s2_up_flag                               0x200001dd   Data           1  car.o(.data)
+    L_motor_2006_PLUCK_info                  0x200001df   Data           3  rp_shoot.o(.data)
+    R_motor_2006_PLUCK_info                  0x200001e2   Data           3  rp_shoot.o(.data)
+    Simultaneous_fire                        0x200001e8   Data           1  shoot_task.o(.data)
+    L_shoot_speed                            0x200001ec   Data           4  shoot_task.o(.data)
+    R_shoot_speed                            0x200001f0   Data           4  shoot_task.o(.data)
+    shoot_1_over_speed_flag                  0x200001f4   Data           1  judge.o(.data)
+    shoot_2_over_speed_flag                  0x200001f5   Data           1  judge.o(.data)
+    shoot_1_time                             0x200001f8   Data           4  judge.o(.data)
+    shoot_2_time                             0x200001fc   Data           4  judge.o(.data)
+    elapsed_time                             0x20000200   Data           4  judge.o(.data)
+    elapsed_seconds                          0x20000204   Data           4  judge.o(.data)
+    drv_judge_info                           0x20000208   Data           8  judge.o(.data)
+    judge                                    0x20000210   Data          16  judge.o(.data)
+    judge_config                             0x20000220   Data           2  judge.o(.data)
+    judge_base_info                          0x20000224   Data          56  judge.o(.data)
+    judge_info                               0x2000025c   Data           6  judge.o(.data)
+    judge_frame_header                       0x20000262   Data           6  judge.o(.data)
+    cap_tx_buf_1                             0x20000268   Data           8  cap_protocol_1.o(.data)
+    cap_tx_buf_2                             0x20000270   Data           8  cap_protocol_1.o(.data)
+    cap                                      0x20000278   Data           2  cap.o(.data)
+    bmi_structure                            0x2000027c   Data          10  main.o(.bss)
+    rc_info_structure                        0x20000288   Data          20  main.o(.bss)
+    rc_base_info_structure                   0x2000029c   Data         134  main.o(.bss)
+    motor_9015_structure                     0x20000324   Data          20  main.o(.bss)
+    Gimbal                                   0x20000338   Data         136  main.o(.bss)
+    motor_9015_base_info_structure           0x200003c0   Data          24  main.o(.bss)
+    motor_3508_LF_structure                  0x200003d8   Data          12  main.o(.bss)
+    motor_3508_LF_base_info                  0x200003e4   Data          14  main.o(.bss)
+    motor_3508_RF_structure                  0x200003f4   Data          12  main.o(.bss)
+    motor_3508_RF_base_info                  0x20000400   Data          14  main.o(.bss)
+    motor_3508_LB_structure                  0x20000410   Data          12  main.o(.bss)
+    motor_3508_LB_base_info                  0x2000041c   Data          14  main.o(.bss)
+    motor_3508_RB_structure                  0x2000042c   Data          12  main.o(.bss)
+    motor_3508_RB_base_info                  0x20000438   Data          14  main.o(.bss)
+    chassis_pid_speed_structure              0x20000448   Data         432  main.o(.bss)
+    chassis_pid_follow_structure             0x200005f8   Data         108  main.o(.bss)
+    hadc1                                    0x200008b8   Data          72  adc.o(.bss)
+    hcan1                                    0x20000900   Data          40  can.o(.bss)
+    hcan2                                    0x20000928   Data          40  can.o(.bss)
+    hdac                                     0x20000950   Data          20  dac.o(.bss)
+    hiwdg                                    0x20000964   Data          12  iwdg.o(.bss)
+    htim1                                    0x20000970   Data          64  tim.o(.bss)
+    htim3                                    0x200009b0   Data          64  tim.o(.bss)
+    huart4                                   0x200009f0   Data          64  usart.o(.bss)
+    huart5                                   0x20000a30   Data          64  usart.o(.bss)
+    huart1                                   0x20000a70   Data          64  usart.o(.bss)
+    huart2                                   0x20000ab0   Data          64  usart.o(.bss)
+    huart3                                   0x20000af0   Data          64  usart.o(.bss)
+    hdma_uart4_rx                            0x20000b30   Data          96  usart.o(.bss)
+    hdma_uart5_rx                            0x20000b90   Data          96  usart.o(.bss)
+    hdma_uart5_tx                            0x20000bf0   Data          96  usart.o(.bss)
+    hdma_usart1_rx                           0x20000c50   Data          96  usart.o(.bss)
+    hdma_usart2_rx                           0x20000cb0   Data          96  usart.o(.bss)
+    hdma_usart3_tx                           0x20000d10   Data          96  usart.o(.bss)
+    hdma_usart3_rx                           0x20000d70   Data          96  usart.o(.bss)
+    htim2                                    0x20000dd0   Data          64  stm32f4xx_hal_timebase_tim.o(.bss)
+    hcan1RxFrame                             0x20004b00   Data          36  drv_can.o(.bss)
+    hcan2RxFrame                             0x20004b24   Data          36  drv_can.o(.bss)
+    hcan1TxFrame                             0x20004b48   Data          32  drv_can.o(.bss)
+    hcan2TxFrame                             0x20004b68   Data          32  drv_can.o(.bss)
+    usart1_dma_rxbuf                         0x20004b88   Data         350  drv_uart.o(.bss)
+    usart2_dma_rxbuf                         0x20004ce6   Data          48  drv_uart.o(.bss)
+    usart3_dma_rxbuf                         0x20004d16   Data         350  drv_uart.o(.bss)
+    usart4_dma_rxbuf                         0x20004e74   Data         200  drv_uart.o(.bss)
+    usart5_dma_rxbuf                         0x20004f3c   Data         200  drv_uart.o(.bss)
+    bmi2_dev                                 0x20005008   Data         104  bmi.o(.bss)
+    Master_Head_structure                    0x20005070   Data          42  can_protocol.o(.bss)
+    vision_rx_pack                           0x2000509c   Data          25  vision.o(.bss)
+    vision_tx_pack                           0x200050b5   Data          28  vision.o(.bss)
+    vision_structure                         0x200050d4   Data          40  vision.o(.bss)
+    vision_txBuf                             0x200050fc   Data          35  vision.o(.bss)
+    navigation_rx_pack                       0x20005120   Data          25  navigation.o(.bss)
+    navigation_tx_pack                       0x20005139   Data          28  navigation.o(.bss)
+    navigation_structure                     0x20005158   Data          40  navigation.o(.bss)
+    navigation_txBuf                         0x20005180   Data          35  navigation.o(.bss)
+    motor_9015_pid_spd                       0x200051a4   Data         108  9015_motor.o(.bss)
+    motor_9015_pid_pos                       0x20005210   Data         108  9015_motor.o(.bss)
+    motor_9015_pid_bmi                       0x2000527c   Data         108  9015_motor.o(.bss)
+    L_shoot_structure                        0x200052e8   Data          44  rp_shoot.o(.bss)
+    R_shoot_structure                        0x20005314   Data          44  rp_shoot.o(.bss)
+    L_motor_2006_PLUCK_structure             0x20005340   Data          24  rp_shoot.o(.bss)
+    L_motor_2006_PLUCK_base_info             0x20005358   Data          32  rp_shoot.o(.bss)
+    R_motor_2006_PLUCK_structure             0x20005378   Data          24  rp_shoot.o(.bss)
+    R_motor_2006_PLUCK_base_info             0x20005390   Data          32  rp_shoot.o(.bss)
+    L_pid_s_stir_sin                         0x200053b0   Data         108  rp_shoot.o(.bss)
+    L_pid_p_stir_sin                         0x2000541c   Data         108  rp_shoot.o(.bss)
+    L_pid_p_stir_done                        0x20005488   Data         108  rp_shoot.o(.bss)
+    L_pid_s_stir_run                         0x200054f4   Data         108  rp_shoot.o(.bss)
+    R_pid_s_stir_sin                         0x20005560   Data         108  rp_shoot.o(.bss)
+    R_pid_p_stir_sin                         0x200055cc   Data         108  rp_shoot.o(.bss)
+    R_pid_p_stir_done                        0x20005638   Data         108  rp_shoot.o(.bss)
+    R_pid_s_stir_run                         0x200056a4   Data         108  rp_shoot.o(.bss)
+    judge_rawdata                            0x20005710   Data         152  judge.o(.bss)
+    cap_receive_data                         0x200057a8   Data          12  cap_protocol_1.o(.bss)
+    __libspace_start                         0x200057b4   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x20005814   Data           0  libspace.o(.bss)
 
 
 
@@ -5618,9 +5624,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000189
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00011698, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x00011498])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00011710, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x00011500])
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x0001142c, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00011494, Max: 0x00080000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -6083,174 +6089,174 @@ Memory Map of the image
     0x08009694   0x08009694   0x0000008a   Code   RO         6231    i.get_wrist_gest_w_config  bmi2.o
     0x0800971e   0x0800971e   0x0000008e   Code   RO         6232    i.get_wrist_wear_wake_up_config  bmi2.o
     0x080097ac   0x080097ac   0x0000009c   Code   RO         6233    i.get_wrist_wear_wake_up_wh_config  bmi2.o
-    0x08009848   0x08009848   0x00000168   Code   RO         7879    i.gimbal_work       gimbal_task.o
-    0x080099b0   0x080099b0   0x0000002c   Code   RO         6000    i.inVSqrt           bmi.o
-    0x080099dc   0x080099dc   0x00000026   Code   RO         8835    i.int16_to_float    cap_protocol_1.o
-    0x08009a02   0x08009a02   0x00000002   PAD
-    0x08009a04   0x08009a04   0x00000028   Code   RO         8770    i.judge_heart       judge.o
-    0x08009a2c   0x08009a2c   0x00000070   Code   RO         8771    i.judge_recive      judge.o
-    0x08009a9c   0x08009a9c   0x000002b4   Code   RO         8772    i.judge_update      judge.o
-    0x08009d50   0x08009d50   0x00000044   Code   RO         8000    i.key_board_status_interrupt_update  remote.o
-    0x08009d94   0x08009d94   0x00000036   Code   RO         8001    i.key_board_status_update  remote.o
-    0x08009dca   0x08009dca   0x00000026   Code   RO         6001    i.lsb_to_dps        bmi.o
-    0x08009df0   0x08009df0   0x00000034   Code   RO         6002    i.lsb_to_mps2       bmi.o
-    0x08009e24   0x08009e24   0x0000009c   Code   RO           16    i.main              main.o
-    0x08009ec0   0x08009ec0   0x0000000c   Code   RO         5087    i.makeFreeRtosPriority  cmsis_os.o
-    0x08009ecc   0x08009ecc   0x000003b4   Code   RO         7916    i.master_work       master_task.o
-    0x0800a280   0x0800a280   0x00000024   Code   RO         5773    i.micros            drv_haltick.o
-    0x0800a2a4   0x0800a2a4   0x00000528   Code   RO         6003    i.my_BMI_Get_EulerAngle  bmi.o
-    0x0800a7cc   0x0800a7cc   0x00000018   Code   RO         6235    i.null_ptr_check    bmi2.o
-    0x0800a7e4   0x0800a7e4   0x0000000e   Code   RO         5089    i.osDelay           cmsis_os.o
-    0x0800a7f2   0x0800a7f2   0x0000000a   Code   RO         5092    i.osKernelStart     cmsis_os.o
-    0x0800a7fc   0x0800a7fc   0x00000054   Code   RO         5126    i.osThreadCreate    cmsis_os.o
-    0x0800a850   0x0800a850   0x000001c4   Code   RO         7514    i.pid_calc          dji_pid.o
-    0x0800aa14   0x0800aa14   0x0000018c   Code   RO         7515    i.pid_calc_err      dji_pid.o
-    0x0800aba0   0x0800aba0   0x000001b8   Code   RO         7516    i.pid_calc_err_9015  dji_pid.o
-    0x0800ad58   0x0800ad58   0x0000000e   Code   RO         7518    i.pid_param_init    dji_pid.o
-    0x0800ad66   0x0800ad66   0x00000006   Code   RO         7519    i.pid_reset         dji_pid.o
-    0x0800ad6c   0x0800ad6c   0x00000070   Code   RO         4781    i.prvAddCurrentTaskToDelayedList  tasks.o
-    0x0800addc   0x0800addc   0x000000d0   Code   RO         4782    i.prvAddNewTaskToReadyList  tasks.o
-    0x0800aeac   0x0800aeac   0x00000034   Code   RO         4783    i.prvDeleteTCB      tasks.o
-    0x0800aee0   0x0800aee0   0x0000004c   Code   RO         5454    i.prvHeapInit       heap_4.o
-    0x0800af2c   0x0800af2c   0x00000060   Code   RO         4784    i.prvIdleTask       tasks.o
-    0x0800af8c   0x0800af8c   0x00000098   Code   RO         4785    i.prvInitialiseNewTask  tasks.o
-    0x0800b024   0x0800b024   0x0000004c   Code   RO         5455    i.prvInsertBlockIntoFreeList  heap_4.o
-    0x0800b070   0x0800b070   0x00000020   Code   RO         4786    i.prvResetNextTaskUnblockTime  tasks.o
-    0x0800b090   0x0800b090   0x00000028   Code   RO         5517    i.prvTaskExitError  port.o
-    0x0800b0b8   0x0800b0b8   0x000000d8   Code   RO         5456    i.pvPortMalloc      heap_4.o
-    0x0800b190   0x0800b190   0x0000002c   Code   RO         5518    i.pxPortInitialiseStack  port.o
-    0x0800b1bc   0x0800b1bc   0x0000013c   Code   RO         8002    i.rc_base_info_update  remote.o
-    0x0800b2f8   0x0800b2f8   0x00000020   Code   RO         8003    i.rc_init           remote.o
-    0x0800b318   0x0800b318   0x00000036   Code   RO         8005    i.rc_wheel_status_interrupt_update  remote.o
-    0x0800b34e   0x0800b34e   0x0000014e   Code   RO         6249    i.select_sensor     bmi2.o
-    0x0800b49c   0x0800b49c   0x000003c4   Code   RO         6252    i.sensor_enable     bmi2.o
-    0x0800b860   0x0800b860   0x00000098   Code   RO         6253    i.set_accel_config  bmi2.o
-    0x0800b8f8   0x0800b8f8   0x00000056   Code   RO         6255    i.set_act_recog     bmi2.o
-    0x0800b94e   0x0800b94e   0x0000005a   Code   RO         6256    i.set_any_motion    bmi2.o
-    0x0800b9a8   0x0800b9a8   0x000000c6   Code   RO         6257    i.set_any_motion_config  bmi2.o
-    0x0800ba6e   0x0800ba6e   0x00000090   Code   RO         6258    i.set_aux_config    bmi2.o
-    0x0800bafe   0x0800bafe   0x00000036   Code   RO         6259    i.set_config_load   bmi2.o
-    0x0800bb34   0x0800bb34   0x00000056   Code   RO         6260    i.set_double_tap    bmi2.o
-    0x0800bb8a   0x0800bb8a   0x00000056   Code   RO         6261    i.set_ext_sens_sync  bmi2.o
-    0x0800bbe0   0x0800bbe0   0x0000008e   Code   RO         6262    i.set_ext_sens_sync_config  bmi2.o
-    0x0800bc6e   0x0800bc6e   0x00000002   PAD
-    0x0800bc70   0x0800bc70   0x00000068   Code   RO         6263    i.set_feat_accel_self_test  bmi2.o
-    0x0800bcd8   0x0800bcd8   0x00000056   Code   RO         6264    i.set_flat          bmi2.o
-    0x0800bd2e   0x0800bd2e   0x000000bc   Code   RO         6265    i.set_flat_config   bmi2.o
-    0x0800bdea   0x0800bdea   0x00000056   Code   RO         6266    i.set_free_fall_det  bmi2.o
-    0x0800be40   0x0800be40   0x000000a8   Code   RO         6267    i.set_free_fall_det_config  bmi2.o
-    0x0800bee8   0x0800bee8   0x0000008e   Code   RO         6268    i.set_glance_detect_config  bmi2.o
-    0x0800bf76   0x0800bf76   0x00000056   Code   RO         6269    i.set_glance_detector  bmi2.o
-    0x0800bfcc   0x0800bfcc   0x000000ac   Code   RO         6270    i.set_gyro_config   bmi2.o
-    0x0800c078   0x0800c078   0x00000056   Code   RO         6271    i.set_gyro_self_offset_corr  bmi2.o
-    0x0800c0ce   0x0800c0ce   0x0000005a   Code   RO         6272    i.set_gyro_user_gain  bmi2.o
-    0x0800c128   0x0800c128   0x000000a2   Code   RO         6273    i.set_gyro_user_gain_config  bmi2.o
-    0x0800c1ca   0x0800c1ca   0x0000005a   Code   RO         6274    i.set_high_g        bmi2.o
-    0x0800c224   0x0800c224   0x000000da   Code   RO         6275    i.set_high_g_config  bmi2.o
-    0x0800c2fe   0x0800c2fe   0x0000005a   Code   RO         6277    i.set_low_g         bmi2.o
-    0x0800c358   0x0800c358   0x000000ba   Code   RO         6278    i.set_low_g_config  bmi2.o
-    0x0800c412   0x0800c412   0x0000005a   Code   RO         6280    i.set_no_motion     bmi2.o
-    0x0800c46c   0x0800c46c   0x000000c6   Code   RO         6281    i.set_no_motion_config  bmi2.o
-    0x0800c532   0x0800c532   0x000000c6   Code   RO         6283    i.set_orient_config  bmi2.o
-    0x0800c5f8   0x0800c5f8   0x00000056   Code   RO         6284    i.set_orientation   bmi2.o
-    0x0800c64e   0x0800c64e   0x0000009e   Code   RO         6285    i.set_primary_ois_config  bmi2.o
-    0x0800c6ec   0x0800c6ec   0x0000005a   Code   RO         6287    i.set_sig_motion    bmi2.o
-    0x0800c746   0x0800c746   0x000000be   Code   RO         6288    i.set_sig_motion_config  bmi2.o
-    0x0800c804   0x0800c804   0x00000056   Code   RO         6289    i.set_single_tap    bmi2.o
-    0x0800c85a   0x0800c85a   0x0000005a   Code   RO         6290    i.set_step_activity  bmi2.o
-    0x0800c8b4   0x0800c8b4   0x000000c0   Code   RO         6291    i.set_step_config   bmi2.o
-    0x0800c974   0x0800c974   0x000000d4   Code   RO         6292    i.set_step_count_params_config  bmi2.o
-    0x0800ca48   0x0800ca48   0x0000005a   Code   RO         6293    i.set_step_counter  bmi2.o
-    0x0800caa2   0x0800caa2   0x0000005a   Code   RO         6294    i.set_step_detector  bmi2.o
-    0x0800cafc   0x0800cafc   0x00000056   Code   RO         6295    i.set_tilt          bmi2.o
-    0x0800cb52   0x0800cb52   0x0000008e   Code   RO         6296    i.set_tilt_config   bmi2.o
-    0x0800cbe0   0x0800cbe0   0x00000056   Code   RO         6297    i.set_triple_tap    bmi2.o
-    0x0800cc36   0x0800cc36   0x00000056   Code   RO         6298    i.set_up_hold_to_wake  bmi2.o
-    0x0800cc8c   0x0800cc8c   0x0000008e   Code   RO         6299    i.set_up_hold_to_wake_config  bmi2.o
-    0x0800cd1a   0x0800cd1a   0x00000056   Code   RO         6300    i.set_wake_up       bmi2.o
-    0x0800cd70   0x0800cd70   0x000000bc   Code   RO         6301    i.set_wake_up_config  bmi2.o
-    0x0800ce2c   0x0800ce2c   0x000000b6   Code   RO         6302    i.set_wrist_gest_config  bmi2.o
-    0x0800cee2   0x0800cee2   0x000000c8   Code   RO         6303    i.set_wrist_gest_w_config  bmi2.o
-    0x0800cfaa   0x0800cfaa   0x00000056   Code   RO         6304    i.set_wrist_gesture  bmi2.o
-    0x0800d000   0x0800d000   0x00000056   Code   RO         6305    i.set_wrist_gesture_wh  bmi2.o
-    0x0800d056   0x0800d056   0x00000056   Code   RO         6306    i.set_wrist_wear_wake_up  bmi2.o
-    0x0800d0ac   0x0800d0ac   0x000000c8   Code   RO         6307    i.set_wrist_wear_wake_up_config  bmi2.o
-    0x0800d174   0x0800d174   0x00000056   Code   RO         6308    i.set_wrist_wear_wake_up_wh  bmi2.o
-    0x0800d1ca   0x0800d1ca   0x000000fa   Code   RO         6309    i.set_wrist_wear_wake_up_wh_config  bmi2.o
-    0x0800d2c4   0x0800d2c4   0x00000334   Code   RO         8731    i.shoot_work        shoot_task.o
-    0x0800d5f8   0x0800d5f8   0x0000006e   Code   RO         9212    i.sqrt              m_wm.l(sqrt.o)
-    0x0800d666   0x0800d666   0x00000002   PAD
-    0x0800d668   0x0800d668   0x000000f4   Code   RO         5879    i.uart_rx_idle_callback  drv_uart.o
-    0x0800d75c   0x0800d75c   0x00000040   Code   RO         6321    i.upload_file       bmi2.o
-    0x0800d79c   0x0800d79c   0x00000004   Code   RO         7231    i.user_delay_us     bmi2_common.o
-    0x0800d7a0   0x0800d7a0   0x00000024   Code   RO         7232    i.user_i2c_reg_read  bmi2_common.o
-    0x0800d7c4   0x0800d7c4   0x0000004c   Code   RO         7233    i.user_i2c_reg_write  bmi2_common.o
-    0x0800d810   0x0800d810   0x00000026   Code   RO         4417    i.uxListRemove      list.o
-    0x0800d836   0x0800d836   0x00000002   PAD
-    0x0800d838   0x0800d838   0x00000014   Code   RO          492    i.vApplicationGetIdleTaskMemory  freertos.o
-    0x0800d84c   0x0800d84c   0x00000016   Code   RO         4418    i.vListInitialise   list.o
-    0x0800d862   0x0800d862   0x00000006   Code   RO         4419    i.vListInitialiseItem  list.o
-    0x0800d868   0x0800d868   0x00000030   Code   RO         4420    i.vListInsert       list.o
-    0x0800d898   0x0800d898   0x00000018   Code   RO         4421    i.vListInsertEnd    list.o
-    0x0800d8b0   0x0800d8b0   0x00000040   Code   RO         5520    i.vPortEnterCritical  port.o
-    0x0800d8f0   0x0800d8f0   0x00000028   Code   RO         5521    i.vPortExitCritical  port.o
-    0x0800d918   0x0800d918   0x0000005c   Code   RO         5457    i.vPortFree         heap_4.o
-    0x0800d974   0x0800d974   0x00000024   Code   RO         5522    i.vPortSetupTimerInterrupt  port.o
-    0x0800d998   0x0800d998   0x0000004c   Code   RO         4794    i.vTaskDelay        tasks.o
-    0x0800d9e4   0x0800d9e4   0x0000006c   Code   RO         4807    i.vTaskStartScheduler  tasks.o
-    0x0800da50   0x0800da50   0x00000010   Code   RO         4809    i.vTaskSuspendAll   tasks.o
-    0x0800da60   0x0800da60   0x0000005c   Code   RO         4810    i.vTaskSwitchContext  tasks.o
-    0x0800dabc   0x0800dabc   0x00000174   Code   RO         8085    i.vision_task       vision.o
-    0x0800dc30   0x0800dc30   0x000000d0   Code   RO         8545    i.work_check        check_task.o
-    0x0800dd00   0x0800dd00   0x000000e4   Code   RO         6327    i.write_config_file  bmi2.o
-    0x0800dde4   0x0800dde4   0x000000f4   Code   RO         5524    i.xPortStartScheduler  port.o
-    0x0800ded8   0x0800ded8   0x0000005a   Code   RO         4812    i.xTaskCreate       tasks.o
-    0x0800df32   0x0800df32   0x00000056   Code   RO         4813    i.xTaskCreateStatic  tasks.o
-    0x0800df88   0x0800df88   0x000000c8   Code   RO         4820    i.xTaskIncrementTick  tasks.o
-    0x0800e050   0x0800e050   0x000000c4   Code   RO         4826    i.xTaskResumeAll    tasks.o
-    0x0800e114   0x0800e114   0x00000018   Code   RO         9144    x$fpl$basic         fz_wm.l(basic.o)
-    0x0800e12c   0x0800e12c   0x00000062   Code   RO         8987    x$fpl$d2f           fz_wm.l(d2f.o)
-    0x0800e18e   0x0800e18e   0x00000002   PAD
-    0x0800e190   0x0800e190   0x00000150   Code   RO         8989    x$fpl$dadd          fz_wm.l(daddsub_clz.o)
-    0x0800e2e0   0x0800e2e0   0x00000018   Code   RO         9266    x$fpl$dcmpinf       fz_wm.l(dcmpi.o)
-    0x0800e2f8   0x0800e2f8   0x000002b0   Code   RO         8996    x$fpl$ddiv          fz_wm.l(ddiv.o)
-    0x0800e5a8   0x0800e5a8   0x00000078   Code   RO         9146    x$fpl$deqf          fz_wm.l(deqf.o)
-    0x0800e620   0x0800e620   0x0000005e   Code   RO         8999    x$fpl$dfix          fz_wm.l(dfix.o)
-    0x0800e67e   0x0800e67e   0x0000002e   Code   RO         9004    x$fpl$dflt          fz_wm.l(dflt_clz.o)
-    0x0800e6ac   0x0800e6ac   0x00000026   Code   RO         9003    x$fpl$dfltu         fz_wm.l(dflt_clz.o)
-    0x0800e6d2   0x0800e6d2   0x00000002   PAD
-    0x0800e6d4   0x0800e6d4   0x00000154   Code   RO         9009    x$fpl$dmul          fz_wm.l(dmul.o)
-    0x0800e828   0x0800e828   0x0000009c   Code   RO         9148    x$fpl$dnaninf       fz_wm.l(dnaninf.o)
-    0x0800e8c4   0x0800e8c4   0x0000000c   Code   RO         9150    x$fpl$dretinf       fz_wm.l(dretinf.o)
-    0x0800e8d0   0x0800e8d0   0x00000016   Code   RO         8990    x$fpl$drsb          fz_wm.l(daddsub_clz.o)
-    0x0800e8e6   0x0800e8e6   0x00000002   PAD
-    0x0800e8e8   0x0800e8e8   0x00000198   Code   RO         9270    x$fpl$dsqrt         fz_wm.l(dsqrt_umaal.o)
-    0x0800ea80   0x0800ea80   0x000001d4   Code   RO         8991    x$fpl$dsub          fz_wm.l(daddsub_clz.o)
-    0x0800ec54   0x0800ec54   0x00000056   Code   RO         9011    x$fpl$f2d           fz_wm.l(f2d.o)
-    0x0800ecaa   0x0800ecaa   0x0000008c   Code   RO         9152    x$fpl$fnaninf       fz_wm.l(fnaninf.o)
-    0x0800ed36   0x0800ed36   0x0000000a   Code   RO         9272    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x0800ed40   0x0800ed40   0x0000000a   Code   RO         9154    x$fpl$fretinf       fz_wm.l(fretinf.o)
-    0x0800ed4a   0x0800ed4a   0x00000000   Code   RO         9156    x$fpl$usenofp       fz_wm.l(usenofp.o)
-    0x0800ed4a   0x0800ed4a   0x00000002   PAD
-    0x0800ed4c   0x0800ed4c   0x000000e0   Data   RO          494    .constdata          freertos.o
-    0x0800ee2c   0x0800ee2c   0x00000008   Data   RO         1877    .constdata          stm32f4xx_hal_dma.o
-    0x0800ee34   0x0800ee34   0x00000010   Data   RO         4280    .constdata          system_stm32f4xx.o
-    0x0800ee44   0x0800ee44   0x00000008   Data   RO         4281    .constdata          system_stm32f4xx.o
-    0x0800ee4c   0x0800ee4c   0x00000006   Data   RO         6329    .constdata          bmi2.o
-    0x0800ee52   0x0800ee52   0x00002045   Data   RO         7379    .constdata          bmi270.o
-    0x08010e97   0x08010e97   0x00000001   PAD
-    0x08010e98   0x08010e98   0x00000300   Data   RO         8160    .constdata          crc.o
-    0x08011198   0x08011198   0x00000050   Data   RO         9016    .constdata          m_wm.l(asin.o)
-    0x080111e8   0x080111e8   0x00000098   Data   RO         9160    .constdata          m_wm.l(atan.o)
-    0x08011280   0x08011280   0x00000030   Data   RO         9172    .constdata          m_wm.l(cos_i.o)
-    0x080112b0   0x080112b0   0x00000008   Data   RO         9198    .constdata          m_wm.l(qnan.o)
-    0x080112b8   0x080112b8   0x000000c8   Data   RO         9201    .constdata          m_wm.l(rred.o)
-    0x08011380   0x08011380   0x00000028   Data   RO         9205    .constdata          m_wm.l(sin_i.o)
-    0x080113a8   0x080113a8   0x00000064   Data   RO          495    .conststring        freertos.o
-    0x0801140c   0x0801140c   0x00000020   Data   RO         9363    Region$$Table       anon$$obj.o
+    0x08009848   0x08009848   0x000001d0   Code   RO         7879    i.gimbal_work       gimbal_task.o
+    0x08009a18   0x08009a18   0x0000002c   Code   RO         6000    i.inVSqrt           bmi.o
+    0x08009a44   0x08009a44   0x00000026   Code   RO         8835    i.int16_to_float    cap_protocol_1.o
+    0x08009a6a   0x08009a6a   0x00000002   PAD
+    0x08009a6c   0x08009a6c   0x00000028   Code   RO         8770    i.judge_heart       judge.o
+    0x08009a94   0x08009a94   0x00000070   Code   RO         8771    i.judge_recive      judge.o
+    0x08009b04   0x08009b04   0x000002b4   Code   RO         8772    i.judge_update      judge.o
+    0x08009db8   0x08009db8   0x00000044   Code   RO         8000    i.key_board_status_interrupt_update  remote.o
+    0x08009dfc   0x08009dfc   0x00000036   Code   RO         8001    i.key_board_status_update  remote.o
+    0x08009e32   0x08009e32   0x00000026   Code   RO         6001    i.lsb_to_dps        bmi.o
+    0x08009e58   0x08009e58   0x00000034   Code   RO         6002    i.lsb_to_mps2       bmi.o
+    0x08009e8c   0x08009e8c   0x0000009c   Code   RO           16    i.main              main.o
+    0x08009f28   0x08009f28   0x0000000c   Code   RO         5087    i.makeFreeRtosPriority  cmsis_os.o
+    0x08009f34   0x08009f34   0x000003b4   Code   RO         7916    i.master_work       master_task.o
+    0x0800a2e8   0x0800a2e8   0x00000024   Code   RO         5773    i.micros            drv_haltick.o
+    0x0800a30c   0x0800a30c   0x00000528   Code   RO         6003    i.my_BMI_Get_EulerAngle  bmi.o
+    0x0800a834   0x0800a834   0x00000018   Code   RO         6235    i.null_ptr_check    bmi2.o
+    0x0800a84c   0x0800a84c   0x0000000e   Code   RO         5089    i.osDelay           cmsis_os.o
+    0x0800a85a   0x0800a85a   0x0000000a   Code   RO         5092    i.osKernelStart     cmsis_os.o
+    0x0800a864   0x0800a864   0x00000054   Code   RO         5126    i.osThreadCreate    cmsis_os.o
+    0x0800a8b8   0x0800a8b8   0x000001c4   Code   RO         7514    i.pid_calc          dji_pid.o
+    0x0800aa7c   0x0800aa7c   0x0000018c   Code   RO         7515    i.pid_calc_err      dji_pid.o
+    0x0800ac08   0x0800ac08   0x000001b8   Code   RO         7516    i.pid_calc_err_9015  dji_pid.o
+    0x0800adc0   0x0800adc0   0x0000000e   Code   RO         7518    i.pid_param_init    dji_pid.o
+    0x0800adce   0x0800adce   0x00000006   Code   RO         7519    i.pid_reset         dji_pid.o
+    0x0800add4   0x0800add4   0x00000070   Code   RO         4781    i.prvAddCurrentTaskToDelayedList  tasks.o
+    0x0800ae44   0x0800ae44   0x000000d0   Code   RO         4782    i.prvAddNewTaskToReadyList  tasks.o
+    0x0800af14   0x0800af14   0x00000034   Code   RO         4783    i.prvDeleteTCB      tasks.o
+    0x0800af48   0x0800af48   0x0000004c   Code   RO         5454    i.prvHeapInit       heap_4.o
+    0x0800af94   0x0800af94   0x00000060   Code   RO         4784    i.prvIdleTask       tasks.o
+    0x0800aff4   0x0800aff4   0x00000098   Code   RO         4785    i.prvInitialiseNewTask  tasks.o
+    0x0800b08c   0x0800b08c   0x0000004c   Code   RO         5455    i.prvInsertBlockIntoFreeList  heap_4.o
+    0x0800b0d8   0x0800b0d8   0x00000020   Code   RO         4786    i.prvResetNextTaskUnblockTime  tasks.o
+    0x0800b0f8   0x0800b0f8   0x00000028   Code   RO         5517    i.prvTaskExitError  port.o
+    0x0800b120   0x0800b120   0x000000d8   Code   RO         5456    i.pvPortMalloc      heap_4.o
+    0x0800b1f8   0x0800b1f8   0x0000002c   Code   RO         5518    i.pxPortInitialiseStack  port.o
+    0x0800b224   0x0800b224   0x0000013c   Code   RO         8002    i.rc_base_info_update  remote.o
+    0x0800b360   0x0800b360   0x00000020   Code   RO         8003    i.rc_init           remote.o
+    0x0800b380   0x0800b380   0x00000036   Code   RO         8005    i.rc_wheel_status_interrupt_update  remote.o
+    0x0800b3b6   0x0800b3b6   0x0000014e   Code   RO         6249    i.select_sensor     bmi2.o
+    0x0800b504   0x0800b504   0x000003c4   Code   RO         6252    i.sensor_enable     bmi2.o
+    0x0800b8c8   0x0800b8c8   0x00000098   Code   RO         6253    i.set_accel_config  bmi2.o
+    0x0800b960   0x0800b960   0x00000056   Code   RO         6255    i.set_act_recog     bmi2.o
+    0x0800b9b6   0x0800b9b6   0x0000005a   Code   RO         6256    i.set_any_motion    bmi2.o
+    0x0800ba10   0x0800ba10   0x000000c6   Code   RO         6257    i.set_any_motion_config  bmi2.o
+    0x0800bad6   0x0800bad6   0x00000090   Code   RO         6258    i.set_aux_config    bmi2.o
+    0x0800bb66   0x0800bb66   0x00000036   Code   RO         6259    i.set_config_load   bmi2.o
+    0x0800bb9c   0x0800bb9c   0x00000056   Code   RO         6260    i.set_double_tap    bmi2.o
+    0x0800bbf2   0x0800bbf2   0x00000056   Code   RO         6261    i.set_ext_sens_sync  bmi2.o
+    0x0800bc48   0x0800bc48   0x0000008e   Code   RO         6262    i.set_ext_sens_sync_config  bmi2.o
+    0x0800bcd6   0x0800bcd6   0x00000002   PAD
+    0x0800bcd8   0x0800bcd8   0x00000068   Code   RO         6263    i.set_feat_accel_self_test  bmi2.o
+    0x0800bd40   0x0800bd40   0x00000056   Code   RO         6264    i.set_flat          bmi2.o
+    0x0800bd96   0x0800bd96   0x000000bc   Code   RO         6265    i.set_flat_config   bmi2.o
+    0x0800be52   0x0800be52   0x00000056   Code   RO         6266    i.set_free_fall_det  bmi2.o
+    0x0800bea8   0x0800bea8   0x000000a8   Code   RO         6267    i.set_free_fall_det_config  bmi2.o
+    0x0800bf50   0x0800bf50   0x0000008e   Code   RO         6268    i.set_glance_detect_config  bmi2.o
+    0x0800bfde   0x0800bfde   0x00000056   Code   RO         6269    i.set_glance_detector  bmi2.o
+    0x0800c034   0x0800c034   0x000000ac   Code   RO         6270    i.set_gyro_config   bmi2.o
+    0x0800c0e0   0x0800c0e0   0x00000056   Code   RO         6271    i.set_gyro_self_offset_corr  bmi2.o
+    0x0800c136   0x0800c136   0x0000005a   Code   RO         6272    i.set_gyro_user_gain  bmi2.o
+    0x0800c190   0x0800c190   0x000000a2   Code   RO         6273    i.set_gyro_user_gain_config  bmi2.o
+    0x0800c232   0x0800c232   0x0000005a   Code   RO         6274    i.set_high_g        bmi2.o
+    0x0800c28c   0x0800c28c   0x000000da   Code   RO         6275    i.set_high_g_config  bmi2.o
+    0x0800c366   0x0800c366   0x0000005a   Code   RO         6277    i.set_low_g         bmi2.o
+    0x0800c3c0   0x0800c3c0   0x000000ba   Code   RO         6278    i.set_low_g_config  bmi2.o
+    0x0800c47a   0x0800c47a   0x0000005a   Code   RO         6280    i.set_no_motion     bmi2.o
+    0x0800c4d4   0x0800c4d4   0x000000c6   Code   RO         6281    i.set_no_motion_config  bmi2.o
+    0x0800c59a   0x0800c59a   0x000000c6   Code   RO         6283    i.set_orient_config  bmi2.o
+    0x0800c660   0x0800c660   0x00000056   Code   RO         6284    i.set_orientation   bmi2.o
+    0x0800c6b6   0x0800c6b6   0x0000009e   Code   RO         6285    i.set_primary_ois_config  bmi2.o
+    0x0800c754   0x0800c754   0x0000005a   Code   RO         6287    i.set_sig_motion    bmi2.o
+    0x0800c7ae   0x0800c7ae   0x000000be   Code   RO         6288    i.set_sig_motion_config  bmi2.o
+    0x0800c86c   0x0800c86c   0x00000056   Code   RO         6289    i.set_single_tap    bmi2.o
+    0x0800c8c2   0x0800c8c2   0x0000005a   Code   RO         6290    i.set_step_activity  bmi2.o
+    0x0800c91c   0x0800c91c   0x000000c0   Code   RO         6291    i.set_step_config   bmi2.o
+    0x0800c9dc   0x0800c9dc   0x000000d4   Code   RO         6292    i.set_step_count_params_config  bmi2.o
+    0x0800cab0   0x0800cab0   0x0000005a   Code   RO         6293    i.set_step_counter  bmi2.o
+    0x0800cb0a   0x0800cb0a   0x0000005a   Code   RO         6294    i.set_step_detector  bmi2.o
+    0x0800cb64   0x0800cb64   0x00000056   Code   RO         6295    i.set_tilt          bmi2.o
+    0x0800cbba   0x0800cbba   0x0000008e   Code   RO         6296    i.set_tilt_config   bmi2.o
+    0x0800cc48   0x0800cc48   0x00000056   Code   RO         6297    i.set_triple_tap    bmi2.o
+    0x0800cc9e   0x0800cc9e   0x00000056   Code   RO         6298    i.set_up_hold_to_wake  bmi2.o
+    0x0800ccf4   0x0800ccf4   0x0000008e   Code   RO         6299    i.set_up_hold_to_wake_config  bmi2.o
+    0x0800cd82   0x0800cd82   0x00000056   Code   RO         6300    i.set_wake_up       bmi2.o
+    0x0800cdd8   0x0800cdd8   0x000000bc   Code   RO         6301    i.set_wake_up_config  bmi2.o
+    0x0800ce94   0x0800ce94   0x000000b6   Code   RO         6302    i.set_wrist_gest_config  bmi2.o
+    0x0800cf4a   0x0800cf4a   0x000000c8   Code   RO         6303    i.set_wrist_gest_w_config  bmi2.o
+    0x0800d012   0x0800d012   0x00000056   Code   RO         6304    i.set_wrist_gesture  bmi2.o
+    0x0800d068   0x0800d068   0x00000056   Code   RO         6305    i.set_wrist_gesture_wh  bmi2.o
+    0x0800d0be   0x0800d0be   0x00000056   Code   RO         6306    i.set_wrist_wear_wake_up  bmi2.o
+    0x0800d114   0x0800d114   0x000000c8   Code   RO         6307    i.set_wrist_wear_wake_up_config  bmi2.o
+    0x0800d1dc   0x0800d1dc   0x00000056   Code   RO         6308    i.set_wrist_wear_wake_up_wh  bmi2.o
+    0x0800d232   0x0800d232   0x000000fa   Code   RO         6309    i.set_wrist_wear_wake_up_wh_config  bmi2.o
+    0x0800d32c   0x0800d32c   0x00000334   Code   RO         8731    i.shoot_work        shoot_task.o
+    0x0800d660   0x0800d660   0x0000006e   Code   RO         9212    i.sqrt              m_wm.l(sqrt.o)
+    0x0800d6ce   0x0800d6ce   0x00000002   PAD
+    0x0800d6d0   0x0800d6d0   0x000000f4   Code   RO         5879    i.uart_rx_idle_callback  drv_uart.o
+    0x0800d7c4   0x0800d7c4   0x00000040   Code   RO         6321    i.upload_file       bmi2.o
+    0x0800d804   0x0800d804   0x00000004   Code   RO         7231    i.user_delay_us     bmi2_common.o
+    0x0800d808   0x0800d808   0x00000024   Code   RO         7232    i.user_i2c_reg_read  bmi2_common.o
+    0x0800d82c   0x0800d82c   0x0000004c   Code   RO         7233    i.user_i2c_reg_write  bmi2_common.o
+    0x0800d878   0x0800d878   0x00000026   Code   RO         4417    i.uxListRemove      list.o
+    0x0800d89e   0x0800d89e   0x00000002   PAD
+    0x0800d8a0   0x0800d8a0   0x00000014   Code   RO          492    i.vApplicationGetIdleTaskMemory  freertos.o
+    0x0800d8b4   0x0800d8b4   0x00000016   Code   RO         4418    i.vListInitialise   list.o
+    0x0800d8ca   0x0800d8ca   0x00000006   Code   RO         4419    i.vListInitialiseItem  list.o
+    0x0800d8d0   0x0800d8d0   0x00000030   Code   RO         4420    i.vListInsert       list.o
+    0x0800d900   0x0800d900   0x00000018   Code   RO         4421    i.vListInsertEnd    list.o
+    0x0800d918   0x0800d918   0x00000040   Code   RO         5520    i.vPortEnterCritical  port.o
+    0x0800d958   0x0800d958   0x00000028   Code   RO         5521    i.vPortExitCritical  port.o
+    0x0800d980   0x0800d980   0x0000005c   Code   RO         5457    i.vPortFree         heap_4.o
+    0x0800d9dc   0x0800d9dc   0x00000024   Code   RO         5522    i.vPortSetupTimerInterrupt  port.o
+    0x0800da00   0x0800da00   0x0000004c   Code   RO         4794    i.vTaskDelay        tasks.o
+    0x0800da4c   0x0800da4c   0x0000006c   Code   RO         4807    i.vTaskStartScheduler  tasks.o
+    0x0800dab8   0x0800dab8   0x00000010   Code   RO         4809    i.vTaskSuspendAll   tasks.o
+    0x0800dac8   0x0800dac8   0x0000005c   Code   RO         4810    i.vTaskSwitchContext  tasks.o
+    0x0800db24   0x0800db24   0x00000174   Code   RO         8085    i.vision_task       vision.o
+    0x0800dc98   0x0800dc98   0x000000d0   Code   RO         8545    i.work_check        check_task.o
+    0x0800dd68   0x0800dd68   0x000000e4   Code   RO         6327    i.write_config_file  bmi2.o
+    0x0800de4c   0x0800de4c   0x000000f4   Code   RO         5524    i.xPortStartScheduler  port.o
+    0x0800df40   0x0800df40   0x0000005a   Code   RO         4812    i.xTaskCreate       tasks.o
+    0x0800df9a   0x0800df9a   0x00000056   Code   RO         4813    i.xTaskCreateStatic  tasks.o
+    0x0800dff0   0x0800dff0   0x000000c8   Code   RO         4820    i.xTaskIncrementTick  tasks.o
+    0x0800e0b8   0x0800e0b8   0x000000c4   Code   RO         4826    i.xTaskResumeAll    tasks.o
+    0x0800e17c   0x0800e17c   0x00000018   Code   RO         9144    x$fpl$basic         fz_wm.l(basic.o)
+    0x0800e194   0x0800e194   0x00000062   Code   RO         8987    x$fpl$d2f           fz_wm.l(d2f.o)
+    0x0800e1f6   0x0800e1f6   0x00000002   PAD
+    0x0800e1f8   0x0800e1f8   0x00000150   Code   RO         8989    x$fpl$dadd          fz_wm.l(daddsub_clz.o)
+    0x0800e348   0x0800e348   0x00000018   Code   RO         9266    x$fpl$dcmpinf       fz_wm.l(dcmpi.o)
+    0x0800e360   0x0800e360   0x000002b0   Code   RO         8996    x$fpl$ddiv          fz_wm.l(ddiv.o)
+    0x0800e610   0x0800e610   0x00000078   Code   RO         9146    x$fpl$deqf          fz_wm.l(deqf.o)
+    0x0800e688   0x0800e688   0x0000005e   Code   RO         8999    x$fpl$dfix          fz_wm.l(dfix.o)
+    0x0800e6e6   0x0800e6e6   0x0000002e   Code   RO         9004    x$fpl$dflt          fz_wm.l(dflt_clz.o)
+    0x0800e714   0x0800e714   0x00000026   Code   RO         9003    x$fpl$dfltu         fz_wm.l(dflt_clz.o)
+    0x0800e73a   0x0800e73a   0x00000002   PAD
+    0x0800e73c   0x0800e73c   0x00000154   Code   RO         9009    x$fpl$dmul          fz_wm.l(dmul.o)
+    0x0800e890   0x0800e890   0x0000009c   Code   RO         9148    x$fpl$dnaninf       fz_wm.l(dnaninf.o)
+    0x0800e92c   0x0800e92c   0x0000000c   Code   RO         9150    x$fpl$dretinf       fz_wm.l(dretinf.o)
+    0x0800e938   0x0800e938   0x00000016   Code   RO         8990    x$fpl$drsb          fz_wm.l(daddsub_clz.o)
+    0x0800e94e   0x0800e94e   0x00000002   PAD
+    0x0800e950   0x0800e950   0x00000198   Code   RO         9270    x$fpl$dsqrt         fz_wm.l(dsqrt_umaal.o)
+    0x0800eae8   0x0800eae8   0x000001d4   Code   RO         8991    x$fpl$dsub          fz_wm.l(daddsub_clz.o)
+    0x0800ecbc   0x0800ecbc   0x00000056   Code   RO         9011    x$fpl$f2d           fz_wm.l(f2d.o)
+    0x0800ed12   0x0800ed12   0x0000008c   Code   RO         9152    x$fpl$fnaninf       fz_wm.l(fnaninf.o)
+    0x0800ed9e   0x0800ed9e   0x0000000a   Code   RO         9272    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x0800eda8   0x0800eda8   0x0000000a   Code   RO         9154    x$fpl$fretinf       fz_wm.l(fretinf.o)
+    0x0800edb2   0x0800edb2   0x00000000   Code   RO         9156    x$fpl$usenofp       fz_wm.l(usenofp.o)
+    0x0800edb2   0x0800edb2   0x00000002   PAD
+    0x0800edb4   0x0800edb4   0x000000e0   Data   RO          494    .constdata          freertos.o
+    0x0800ee94   0x0800ee94   0x00000008   Data   RO         1877    .constdata          stm32f4xx_hal_dma.o
+    0x0800ee9c   0x0800ee9c   0x00000010   Data   RO         4280    .constdata          system_stm32f4xx.o
+    0x0800eeac   0x0800eeac   0x00000008   Data   RO         4281    .constdata          system_stm32f4xx.o
+    0x0800eeb4   0x0800eeb4   0x00000006   Data   RO         6329    .constdata          bmi2.o
+    0x0800eeba   0x0800eeba   0x00002045   Data   RO         7379    .constdata          bmi270.o
+    0x08010eff   0x08010eff   0x00000001   PAD
+    0x08010f00   0x08010f00   0x00000300   Data   RO         8160    .constdata          crc.o
+    0x08011200   0x08011200   0x00000050   Data   RO         9016    .constdata          m_wm.l(asin.o)
+    0x08011250   0x08011250   0x00000098   Data   RO         9160    .constdata          m_wm.l(atan.o)
+    0x080112e8   0x080112e8   0x00000030   Data   RO         9172    .constdata          m_wm.l(cos_i.o)
+    0x08011318   0x08011318   0x00000008   Data   RO         9198    .constdata          m_wm.l(qnan.o)
+    0x08011320   0x08011320   0x000000c8   Data   RO         9201    .constdata          m_wm.l(rred.o)
+    0x080113e8   0x080113e8   0x00000028   Data   RO         9205    .constdata          m_wm.l(sin_i.o)
+    0x08011410   0x08011410   0x00000064   Data   RO          495    .conststring        freertos.o
+    0x08011474   0x08011474   0x00000020   Data   RO         9363    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0801142c, Size: 0x00005e08, Max: 0x0001c000, ABSOLUTE, COMPRESSED[0x0000006c])
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08011494, Size: 0x00005e18, Max: 0x0001c000, ABSOLUTE, COMPRESSED[0x0000006c])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -6285,69 +6291,69 @@ Memory Map of the image
     0x20000140   COMPRESSED   0x00000054   Data   RW         7622    .data               rp_chassis.o
     0x20000194   COMPRESSED   0x0000001c   Data   RW         7709    .data               chassic_task.o
     0x200001b0   COMPRESSED   0x0000000c   Data   RW         7763    .data               rp_gimbal.o
-    0x200001bc   COMPRESSED   0x00000006   Data   RW         7880    .data               gimbal_task.o
-    0x200001c2   COMPRESSED   0x0000000a   Data   RW         7917    .data               master_task.o
-    0x200001cc   COMPRESSED   0x00000002   Data   RW         8161    .data               crc.o
-    0x200001ce   COMPRESSED   0x00000003   Data   RW         8613    .data               car.o
-    0x200001d1   COMPRESSED   0x00000006   Data   RW         8670    .data               rp_shoot.o
-    0x200001d7   COMPRESSED   0x00000001   PAD
-    0x200001d8   COMPRESSED   0x0000000c   Data   RW         8733    .data               shoot_task.o
-    0x200001e4   COMPRESSED   0x0000002c   Data   RW         8775    .data               judge.o
-    0x20000210   COMPRESSED   0x00000002   Data   RW         8776    .data               judge.o
-    0x20000212   COMPRESSED   0x00000002   PAD
-    0x20000214   COMPRESSED   0x00000038   Data   RW         8777    .data               judge.o
-    0x2000024c   COMPRESSED   0x00000006   Data   RW         8778    .data               judge.o
-    0x20000252   COMPRESSED   0x00000006   Data   RW         8779    .data               judge.o
-    0x20000258   COMPRESSED   0x00000010   Data   RW         8837    .data               cap_protocol_1.o
-    0x20000268   COMPRESSED   0x00000002   Data   RW         8886    .data               cap.o
-    0x2000026a   COMPRESSED   0x00000002   PAD
-    0x2000026c        -       0x00000144   Zero   RW           17    .bss                main.o
-    0x200003b0        -       0x00000018   Zero   RW           18    .bss                main.o
-    0x200003c8        -       0x0000000c   Zero   RW           19    .bss                main.o
-    0x200003d4        -       0x0000000e   Zero   RW           20    .bss                main.o
-    0x200003e2   COMPRESSED   0x00000002   PAD
-    0x200003e4        -       0x0000000c   Zero   RW           21    .bss                main.o
-    0x200003f0        -       0x0000000e   Zero   RW           22    .bss                main.o
-    0x200003fe   COMPRESSED   0x00000002   PAD
-    0x20000400        -       0x0000000c   Zero   RW           23    .bss                main.o
-    0x2000040c        -       0x0000000e   Zero   RW           24    .bss                main.o
-    0x2000041a   COMPRESSED   0x00000002   PAD
-    0x2000041c        -       0x0000000c   Zero   RW           25    .bss                main.o
-    0x20000428        -       0x0000000e   Zero   RW           26    .bss                main.o
-    0x20000436   COMPRESSED   0x00000002   PAD
-    0x20000438        -       0x000001b0   Zero   RW           27    .bss                main.o
-    0x200005e8        -       0x0000006c   Zero   RW           28    .bss                main.o
-    0x20000654        -       0x00000254   Zero   RW          493    .bss                freertos.o
-    0x200008a8        -       0x00000048   Zero   RW          582    .bss                adc.o
-    0x200008f0        -       0x00000050   Zero   RW          625    .bss                can.o
-    0x20000940        -       0x00000014   Zero   RW          673    .bss                dac.o
-    0x20000954        -       0x0000000c   Zero   RW          740    .bss                iwdg.o
-    0x20000960        -       0x00000080   Zero   RW          774    .bss                tim.o
-    0x200009e0        -       0x000003e0   Zero   RW          830    .bss                usart.o
-    0x20000dc0        -       0x00000040   Zero   RW         1092    .bss                stm32f4xx_hal_timebase_tim.o
-    0x20000e00        -       0x000000f0   Zero   RW         4828    .bss                tasks.o
-    0x20000ef0        -       0x00003c00   Zero   RW         5461    .bss                heap_4.o
-    0x20004af0        -       0x00000088   Zero   RW         5688    .bss                drv_can.o
-    0x20004b78        -       0x0000047c   Zero   RW         5880    .bss                drv_uart.o
-    0x20004ff4   COMPRESSED   0x00000004   PAD
-    0x20004ff8        -       0x00000068   Zero   RW         6005    .bss                bmi.o
-    0x20005060        -       0x0000002a   Zero   RW         7948    .bss                can_protocol.o
-    0x2000508a   COMPRESSED   0x00000002   PAD
-    0x2000508c        -       0x00000083   Zero   RW         8086    .bss                vision.o
-    0x2000510f   COMPRESSED   0x00000001   PAD
-    0x20005110        -       0x00000083   Zero   RW         8221    .bss                navigation.o
-    0x20005193   COMPRESSED   0x00000001   PAD
-    0x20005194        -       0x00000144   Zero   RW         8294    .bss                9015_motor.o
-    0x200052d8        -       0x00000428   Zero   RW         8669    .bss                rp_shoot.o
-    0x20005700        -       0x00000098   Zero   RW         8774    .bss                judge.o
-    0x20005798        -       0x0000000c   Zero   RW         8836    .bss                cap_protocol_1.o
-    0x200057a4        -       0x00000060   Zero   RW         9225    .bss                c_w.l(libspace.o)
-    0x20005804   COMPRESSED   0x00000004   PAD
-    0x20005808        -       0x00000200   Zero   RW            2    HEAP                startup_stm32f407xx.o
-    0x20005a08        -       0x00000400   Zero   RW            1    STACK               startup_stm32f407xx.o
+    0x200001bc   COMPRESSED   0x00000014   Data   RW         7880    .data               gimbal_task.o
+    0x200001d0   COMPRESSED   0x0000000a   Data   RW         7917    .data               master_task.o
+    0x200001da   COMPRESSED   0x00000002   Data   RW         8161    .data               crc.o
+    0x200001dc   COMPRESSED   0x00000003   Data   RW         8613    .data               car.o
+    0x200001df   COMPRESSED   0x00000006   Data   RW         8670    .data               rp_shoot.o
+    0x200001e5   COMPRESSED   0x00000003   PAD
+    0x200001e8   COMPRESSED   0x0000000c   Data   RW         8733    .data               shoot_task.o
+    0x200001f4   COMPRESSED   0x0000002c   Data   RW         8775    .data               judge.o
+    0x20000220   COMPRESSED   0x00000002   Data   RW         8776    .data               judge.o
+    0x20000222   COMPRESSED   0x00000002   PAD
+    0x20000224   COMPRESSED   0x00000038   Data   RW         8777    .data               judge.o
+    0x2000025c   COMPRESSED   0x00000006   Data   RW         8778    .data               judge.o
+    0x20000262   COMPRESSED   0x00000006   Data   RW         8779    .data               judge.o
+    0x20000268   COMPRESSED   0x00000010   Data   RW         8837    .data               cap_protocol_1.o
+    0x20000278   COMPRESSED   0x00000002   Data   RW         8886    .data               cap.o
+    0x2000027a   COMPRESSED   0x00000002   PAD
+    0x2000027c        -       0x00000144   Zero   RW           17    .bss                main.o
+    0x200003c0        -       0x00000018   Zero   RW           18    .bss                main.o
+    0x200003d8        -       0x0000000c   Zero   RW           19    .bss                main.o
+    0x200003e4        -       0x0000000e   Zero   RW           20    .bss                main.o
+    0x200003f2   COMPRESSED   0x00000002   PAD
+    0x200003f4        -       0x0000000c   Zero   RW           21    .bss                main.o
+    0x20000400        -       0x0000000e   Zero   RW           22    .bss                main.o
+    0x2000040e   COMPRESSED   0x00000002   PAD
+    0x20000410        -       0x0000000c   Zero   RW           23    .bss                main.o
+    0x2000041c        -       0x0000000e   Zero   RW           24    .bss                main.o
+    0x2000042a   COMPRESSED   0x00000002   PAD
+    0x2000042c        -       0x0000000c   Zero   RW           25    .bss                main.o
+    0x20000438        -       0x0000000e   Zero   RW           26    .bss                main.o
+    0x20000446   COMPRESSED   0x00000002   PAD
+    0x20000448        -       0x000001b0   Zero   RW           27    .bss                main.o
+    0x200005f8        -       0x0000006c   Zero   RW           28    .bss                main.o
+    0x20000664        -       0x00000254   Zero   RW          493    .bss                freertos.o
+    0x200008b8        -       0x00000048   Zero   RW          582    .bss                adc.o
+    0x20000900        -       0x00000050   Zero   RW          625    .bss                can.o
+    0x20000950        -       0x00000014   Zero   RW          673    .bss                dac.o
+    0x20000964        -       0x0000000c   Zero   RW          740    .bss                iwdg.o
+    0x20000970        -       0x00000080   Zero   RW          774    .bss                tim.o
+    0x200009f0        -       0x000003e0   Zero   RW          830    .bss                usart.o
+    0x20000dd0        -       0x00000040   Zero   RW         1092    .bss                stm32f4xx_hal_timebase_tim.o
+    0x20000e10        -       0x000000f0   Zero   RW         4828    .bss                tasks.o
+    0x20000f00        -       0x00003c00   Zero   RW         5461    .bss                heap_4.o
+    0x20004b00        -       0x00000088   Zero   RW         5688    .bss                drv_can.o
+    0x20004b88        -       0x0000047c   Zero   RW         5880    .bss                drv_uart.o
+    0x20005004   COMPRESSED   0x00000004   PAD
+    0x20005008        -       0x00000068   Zero   RW         6005    .bss                bmi.o
+    0x20005070        -       0x0000002a   Zero   RW         7948    .bss                can_protocol.o
+    0x2000509a   COMPRESSED   0x00000002   PAD
+    0x2000509c        -       0x00000083   Zero   RW         8086    .bss                vision.o
+    0x2000511f   COMPRESSED   0x00000001   PAD
+    0x20005120        -       0x00000083   Zero   RW         8221    .bss                navigation.o
+    0x200051a3   COMPRESSED   0x00000001   PAD
+    0x200051a4        -       0x00000144   Zero   RW         8294    .bss                9015_motor.o
+    0x200052e8        -       0x00000428   Zero   RW         8669    .bss                rp_shoot.o
+    0x20005710        -       0x00000098   Zero   RW         8774    .bss                judge.o
+    0x200057a8        -       0x0000000c   Zero   RW         8836    .bss                cap_protocol_1.o
+    0x200057b4        -       0x00000060   Zero   RW         9225    .bss                c_w.l(libspace.o)
+    0x20005814   COMPRESSED   0x00000004   PAD
+    0x20005818        -       0x00000200   Zero   RW            2    HEAP                startup_stm32f407xx.o
+    0x20005a18        -       0x00000400   Zero   RW            1    STACK               startup_stm32f407xx.o
 
 
-    Execution Region RW_IRAM2 (Exec base: 0x2001c000, Load base: 0x08011498, Size: 0x00000000, Max: 0x00004000, ABSOLUTE)
+    Execution Region RW_IRAM2 (Exec base: 0x2001c000, Load base: 0x08011500, Size: 0x00000000, Max: 0x00004000, ABSOLUTE)
 
     **** No section assigned to this execution region ****
 
@@ -6387,7 +6393,7 @@ Image component sizes
       1322        112          0          0       1148       9647   drv_uart.o
          0          0          0          0          0      15792   event_groups.o
        222         12        324         32        596      34793   freertos.o
-       456         50          0          6          0       1928   gimbal_task.o
+       560         54          0         20          0       2128   gimbal_task.o
        304         20          0          0          0     711499   gpio.o
        460         24          0         24      15360       7415   heap_4.o
         44          8          0          0         12        747   iwdg.o
@@ -6428,9 +6434,9 @@ Image component sizes
        664         38          0          0        131       8365   vision.o
 
     ----------------------------------------------------------------------
-     50854       2588       9816        620      23352    2086812   Object Totals
+     50958       2592       9816        636      23352    2087012   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        88          4          1          9         16          0   (incl. Padding)
+        88          4          1         11         16          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -6530,15 +6536,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     60356       3450      10344        620      23452    2047296   Grand Totals
-     60356       3450      10344        108      23452    2047296   ELF Image Totals (compressed)
-     60356       3450      10344        108          0          0   ROM Totals
+     60460       3454      10344        636      23452    2047496   Grand Totals
+     60460       3454      10344        108      23452    2047496   ELF Image Totals (compressed)
+     60460       3454      10344        108          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                70700 (  69.04kB)
-    Total RW  Size (RW Data + ZI Data)             24072 (  23.51kB)
-    Total ROM Size (Code + RO Data + RW Data)      70808 (  69.15kB)
+    Total RO  Size (Code + RO Data)                70804 (  69.14kB)
+    Total RW  Size (RW Data + ZI Data)             24088 (  23.52kB)
+    Total ROM Size (Code + RO Data + RW Data)      70912 (  69.25kB)
 
 ==============================================================================
 
