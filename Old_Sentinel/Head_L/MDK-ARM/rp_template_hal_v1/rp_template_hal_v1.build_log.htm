@@ -1,0 +1,102 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.27.1.0
+Copyright (C) 2019 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: H WX, szu, LIC=47GU5-GW7F2-01NP1-C87Q3-GD9A9-7XKGM
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.36.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      CMSIS_AGDI.dll V1.33.0.0
+Dialog DLL:      TCM.DLL V1.53.0.0
+ 
+<h2>Project:</h2>
+C:\Users\HWX\Documents\GitHub\2023_HWX\Head_L\MDK-ARM\rp_template_hal_v1.uvprojx
+Project File Date:  03/20/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'rp_template_hal_v1'
+compiling shoot_Task.c...
+compiling rp_shoot.c...
+..\Application\Shoot\rp_shoot.c(150): warning:  #223-D: function "abs" declared implicitly
+  		if(abs(shoot->stir_wheel->base_info->angle_sum -shoot->stir_wheel->base_info->target_angle_sum) <= 20)//shoot_structure.stir_wheel->base_info->angle_sum -shoot_structure.stir_wheel->base_info->target_angle_sum
+..\Application\Shoot\rp_shoot.c(162): warning:  #223-D: function "abs" declared implicitly
+  	if( init_ok &&abs(shoot->stir_wheel->base_info->speed - shoot->base.shoot_speed) >=  500)
+..\Application\Shoot\rp_shoot.c: 2 warnings, 0 errors
+compiling rp_gimbal.c...
+../Application/BMI/bmi.h(72): warning:  #1295-D: Deprecated declaration BMI_Updata - give arg types
+  void BMI_Updata();
+../Application/Motor/3508_motor.h(29): warning:  #47-D: incompatible redefinition of macro "OFFLINE_TIME_MAX"  (declared at line 28 of "../Application/Motor/6020_motor.h")
+  #define OFFLINE_TIME_MAX   25
+..\Application\Gimbal\rp_gimbal.c(145): warning:  #223-D: function "MOTOR_6020_CAN1_SENT_DATA" declared implicitly
+  		MOTOR_6020_CAN1_SENT_DATA(0,motor_6020_PIT_structure.output_current,0,0);//×¢ÒâË³Ðò 
+..\Application\Gimbal\rp_gimbal.c(147): warning:  #223-D: function "MOTOR_6020_CAN2_SENT_DATA" declared implicitly
+  		MOTOR_6020_CAN2_SENT_DATA(0,0,motor_6020_YAW_structure.output_current,0);//×¢ÒâË³Ðò
+..\Application\Gimbal\rp_gimbal.c(153): warning:  #223-D: function "MOTOR_6020_CAN1_SENT_DATA" declared implicitly
+  		MOTOR_6020_CAN1_SENT_DATA(0,0,0,0);//×¢ÒâË³Ðò 
+..\Application\Gimbal\rp_gimbal.c(155): warning:  #223-D: function "MOTOR_6020_CAN2_SENT_DATA" declared implicitly
+  		MOTOR_6020_CAN2_SENT_DATA(0,0,0,0);//×¢ÒâË³Ðò
+..\Application\Gimbal\rp_gimbal.c: 6 warnings, 0 errors
+compiling gimbal_task.c...
+../Application/BMI/bmi.h(72): warning:  #1295-D: Deprecated declaration BMI_Updata - give arg types
+  void BMI_Updata();
+../Application/Motor/3508_motor.h(29): warning:  #47-D: incompatible redefinition of macro "OFFLINE_TIME_MAX"  (declared at line 28 of "../Application/Motor/6020_motor.h")
+  #define OFFLINE_TIME_MAX   25
+..\Application\Gimbal\gimbal_task.c: 2 warnings, 0 errors
+compiling Check_task.c...
+../Application/BMI/bmi.h(72): warning:  #1295-D: Deprecated declaration BMI_Updata - give arg types
+  void BMI_Updata();
+../Application/Motor/6020_motor.h(28): warning:  #47-D: incompatible redefinition of macro "OFFLINE_TIME_MAX"  (declared at line 11 of "../Application/Motor/2006_motor.h")
+  #define OFFLINE_TIME_MAX   50
+..\Application\Task\Check_task.c(14): warning:  #1295-D: Deprecated declaration Shoot_Work - give arg types
+  extern void Shoot_Work();
+..\Application\Task\Check_task.c(99): warning:  #223-D: function "Gimbal_work" declared implicitly
+  		Gimbal_work();
+..\Application\Task\Check_task.c: 4 warnings, 0 errors
+compiling main.c...
+../Application/BMI/bmi.h(72): warning:  #1295-D: Deprecated declaration BMI_Updata - give arg types
+  void BMI_Updata();
+../Application/Motor/6020_motor.h(28): warning:  #47-D: incompatible redefinition of macro "OFFLINE_TIME_MAX"  (declared at line 11 of "../Application/Motor/2006_motor.h")
+  #define OFFLINE_TIME_MAX   50
+../Core/Src/main.c: 2 warnings, 0 errors
+linking...
+Program Size: Code=46284 RO-data=9204 RW-data=300 ZI-data=22004  
+FromELF: creating hex file...
+"rp_template_hal_v1\rp_template_hal_v1.axf" - 0 Error(s), 16 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.8.0.pack
+                ARM.CMSIS.5.8.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.5.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.16.0.pack
+                Keil.STM32F4xx_DFP.2.16.0
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_rp_template_hal_v1
+  C:\Users\HWX\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+  C:\Users\HWX\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.5.0
+Build Time Elapsed:  00:00:03
+</pre>
+</body>
+</html>
