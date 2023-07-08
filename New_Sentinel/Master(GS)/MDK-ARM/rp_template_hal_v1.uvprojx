@@ -834,6 +834,11 @@
               <FileType>1</FileType>
               <FilePath>..\Application\Algo\dji_pid.c</FilePath>
             </File>
+            <File>
+              <FileName>circular_buffer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\Algo\circular_buffer.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

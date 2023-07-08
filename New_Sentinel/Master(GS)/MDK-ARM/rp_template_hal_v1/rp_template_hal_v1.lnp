@@ -62,6 +62,7 @@
 "rp_template_hal_v1\soft_iic.o"
 "rp_template_hal_v1\rp_math.o"
 "rp_template_hal_v1\dji_pid.o"
+"rp_template_hal_v1\circular_buffer.o"
 "rp_template_hal_v1\rp_chassis.o"
 "rp_template_hal_v1\chassic_task.o"
 "rp_template_hal_v1\rp_gimbal.o"

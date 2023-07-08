@@ -40,7 +40,7 @@ extern drv_judge_info_t drv_judge_info;
 
 void judge_recive(uint8_t *rxBuf);
 
-/********************from裁判系统串口协议附录V1.3的数据结构体********************/
+/********************from裁判系统串口协议附录V1.5的数据结构体********************/
 
 /* 比赛状态数据：0x0001。发送频率：1Hz */
 typedef struct
@@ -271,6 +271,18 @@ typedef __packed struct
 	 float standard_5_y;
 	
 }ground_robot_position_t;
+
+
+/* ID: 0x0307  Byte:  103 	 */
+typedef __packed struct
+{
+	uint8_t intention;
+	uint16_t start_position_x;
+	uint16_t start_position_y;
+	int8_t delta_x[49];
+	int8_t delta_y[49];
+}map_sentry_data_t;
+
 
 /********************命令码枚举********************/
 enum

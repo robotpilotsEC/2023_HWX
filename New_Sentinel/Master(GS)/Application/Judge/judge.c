@@ -69,6 +69,10 @@ uint32_t shoot_2_time = 0;
 uint32_t elapsed_time = 0;
 float elapsed_seconds = 0;
 
+uint8_t judge_map_buffer[120];
+
+
+
 void judge_heart()
 {
 	if(judge.info->offline_cnt ++ >= judge.info->offline_cnt_max)
@@ -267,7 +271,10 @@ void judge_recive(uint8_t *rxBuf)
 		judge_recive( &rxBuf[frame_length] );
 	}
 }
-
+//void judge_send(void)
+//{
+//	//HAL_UART_Transmit_DMA(&huart5,navigation_txBuf,sizeof(vision_tx_packet_t)) 
+//}
 
 /*串口五中断回调函数*/
 void USART5_rxDataHandler(uint8_t *rxBuf)
