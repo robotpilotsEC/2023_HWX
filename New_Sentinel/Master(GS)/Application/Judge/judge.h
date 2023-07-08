@@ -130,6 +130,7 @@ typedef struct
 	ext_robot_command_t     ext_robot_command;
 	ext_game_robot_HP_t     game_robot_HP;
 	ext_bullet_remaining_t  bullet_remaining;
+	ground_robot_position_t robot_position;
 	
 }judge_rawdata_t;
 

@@ -229,6 +229,10 @@ void judge_update(uint16_t id, uint8_t *rxBuf)
 			/*数据处理-----------------------------------------------------------------------------------------*/
 			judge.base_info->remain_bullte       = judge.data->bullet_remaining.bullet_remaining_num_17mm;
 			break;
+		
+		case ID_ground_robot_position:
+			/*数据接收-----------------------------------------------------------------------------------------*/
+			memcpy(&judge.data->robot_position, rxBuf, LEN_ground_robot_position);
 		default:
 			break;
 	}

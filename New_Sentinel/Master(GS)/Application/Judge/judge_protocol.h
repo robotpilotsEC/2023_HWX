@@ -256,6 +256,22 @@ typedef __packed struct
     uint16_t target_ID;
 } ext_robot_command_t;
 
+/* ID: 0x020B  Byte:  40 	 */
+typedef __packed struct
+{
+	 float hero_x;
+	 float hero_y;
+	 float engineer_x;
+	 float engineer_y;
+	 float standard_3_x;
+	 float standard_3_y;
+	 float standard_4_x;
+	 float standard_4_y;
+	 float standard_5_x;
+	 float standard_5_y;
+	
+}ground_robot_position_t;
+
 /********************命令码枚举********************/
 enum
 {
@@ -279,6 +295,8 @@ enum
 	ID_rfid_status									= 0x0209,//机器人RFID状态，1Hz
 	ID_interactive_header_data			= 0x0301, //机器人交互数据，发送方触发发送
 	ID_aerial_data = 0x303 ,
+	ID_ground_robot_position = 0x020B,            //所有己方机器人位置
+	ID_map_sentry_data       = 0x0307,             //发送哨兵路径
 };
 
 /********************长度枚举********************/
@@ -305,8 +323,9 @@ enum
 	LEN_shoot_data									= 7,			//0x0207,//实时射击数据，子弹发射后发送
 	LEN_bullet_remaining						= 2,			//0x0208,//弹丸剩余发送数，仅空中机器人，哨兵机器人以及ICRA机器人发送，1Hz
 	LEN_rfid_status									= 4	,			//0x0209,//机器人RFID状态，1Hz
-//	LEN_interactive_header_data			= n			//0x0301 //机器人交互数据，发送方触发发送
 	LEN_aerial_data = 15,
+	LEN_ground_robot_position =         40,        //0x020B所有己方机器人位置
+	LEN_map_sentry_data       =         103
 };
 
 #endif
