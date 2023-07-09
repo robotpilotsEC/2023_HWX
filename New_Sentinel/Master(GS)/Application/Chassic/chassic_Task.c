@@ -21,6 +21,8 @@
 #include "bmi.h"
 #include "rp_gimbal.h"
 #include "judge.h"
+#include "judge_protocol.h"
+#include "math.h"
 
 /* Private macro -------------------------------------------------------------*/
 #define change_p              (1.0f)
@@ -302,6 +304,13 @@ void chassis_work()
 			}
 
 		}
+		/*跟随工程*/
+		else if(1)
+		{
+			Chassis.base_info.target.front_speed = 0;
+			Chassis.base_info.target.right_speed = 0;
+			Chassis.base_info.target.cycle_speed = 0;
+		}
 		else 
 		{
 			Chassis.base_info.target.front_speed = 0;
@@ -448,5 +457,80 @@ void chassis_work()
 	
 	Chassis_Work(&Chassis);
 
+}
+
+#define DISTANCE_MAX   21.0f
+#define RADIUS         1.0f
+#define STARING_YAW    4096
+void Follow_Engineer(int16_t *speed_x, int16_t *speed_y, float first_yaw_angle)
+{
+	/*获取工程位置*/
+	float Engi_x = judge.data->robot_position.engineer_x;
+	float Engi_y = judge.data->robot_position.engineer_y;
+	
+	/*获取自身位置*/
+	float Shao_x = judge.data->game_robot_pos.x;
+	float Shao_y = judge.data->game_robot_pos.y;
+	
+	float dx = Engi_x - Shao_x;
+	float dy = Engi_y - Shao_y;
+	
+	
+	/*计算距离*/
+	int16_t distance = sqrt(pow((dx),2) + pow((dy),2));
+	
+	if(distance <= DISTANCE_MAX && distance >= RADIUS)
+	{
+		// 计算角度（以弧度为单位）
+		float angle_rad = atan2(dy, dx);
+
+		// 将角度转换为以 x 轴正方向为起点的顺时针角度（以度为单位）
+		float angle_deg = angle_rad * 180.0 / PI ;
+		angle_deg = angle_deg * 22.7555 + first_yaw_angle;
+		if (angle_deg < 0) 
+		{
+			angle_deg += 8192.0;
+		}
+		else if(angle_deg > 8191)
+		{
+			angle_deg -= 8192.0;
+		}
+		
+		/*速度计算*/
+		*speed_x = dx*100 + signbit(dx) * 500;
+		*speed_y = dy*100 + signbit(dy) * 500;
+		
+		/*范围限制*/
+		if(*speed_y >= 3000)
+		{
+			*speed_y = 3000;
+		}
+		else if(*speed_y <= -3000)
+		{
+			*speed_y = -3000;
+		}
+		if(*speed_x >= 3000)
+		{
+			*speed_x = 3000;
+		}
+		else if(*speed_x <= -3000)
+		{
+			*speed_x = -3000;
+		}
+		
+		/*计算出世界坐标系下工程相对于我的角度*/
+		/*小陀螺解算*/
+		Chassis.base_info.measure.top_detal_angle = (float)((first_yaw_angle - angle_deg )/8192.0)*2*PI;
+		Chassis_Top_Speed_Calculating(&Chassis);
+		
+
+	}
+	else if(distance <= RADIUS)
+	{
+		*speed_x = 0;
+		*speed_y = 0;
+	}
+	
+	
 }
 
