@@ -35,9 +35,10 @@ typedef struct {
 
 void initializeBuffer(CircularBuffer *buffer);
 void freeBuffer(CircularBuffer *buffer);
-void insertData(CircularBuffer *buffer, uint8_t data);
+void insertData(CircularBuffer *buffer, int8_t data);
 void CircularBuffer_init(void);
-void CircularBuffer_Insert(uint8_t X,uint8_t Y);
+void printBuffer(const CircularBuffer *buffer,int8_t* desination);
+void CircularBuffer_Insert(int8_t X,int8_t Y);
 
 
 extern CircularBuffer Delta_X;

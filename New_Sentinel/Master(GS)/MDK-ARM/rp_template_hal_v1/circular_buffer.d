@@ -38,3 +38,4 @@ rp_template_hal_v1\circular_buffer.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f
 rp_template_hal_v1\circular_buffer.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 rp_template_hal_v1\circular_buffer.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 rp_template_hal_v1\circular_buffer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+rp_template_hal_v1\circular_buffer.o: ../Application/Judge/judge_protocol.h

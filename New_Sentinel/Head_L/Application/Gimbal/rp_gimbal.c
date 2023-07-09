@@ -102,21 +102,21 @@ void gimbal_work(gimbal_t* gimbal)//现在主要是角度控制，如果需要速度控制后续再加
 	else if (gimbal->base.mode == DATA_FROM_BMI_AND_MOTOR)//跟随模式
 	{
 		/*小型模糊？*/
-		//Kp=K1log（K2abs（error）+K3）
-		gimbal->pid_p_yaw->p = K1*(log(K2 * fabs(gimbal->pid_p_yaw->err[0]) + K3));
-		if(gimbal->pid_p_yaw->p <= K4)
-		{
-			gimbal->pid_p_yaw->p = K4;
-		}
-		
-		gimbal->pid_p_pit->p = K1*(log(K2 * fabs(gimbal->pid_p_pit->err[0]) + K3));
-		if(gimbal->pid_p_pit->p <= K4)
-		{
-			gimbal->pid_p_pit->p = K4;
-		}
+//		//Kp=K1log（K2abs（error）+K3）
+//		gimbal->pid_p_yaw->p = K1*(log(K2 * fabs(gimbal->pid_p_yaw->err[0]) + K3));
+//		if(gimbal->pid_p_yaw->p <= K4)
+//		{
+//			gimbal->pid_p_yaw->p = K4;
+//		}
+//		
+//		gimbal->pid_p_pit->p = K1*(log(K2 * fabs(gimbal->pid_p_pit->err[0]) + K3));
+//		if(gimbal->pid_p_pit->p <= K4)
+//		{
+//			gimbal->pid_p_pit->p = K4;
+//		}
 		/*大物实验*/
 		gravity_offset = G_OFFSET(gimbal->pitch->base_info->angle);
-		gravity_offset = 0;
+		gravity_offset = 2000;
 		
 		/*YAW-------------------------------------------------------------------*/
 		gimbal->yaw->base_info->target_speed   = pid_calc_err(gimbal->pid_p_yaw,\
