@@ -45,3 +45,4 @@
 | motor_test | 测试电机以及CAN |
 | New_template | 新主控模板，目前可测LED以及蜂鸣器 | 
 | vision_usart_test | 视觉串口测试代码（不是电控的锅） | 
+| G030_new | 手持装甲板代码 |
