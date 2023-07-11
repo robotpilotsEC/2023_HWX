@@ -106,7 +106,7 @@ void Chassis_Power_Limit(chassis_t * chassis)
 			
 	if(judge.info->status == JUDGE_ONLINE)
 	{
-		chassis->work_info.config.speed_max = 10000;
+		chassis->work_info.config.speed_max = 8000;
 		
 		if(CHASSIS_POWER_LIMIT_ON)
 		{

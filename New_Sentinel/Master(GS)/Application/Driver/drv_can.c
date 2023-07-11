@@ -288,10 +288,10 @@ void CAN2_rxDataHandler(uint32_t canId, uint8_t *rxBuf)
 		L_motor_2006_PLUCK_structure.info->offline_cnt=0;
 		Motor_2006_GetData(&L_motor_2006_PLUCK_structure);
 		
-		if(L_shoot_structure.status == Single_Shoot)
+		if(L_shoot_structure.status == Single_Shoot)//仅单发计算总角度和，防止单发连发模式切换反转
 		L_motor_2006_PLUCK_structure.base_info->angle_sum += L_motor_2006_PLUCK_structure.base_info->angle_add;
 	}
-		else if(canId == 0x202)//2006
+	else if(canId == 0x202)//2006
 	{
 		R_motor_2006_PLUCK_structure.info->offline_cnt=0;
 		Motor_2006_GetData(&R_motor_2006_PLUCK_structure);
@@ -304,6 +304,10 @@ void CAN2_rxDataHandler(uint32_t canId, uint8_t *rxBuf)
 			Motor_9015_Star();
 			motor_9015_init_ok = 1;
 		}
+	}
+	else if(canId == 0x030)
+	{
+		cap_update(rxBuf);
 	}
 	
 }

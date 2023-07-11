@@ -1,0 +1,6 @@
+左头 Can 通讯 ID-2FF
+Pitch 001 
+Yaw  010
+右头 Can 通讯 ID-1FF
+Pitch 001 
+Yaw  010

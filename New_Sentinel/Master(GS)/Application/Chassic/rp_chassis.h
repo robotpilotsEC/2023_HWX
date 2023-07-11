@@ -133,7 +133,6 @@ typedef enum
 	
 	CHASSIC_ONLINE  = 1,
 	
-
 }chassic_work_state_e;
 
 

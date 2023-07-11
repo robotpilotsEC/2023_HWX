@@ -144,6 +144,7 @@ void gimbal_work(gimbal_t* gimbal)//现在主要是角度控制，如果需要速度控制后续再加
 		
 		MOTOR_6020_CAN1_SENT_DATA(motor_6020_YAW_structure.output_current,motor_6020_PIT_structure.output_current,0,0);//注意顺序 
 		
+		MOTOR_6020_CAN2_SENT_DATA(0,0,0,0);//这句话是上下主控通讯的关键
 	}
 	else
 	{
@@ -152,26 +153,6 @@ void gimbal_work(gimbal_t* gimbal)//现在主要是角度控制，如果需要速度控制后续再加
 		
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
