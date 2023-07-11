@@ -459,16 +459,18 @@ void chassis_work()
 
 }
 
+
+/***********************导航算法*****************************************************************************************************************/
+
 #define DISTANCE_MAX   21.0f
 #define RADIUS         1.0f
 #define STARING_YAW    4096
-void Follow_Engineer(int16_t *speed_x, int16_t *speed_y, float first_yaw_angle)
+
+/*包含小陀螺解算*/
+
+void Depart(float Engi_x ,float Engi_y ,int16_t *speed_x, int16_t *speed_y, float first_yaw_angle)
 {
-	/*获取工程位置*/
-	float Engi_x = judge.data->robot_position.engineer_x;
-	float Engi_y = judge.data->robot_position.engineer_y;
-	
-	/*获取自身位置*/
+		/*获取自身位置*/
 	float Shao_x = judge.data->game_robot_pos.x;
 	float Shao_y = judge.data->game_robot_pos.y;
 	
@@ -530,7 +532,117 @@ void Follow_Engineer(int16_t *speed_x, int16_t *speed_y, float first_yaw_angle)
 		*speed_x = 0;
 		*speed_y = 0;
 	}
-	
-	
 }
 
+
+void Follow_Engineer(int16_t *speed_x, int16_t *speed_y, float first_yaw_angle)
+{
+	/*获取工程位置*/
+	float Engi_x = judge.data->robot_position.engineer_x;
+	float Engi_y = judge.data->robot_position.engineer_y;
+	
+	Depart(Engi_x,Engi_y,speed_x,speed_y,first_yaw_angle);
+
+}
+
+
+#if 0
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+#define INFINITY 9999
+#define MAX_NODES 100
+
+// 图的节点结构
+typedef struct {
+    int weight;
+    bool visited;
+    int previous;
+} Node;
+
+// Dijkstra算法
+void dijkstra(int graph[MAX_NODES][MAX_NODES], int source, int num_nodes) {
+    Node nodes[MAX_NODES];
+
+    // 初始化节点
+    for (int i = 0; i < num_nodes; i++) {
+        nodes[i].weight = INFINITY;
+        nodes[i].visited = false;
+        nodes[i].previous = -1;
+    }
+
+    // 设置源节点
+    nodes[source].weight = 0;
+
+    // 寻找最短路径
+    for (int count = 0; count < num_nodes - 1; count++) {
+        int min_weight = INFINITY;
+        int min_index = -1;
+
+        // 选择权重最小且未访问过的节点
+        for (int i = 0; i < num_nodes; i++) {
+            if (!nodes[i].visited && nodes[i].weight < min_weight) {
+                min_weight = nodes[i].weight;
+                min_index = i;
+            }
+        }
+
+        // 标记该节点为已访问
+        nodes[min_index].visited = true;
+
+        // 更新相邻节点的权重
+        for (int i = 0; i < num_nodes; i++) {
+            if (!nodes[i].visited && graph[min_index][i] != 0 && nodes[min_index].weight + graph[min_index][i] < nodes[i].weight) {
+                nodes[i].weight = nodes[min_index].weight + graph[min_index][i];
+                nodes[i].previous = min_index;
+            }
+        }
+    }
+
+    // 打印最短路径和权重
+    for (int i = 0; i < num_nodes; i++) {
+        printf("节点 %d 到源节点的最短路径：", i);
+        int path[MAX_NODES];
+        int path_length = 0;
+        int current = i;
+
+        while (current != source) {
+            path[path_length++] = current;
+            current = nodes[current].previous;
+        }
+
+        printf("%d", source);
+
+        for (int j = path_length - 1; j >= 0; j--) {
+            printf(" -> %d", path[j]);
+        }
+
+        printf("\t权重：%d\n", nodes[i].weight);
+    }
+}
+
+int main() {
+    int graph[MAX_NODES][MAX_NODES];
+    int num_nodes, source;
+
+    printf("请输入节点数目：");
+    scanf("%d", &num_nodes);
+
+    printf("请输入图的邻接矩阵：\n");
+
+    for (int i = 0; i < num_nodes; i++) {
+        for (int j = 0; j < num_nodes; j++) {
+            scanf("%d", &graph[i][j]);
+        }
+    }
+
+    printf("请输入源节点：");
+    scanf("%d", &source);
+
+    dijkstra(graph, source, num_nodes);
+
+    return 0;
+}
+
+#endif
